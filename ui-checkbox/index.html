@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>美化复选</title>
+
+    <style type="text/css">
+        html,body,ul,li,input{
+            padding:0;margin:0;
+        }
+
+        dt{
+            padding-top:30px;
+        }
+
+
+
+        /*ui*/
+        .ui-checkbox{
+            display:inline-block;
+            cursor:pointer;
+        }
+        .ui-checkbox span{
+            padding-left:20px;
+            background:url('img/icon.png') 0 0 no-repeat;
+        }
+        .ui-checkbox input:checked + span,
+        .ui-checkbox.checked span{
+            background-position:0 -20px;
+        }
+        .ui-checkbox input{
+            position:absolute;
+            left:-9999em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>美化复选</h1>
+    
+    <dl>
+        <dt>
+            demo
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xieliang" value="谢亮1">
+                        <span>
+                            谢亮1
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xieliang" value="谢亮2">
+                        <span>
+                            谢亮2
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+
+        <dt>
+            默认有选中
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xxxx" checked value="123">
+                        <span>
+                            123
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xxxx" value="456">
+                        <span>
+                            456
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+
+
+
+        <dt>
+            测试
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="xxxx1212">
+                        <span>
+                            xxxx1212
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="xxxx21212">
+                        <span>
+                            xxxx21212
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        (function(){
+            $.fn.checkboxMM = function(){
+                var self = this;
+                
+                //如果不是绑定的单选
+                if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
+                    return self;
+                }
+
+                //如果支持:checked伪类
+                if(window.addEventListener){
+                    return self;
+                }
+
+                return self.on('change', function(){
+                    $(this).parent().toggleClass('checked');
+                }).filter(':checked').trigger('change');
+            }
+        }());
+
+
+        
+        $('input[type="checkbox"]').checkboxMM();
+
+    
+        //点击获取        
+        $('dl').on('click', 'button', function(){
+            var $input = $(this).closest('ul').find('input[type="checkbox"]');
+            var value = $input.filter(':checked').map(function(){
+                return this.value;
+            }).get();
+
+           alert(value.length ? value.join(',') : '空'); 
+        });
+    </script>
+</body>
+</html>
