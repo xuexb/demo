@@ -66,6 +66,9 @@
                 <li>
                     <button>获取值</button>
                 </li>
+                <li>
+                    <input type="button" id="test1" value="1,2来切换">
+                </li>
             </ul>
         </dd>
 
@@ -132,6 +135,22 @@
     <script type="text/javascript">
 
         (function(){
+            //fix 在ie78里直接使用js的prop,attr等没有改变UI
+            if(!window.addEventListener){
+                $.each([
+                    'attr',
+                    'removeAttr',
+                    'prop',
+                    'removeProp'
+                ], function(index, value){
+                    var _val = $.fn[value];
+                    $.fn[value] = function(){
+                        _val.apply(this, [].slice.call(arguments));
+                        return this.trigger('change');
+                    }
+                });
+            }
+
             $.fn.radioMM = function(){
                 var self = this;
 
@@ -164,6 +183,18 @@
             var $input = $(this).closest('ul').find('input[type="radio"]');
 
            alert($input.filter(':checked').val() || '空'); 
+        });
+
+        $('#test1').on('click', function(){
+            var $input = $(this).closest('ul').find('input[type="radio"]');
+            var flag = $input.get(0).checked;
+
+            if(!flag){
+                $input.eq(0).prop('checked', true);
+                // $input.eq(1).prop('checked', false);
+            } else {
+                $input.eq(1).prop('checked', true);
+            }
         });
     </script>
 </body>
