@@ -131,14 +131,14 @@
         (function(){
             $.fn.checkboxMM = function(){
                 var self = this;
-                
-                //如果不是绑定的单选
-                if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
-                    return self;
-                }
 
                 //如果支持:checked伪类
                 if(window.addEventListener){
+                    return self;
+                }
+                
+                //如果不是绑定的单选
+                if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
                     return self;
                 }
 
