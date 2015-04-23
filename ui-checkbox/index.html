@@ -156,10 +156,11 @@
                     return self;
                 }
                 
+                //这里不做判断了,因为可能有选择器数组出现,用的时候选择器必须写对
                 //如果不是绑定的单选
-                if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
-                    return self;
-                }
+                // if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
+                    // return self;
+                // }
 
                 return self.on('change', function(){
                     $(this).parent().toggleClass('checked');
