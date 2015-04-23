@@ -18,15 +18,25 @@
         /*ui*/
         .ui-checkbox{
             display:inline-block;
-            cursor:pointer;
+            *float:left;
+            *zoom:1;
         }
         .ui-checkbox span{
             padding-left:20px;
+            cursor:pointer;
             background:url('img/icon.png') 0 0 no-repeat;
+            display:inline-block;
         }
-        .ui-checkbox input:checked + span,
-        .ui-checkbox.checked span{
-            background-position:0 -20px;
+.ui-checkbox input:checked + span,
+.ui-checkbox.checked span{
+    background-position:0 -20px;
+}
+.ui-checkbox.checked span{
+    /*background-position:0 -20px;*/
+}
+        /*for ie9+*/
+        .ui-checkbox input:disabled + span{
+            cursor:default;
         }
         .ui-checkbox input{
             position:absolute;
@@ -45,7 +55,7 @@
         <dd>
             <ul>
                 <li>
-                    <label class="ui-checkbox">
+                    <label class="ui-checkbox checked">
                         <input type="checkbox" name="xieliang" value="谢亮1">
                         <span>
                             谢亮1
@@ -83,7 +93,7 @@
                     </label>
                 </li>
                 <li>
-                    <label class="ui-checkbox">
+                    <label class="ui-checkbox ">
                         <input type="checkbox" name="xxxx" value="456">
                         <span>
                             456
@@ -116,6 +126,34 @@
                         <input type="checkbox" name="x" value="xxxx21212">
                         <span>
                             xxxx21212
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+
+
+        <dt>
+            禁用
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="没选中" disabled>
+                        <span>
+                            没选中
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="选中" disabled checked>
+                        <span>
+                            选中
                         </span>
                     </label>
                 </li>
