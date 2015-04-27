@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>美化复选</title>
+
+    <style type="text/css">
+        html,body,ul,li,input{
+            padding:0;margin:0;
+        }
+
+        dt{
+            padding-top:30px;
+        }
+
+
+
+        /*ui*/
+        .ui-checkbox{
+            display:inline-block;
+            *float:left;
+            *zoom:1;
+        }
+        .ui-checkbox span{
+            padding-left:20px;
+            cursor:pointer;
+            background:url('img/icon.png') 0 0 no-repeat;
+            display:inline-block;
+        }
+.ui-checkbox input:checked + span,
+.ui-checkbox.checked span{
+    background-position:0 -20px;
+}
+.ui-checkbox.checked span{
+    /*background-position:0 -20px;*/
+}
+        /*for ie9+*/
+        .ui-checkbox input:disabled + span{
+            cursor:default;
+        }
+        .ui-checkbox input{
+            position:absolute;
+            left:-9999em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>美化复选</h1>
+    
+    <dl>
+        <dt>
+            demo
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox checked">
+                        <input type="checkbox" name="xieliang" value="谢亮1">
+                        <span>
+                            谢亮1
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xieliang" value="谢亮2">
+                        <span>
+                            谢亮2
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+                <li>
+                    <input type="button" id="test1" value="点我切换第一个的状态">
+                </li>
+            </ul>
+        </dd>
+
+        <dt>
+            默认有选中
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="xxxx" checked value="123">
+                        <span>
+                            123
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox ">
+                        <input type="checkbox" name="xxxx" value="456">
+                        <span>
+                            456
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+
+
+
+        <dt>
+            测试
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="xxxx1212">
+                        <span>
+                            xxxx1212
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="xxxx21212">
+                        <span>
+                            xxxx21212
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+
+
+        <dt>
+            禁用
+        </dt>
+        <dd>
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="没选中" disabled>
+                        <span>
+                            没选中
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="选中" disabled checked>
+                        <span>
+                            选中
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+
+    
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        (function(){
+            //fix 在ie78里直接使用js的prop,attr等没有改变UI
+            if(!window.addEventListener){
+                $.each([
+                    'attr',
+                    'removeAttr',
+                    'prop',
+                    'removeProp'
+                ], function(index, value){
+                    var _val = $.fn[value];
+                    $.fn[value] = function(){
+                        _val.apply(this, [].slice.call(arguments));
+                        return this.trigger('change');
+                    }
+                });
+            }
+
+            $.fn.checkboxMM = function(){
+                var self = this;
+
+                //如果支持:checked伪类
+                if(window.addEventListener){
+                    return self;
+                }
+                
+                //这里不做判断了,因为可能有选择器数组出现,用的时候选择器必须写对
+                //如果不是绑定的单选
+                // if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
+                    // return self;
+                // }
+
+                return self.on('change', function(){
+                    $(this).parent().toggleClass('checked');
+                }).filter(':checked').trigger('change');
+            }
+        }());
+
+
+        
+        $('input[type="checkbox"]').checkboxMM();
+
+    
+        //点击获取        
+        $('dl').on('click', 'button', function(){
+            var $input = $(this).closest('ul').find('input[type="checkbox"]');
+            var value = $input.filter(':checked').map(function(){
+                return this.value;
+            }).get();
+
+           alert(value.length ? value.join(',') : '空'); 
+        });
+
+        $('#test1').on('click', function(){
+            $('input').eq(0).prop('checked', !$('input').get(0).checked);
+        });
+    </script>
+</body>
+</html>
