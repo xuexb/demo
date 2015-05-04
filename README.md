@@ -1,4 +1,4 @@
-# ui-demo
+# demo
 测试的ui
 
 [http://github.xuexb.com](http://github.xuexb.com)
