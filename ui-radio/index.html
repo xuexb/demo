@@ -27,7 +27,9 @@
         .ui-radio:hover span{
             background-position:0 -20px;
         }
-        .ui-radio input:checked + span,
+        .ui-radio input:checked + span{
+            background-position:0 -40px;
+        }
         .ui-radio.checked span{
             background-position:0 -40px;
         }
@@ -164,11 +166,17 @@
                 // if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'radio'){
                 //     return self;
                 // }
+                
+
+                //延迟处理下,fix ie78默认值问题
+                setTimeout(function(){
+                    self.filter(':checked').trigger('change');
+                });
 
                 return self.on('change', function(){
                     self.parent().removeClass('checked');
                     this.parentNode.className += ' checked';
-                }).filter(':checked').trigger('change');
+                });
             }
         }());
 
