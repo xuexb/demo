@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按钮的研究</title>
+
+    <link rel="stylesheet" type="text/css" href="btn.css">
+
+    <style type="text/css">
+        dd,
+        dt{
+            padding-top:10px;
+        }
+        dt{
+            border-top:1px solid  #ccc;
+            margin-top:20px;
+        }
+        dl dt:first-child{
+            border-top:none;
+            margin-top:0;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+
+        <dt>默认a标签</dt>
+        <dd>
+            <a href="javascript:;" class="ui-btn">
+                <span>点击请求</span>
+            </a>
+        </dd>
+
+        <dt>默认button标签</dt>
+        <dd>
+            <button type="button" class="ui-btn">
+                <span>点击请求</span>
+            </button>
+        </dd>
+        <dt>
+            测试显示
+        </dt>
+        <dd id="J-write">
+            请先点击请求按钮...
+        </dd>
+
+        <dt>
+            操作api
+        </dt>
+        <dd>
+            <a href="javascript:;" id="J-set-disable">设置禁用</a>
+            <a href="javascript:;" id="J-set-enable">设置可用</a><br>
+            <a href="javascript:;" id="J-set-bind">绑定事件</a>
+            <a href="javascript:;" id="J-set-unbind">取消事件</a><br>
+            <a href="javascript:;" id="J-set-text">修改文本为随机值</a><br>
+            <a href="javascript:;" id="J-set-request">请求</a>
+            <a href="javascript:;" id="J-set-abort">取消请求</a><br>
+            <a href="javascript:;" id="J-get-config">获取配置</a>
+        </dd>
+
+    </dl>
+
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        /**
+         * 公用的按钮处理
+         */
+        (function($){
+            'use strict';
+
+            function Btn(options){
+                var self = this;
+
+                //合并配置
+                self.__config = $.extend(true, {}, Btn.defaults, options || {});
+
+                self.$elem = $(self.config('elem'));
+
+                if(!self.$elem.length){
+                    throw new Error('选择器错误');
+                }
+
+                self.__xhr = null;
+
+                self.__ing = null;
+
+                self.__disabled = false;
+
+                self.bind();
+            }
+
+            /**
+             * 状态码
+             * @type {Object}
+             */
+            Btn.status = {
+                SUCCESS: 0,//请求成功
+                SUCCESS_ERROR: 1,//success返回false阻止
+                CALLBACK_ERROR: 2,//返回值出错
+                ABORT: 3//用户主动取消
+            }
+
+            /**
+             * 禁用
+             * @return {self}
+             */
+            Btn.prototype.disable = function(){
+                var self = this;
+
+                if(self.__disabled){
+                    return self;
+                }
+
+                self.__disabled = true;
+
+                self.$elem.addClass('disabled').prop('disabled', true);
+
+                return self;
+            }
+
+            /**
+             * 启用
+             * @return {self}
+             */
+            Btn.prototype.enable = function(){
+                var self = this;
+
+                if(!self.__disabled){
+                    return self;
+                }
+
+                self.__disabled = false;
+
+                self.$elem.removeClass('disabled').prop('disabled', false);
+
+                return self;
+            }
+
+            /**
+             * 设置文本的值
+             * @param  {string} text 要设置的值
+             * @return {self}
+             */
+            Btn.prototype.text = function(text){
+                var self = this;
+
+                if(!text){
+                    return self;
+                }
+
+                self.$elem.each(function(){
+                    var $that = $(this),
+                        type = this.nodeName.toLowerCase();
+
+                    if(type === 'button' || type === 'a'){
+                        $that.find('span').text(text);
+                    }
+                });
+
+                return self;
+            }
+
+            /**
+             * 发送请求
+             * @return {self}
+             */
+            Btn.prototype.request = function(){
+                var self = this,
+                    config = self.config(),
+                    status = Btn.status.CALLBACK_ERROR;
+
+                //如果正在请求
+                //如果已禁用
+                if(self.__ing || self.__disabled){
+                    return self;
+                }
+
+                //如果不请求
+                if(config.beforeSend.call(self) === false){
+                    return self;
+                }
+
+                //中断之前的
+                self.abort();
+
+                self.__ing = true;
+
+                //loading状态
+                self.$elem.addClass('loading');
+
+                //创建新的
+                self.__xhr = $.ajax({
+                    url: config.url,
+                    data: config.data,
+                    success: function(res){
+                        if(res){
+                            status = config.success.call(self, res) === false ? 
+                                Btn.status.SUCCESS_ERROR : //返回false
+                                Btn.status.SUCCESS;//成功
+                        }
+                    },
+                    error: function(XHR, status){
+                        if (XHR && status === 'abort') {
+                            status = Btn.status.ABORT;
+                        }
+                    },
+                    complete: function(){
+                        //只有在返回值错误才走error方法
+                        if(status === Btn.status.CALLBACK_ERROR){
+                            config.error.call(self);
+                        }
+
+                        self.$elem.removeClass('loading');
+                        self.__ing = false;
+
+                        //执行完成方法
+                        config.complete.call(self, {status: status});
+                    }
+                });
+
+                return self;
+            }
+
+            /**
+             * 绑定事件
+             * @return {self}
+             */
+            Btn.prototype.bind = function(){
+                var self = this;
+
+                if(self.__bind){
+                    return self;
+                }
+
+                self.__bind = true;
+
+                self.$elem.on('click.btn', function(){
+                    self.request();
+                    return false;
+                });
+
+                return self;
+            }
+
+            /**
+             * 取消事件
+             * @return {self}
+             */
+            Btn.prototype.unbind = function(){
+                var self = this;
+
+                if(!self.__bind){
+                    return self;
+                }
+
+                delete self.__bind;
+                
+                self.$elem.off('click.btn');
+
+                return self;
+            }
+
+            /**
+             * 取消请求
+             * @return {self}
+             */
+            Btn.prototype.abort = function(){
+                var self = this;
+
+                if(self.__xhr){
+                    self.__xhr.abort();
+                }
+
+                return self;
+            }
+
+            /**
+             * 获取/设置配置
+             * @param  {[type]} key [description]
+             * @param  {[type]} val [description]
+             * @return {[type]}     [description]
+             */
+            Btn.prototype.config = function(key, val){
+                var self = this,
+                    config = self.__config;
+
+                //如果没有参数则为获取
+                if(!key){
+                    return config;
+                }
+
+                if(val === void 0){
+                    return config[key];
+                }
+
+                //如果是对象,则与旧的参数合并
+                if($.isPlainObject(val)){
+                    config[key] = $.extend(true, {}, config[key] || {}, val);
+                } else {
+                    config[key] = val;    
+                }
+
+                return self;
+            }
+
+            /**
+             * 默认配置
+             * @type {Object}
+             */
+            Btn.defaults = {
+                elem: null,
+                success: $.noop,
+                error: $.noop,
+                beforeSend: $.noop,
+                complete: $.noop
+            }
+
+            window.Btn = Btn;
+        })(jQuery);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // +++++++++++++++++++++++
+        // +++++++++++++++++++++++
+        
+        var Demo = new Btn({
+            elem: '.ui-btn',
+            url: '/api.php',
+            success: function(res){
+                $('#J-write').text('请求成功...');
+                // return false;则表示错误,会执行error,这里可以是返回值逻辑判断
+            },
+            error: function(){
+                $('#J-write').text('请求错误...');
+            },
+            beforeSend: function(config){
+                // this === Demo
+                // return false则不请求
+                $('#J-write').text('开始请求...');
+            }
+        });
+
+        $('#J-set-disable').on('click', function(){
+            Demo.disable();
+        });
+        $('#J-set-enable').on('click', function(){
+            Demo.enable();
+        });
+
+        $('#J-set-bind').on('click', function(){
+            Demo.bind();
+        });
+        $('#J-set-unbind').on('click', function(){
+            Demo.unbind();
+        });
+
+        $('#J-set-text').on('click', function(){
+            Demo.text($.now());
+        });
+
+        $('#J-set-request').on('click', function(){
+            Demo.request();
+        });
+        $('#J-set-abort').on('click', function(){
+            Demo.abort();
+        });
+
+        $('#J-get-config').on('click', function(){
+            $('#J-write').text('请看控制台');
+            console.log(Demo.config());
+        });
+    </script>
+</body>
+</html>

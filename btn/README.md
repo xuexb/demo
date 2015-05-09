@@ -80,7 +80,7 @@ $('.ui-btn').on('click', function(){
 
 ## 封装js方法
 
-todo...
+[demo](tab.html)
 
 ## 注意
 
