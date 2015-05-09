@@ -76,3 +76,14 @@ $('.ui-btn').on('click', function(){
 ```
 
 [demo](js.html)
+
+
+## 封装js方法
+
+todo...
+
+## 注意
+
+* 建议使用`button`标签,但一定要设置其`type`,比如要提交表单就是`submit`,普通的按钮就是`button`了
+* 按钮要嵌套`span`标签,因为这样才可以很好的处理只操作类达到`loading`效果
+* 操作按钮显示的内容应该操作`span`标签的显示内容,而不是使用`val`
