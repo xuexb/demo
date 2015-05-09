@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按钮的研究</title>
+
+    <link rel="stylesheet" type="text/css" href="btn.css">
+
+    <style type="text/css">
+        dd,
+        dt{
+            padding-top:10px;
+        }
+        dt{
+            border-top:1px solid  #ccc;
+            margin-top:20px;
+        }
+        dl dt:first-child{
+            border-top:none;
+            margin-top:0;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>默认a标签</dt>
+        <dd>
+            <a href="javascript:;" class="ui-btn">
+                <span>我是A按钮</span>
+            </a>
+        </dd>
+
+        <dt>默认button标签</dt>
+        <dd>
+            <button type="button" class="ui-btn">
+                <span>我是button按钮</span>
+            </button>
+        </dd>
+
+        <dt>loading a标签</dt>
+        <dd>
+            <a href="javascript:;" class="ui-btn loading">
+                <span>我是A按钮</span>
+            </a>
+        </dd>
+
+        <dt>loading button标签</dt>
+        <dd>
+            <button type="button" class="ui-btn loading">
+                <span>我是button按钮</span>
+            </button>
+        </dd>
+
+        <dt>禁用a标签</dt>
+        <dd>
+            <a href="javascript:;" class="ui-btn disabled">
+                <span>我是A按钮</span>
+            </a>
+        </dd>
+
+        <dt>禁用button标签 - class=disabled方式</dt>
+        <dd>
+            <button type="button" class="ui-btn disabled">
+                <span>我是button按钮</span>
+            </button>
+        </dd>
+
+        <dt>禁用button标签 - prop=disabled方式</dt>
+        <dd>
+            <button type="button" class="ui-btn" disabled>
+                <span>我是button按钮</span>
+            </button>
+        </dd>
+    </dl>
+</body>
+</html>
