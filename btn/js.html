@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>按钮的研究</title>
+
+    <link rel="stylesheet" type="text/css" href="btn.css">
+
+    <style type="text/css">
+        dd,
+        dt{
+            padding-top:10px;
+        }
+        dt{
+            border-top:1px solid  #ccc;
+            margin-top:20px;
+        }
+        dl dt:first-child{
+            border-top:none;
+            margin-top:0;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>
+            来填手机号
+        </dt>
+        <dd>
+            <input type="text" id="J-tel">    
+        </dd>
+
+
+        <dt>默认a标签</dt>
+        <dd>
+            <a href="javascript:;" class="ui-btn">
+                <span>点我试试</span>
+            </a>
+        </dd>
+
+        <dt>默认button标签</dt>
+        <dd>
+            <button type="button" class="ui-btn">
+                <span>点我试试</span>
+            </button>
+        </dd>
+    </dl>
+
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $('.ui-btn').on('click', function(){
+            var that = this,
+                $that = $(that),
+                is_success;
+
+            //如果正在请求
+            //这里主要兼容a标签
+            if($that.hasClass('loading') || $that.hasClass('disabled')){
+                return false;
+            }
+
+            //这里是逻辑判断处理
+            
+            //判断通过后开始请求接口,并让按钮loading
+            $that.addClass('loading');
+
+            $.ajax({
+                url: 'http://tcc.taobao.com/cc/json/mobile_tel_segment.htm',//异步接口url
+                data: {
+                    tel: $.trim($('#J-tel').val())
+                },//数据
+                type: 'POST',//数据发送的方式
+                dataType: 'jsonp',//返回数据的类型
+                success: function(res){//成功回调,为什么要写在这呢,因为写在这可以很好的兼容zepto核心库
+                    //处理返回值
+                    //比如判断是否登录(有权限操作)
+                    //比如判断返回值是否理想
+                    if(res){//zepto有这个bug,可能空也是success
+                        if(res.errcode === 1004){//没登录...test
+
+                        } else if(res.errcode) {
+
+                        } else {
+                            //成功
+                            is_success = true;
+
+                            console && console.log(res);
+                        }
+                    } else {
+                        //test
+                    }
+                },
+                error: function(){//错误回调,因为有is_success+complete回调处理,基本可以不用这个
+                },
+                complete: function(){//完成请求回调
+
+                    $that.removeClass('loading');
+                    
+                    if(is_success === true){//成功
+                        alert('请求成功');
+                    } else {//错误,并让按钮可用
+                        alert('请求失败');
+                    }
+
+                    //test
+                    var hit = parseInt($that.data('__hit'), 10) || 0;
+                    if(hit >= 2){
+                        $that.addClass('disabled');
+                    } else {
+                        $that.data('__hit', hit + 1);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
