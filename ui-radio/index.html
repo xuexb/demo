@@ -48,7 +48,7 @@
             demo
         </dt>
         <dd>
-            <ul>
+            <ul id="J-demo1">
                 <li>
                     <label class="ui-radio">
                         <input type="radio" name="xieliang" value="谢亮1">
@@ -78,7 +78,7 @@
             默认有选中
         </dt>
         <dd>
-            <ul>
+            <ul id="J-demo2">
                 <li>
                     <label class="ui-radio">
                         <input type="radio" name="xxxx" checked value="123">
@@ -107,7 +107,7 @@
             测试
         </dt>
         <dd>
-            <ul>
+            <ul id="J-demo3">
                 <li>
                     <label class="ui-radio">
                         <input type="radio" name="x" value="xxxx1212">
@@ -140,8 +140,6 @@
             //fix 在ie78里直接使用js的prop,attr等没有改变UI
             if(!window.addEventListener){
                 $.each([
-                    'attr',
-                    'removeAttr',
                     'prop',
                     'removeProp'
                 ], function(index, value){
