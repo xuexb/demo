@@ -9,3 +9,7 @@
 * [美化复选](ui-checkbox/index.html)
 * [tab的历程](tab/)
 * [异步请求按钮的研究](btn/)
+
+## 测试用例
+
+* [美化单选](test/ui-radio/index.html)
