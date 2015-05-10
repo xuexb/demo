@@ -12,4 +12,4 @@
 
 ## 测试用例
 
-* [美化单选](test/ui-radio/index.html)
+* [美化单选](tests/ui-radio/index.html)
