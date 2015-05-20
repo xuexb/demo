@@ -23,7 +23,7 @@
 * [浏览器检测](demo/tools/browser.js)
 
 
-## 测试用例
+## tests
 
 * [美化单选](tests/ui-radio/index.html)
 
