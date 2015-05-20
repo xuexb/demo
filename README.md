@@ -13,3 +13,6 @@
 ## 测试用例
 
 * [美化单选](tests/ui-radio/index.html)
+
+## issues
+[https://github.com/xuexb/demo/issues](https://github.com/xuexb/demo/issues)
