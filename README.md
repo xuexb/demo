@@ -5,10 +5,10 @@
 
 ## list
 
-* [美化单选](ui-radio/index.html)
-* [美化复选](ui-checkbox/index.html)
-* [tab的历程](tab/)
-* [异步请求按钮的研究](btn/)
+* [美化单选](demo/ui-radio/index.html)
+* [美化复选](demo/ui-checkbox/index.html)
+* [tab的历程](demo/tab/)
+* [异步请求按钮的研究](demo/btn/)
 
 ## 测试用例
 
