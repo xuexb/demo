@@ -16,6 +16,7 @@
 * [事件驱动](demo/tools/event.js)
 * [表单上传](demo/upload/form-upload.js)
 * [placeholder](demo/placeholder/placeholder.js)
+* [图片懒加载](demo/imgLoad/imgLoad.js)
 
 
 ## list for touch
