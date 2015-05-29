@@ -17,6 +17,8 @@
 * [表单上传](demo/upload/form-upload.js)
 * [placeholder](demo/placeholder/placeholder.js)
 * [图片懒加载](demo/imgLoad/imgLoad.js)
+* [jquery的width研究](demo/width/index.html)
+
 
 
 ## list for touch
