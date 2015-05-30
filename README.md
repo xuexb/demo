@@ -18,7 +18,7 @@
 * [placeholder](demo/placeholder/placeholder.js)
 * [图片懒加载](demo/imgLoad/imgLoad.js)
 * [jquery的width研究](demo/width/index.html)
-* [bfc](demo/width/bfc.html)
+* [bfc](demo/bfc/index.html)
 
 
 
