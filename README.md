@@ -21,6 +21,7 @@
 * [bfc](demo/bfc/index.html)
 * [css布局](demo/css-layout/)
 * [jquery deferred](demo/jquery-deferred/)
+* [es5](demo/es5/)
 
 ## node
 * [redis研究](demo/redis/)
