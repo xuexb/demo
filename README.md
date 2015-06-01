@@ -36,5 +36,8 @@
 
 * [美化单选](tests/ui-radio/index.html)
 
+## links
+* [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
+
 ## issues
 [https://github.com/xuexb/demo/issues](https://github.com/xuexb/demo/issues)
