@@ -21,6 +21,10 @@
 * [bfc](demo/bfc/index.html)
 * [css布局](demo/css-layout/)
 
+## node
+* [redis研究](demo/redis/)
+* [es6-promise](demo/es6-promise/)
+
 
 
 ## list for touch
