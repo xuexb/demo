@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> $.Deferred() </title>
+</head>
+<body>
+
+    <p>
+        then里可以返回,done里不能返回
+    </p>
+    
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1-rc2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function ajax() {
+            var defer = $.Deferred();
+            setTimeout(function(){
+                defer.resolve('成功');
+            }, 1000);
+
+            return defer.promise();
+        }
+
+        ajax().then(function(data){
+            console.log('success', data);
+            return '2';
+        }, function(data){
+            console.log('error', data);
+        }).then(function(data){
+            console.log('success', data);
+        }, function(data){
+            console.log('error', data);
+        }).done(function(data){
+            console.log('done', data);
+            return '1';
+        }).done(function(data){
+            console.log('done', data);
+        });
+    </script>
+</body>
+</html>
