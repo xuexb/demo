@@ -20,6 +20,7 @@
 * [jquery的width研究](demo/width/index.html)
 * [bfc](demo/bfc/index.html)
 * [css布局](demo/css-layout/)
+* [jquery deferred](demo/jquery-deferred/)
 
 ## node
 * [redis研究](demo/redis/)

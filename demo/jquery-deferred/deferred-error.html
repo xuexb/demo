@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> $.Deferred() </title>
+</head>
+<body>
+
+    <p>
+        错误会全部执行,es6-promise会只执行第一个
+    </p>
+    
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1-rc2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function ajax() {
+            var defer = $.Deferred();
+            setTimeout(function(){
+                defer.reject('失败');
+            }, 1000);
+
+            return defer.promise();
+        }
+
+        ajax().then(function(data){
+            console.log('success', data);
+            return '2';
+        }, function(data){
+            console.log('error', data);
+        }).then(function(data){
+            console.log('success', data);
+        }, function(data){
+            console.log('error2', data);
+            return '2';
+        }).done(function(data){
+            console.log('done', data);
+        }).fail(function(data){
+            console.log('fail', data);
+        });
+    </script>
+</body>
+</html>
