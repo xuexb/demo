@@ -18,6 +18,7 @@
              '<span>xuexb</span>' +
              '</label>').appendTo('#qunit-fixture');
 
+         $input = $input.find('input');
          //实例
          $input.radioMM();
 
@@ -25,19 +26,17 @@
          //选中
          stop();
          $input.eq(0).prop('checked', true);
-         setTimeout(function(){
-             strictEqual($input.get(0).checked, true, '选中');
-            start();
-         }, 100);
+         strictEqual($input.get(0).checked, true, '选中');
+         start();
 
          //取消选中
          //因为在ie78里单选选中后不支持取消,只能让别的按钮选中
          stop();
          $input.eq(1).prop('checked', true);
-         setTimeout(function(){
-            strictEqual($input.get(0).checked, false, '取消选中');
-            start();
-         }, 100);
+         console.log($input.get(0).checked);
+         console.log($input.get(1).checked);
+         strictEqual($input.get(0).checked, false, '取消选中');
+         start();
 
 
          if (is_ie_78) {
