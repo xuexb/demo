@@ -14,7 +14,7 @@
  *         a.off('test', c);
  */
 
-define(function(){
+(function(){
     'use strict';
 
 
@@ -139,5 +139,5 @@ define(function(){
     }
 
 
-    return Event;
-});
+    window.Event = Event;
+})();
