@@ -9,7 +9,7 @@
 
     var is_ie_78 = !window.addEventListener; //针对ie78测试一些ui的显示问题，通过判断是否有相关的类来表示是否ok
 
-    asyncTest("使用prop操作", function() {
+    asyncTest("使用prop操作", is_ie_78 ? 4 : 2, function() {
         var $wrap = $('<label class="ui-radio">' +
             '<input type="radio" name="xieliang" value="谢亮">' +
             '<span>谢亮</span>' +
@@ -42,11 +42,11 @@
             strictEqual($input.eq(0).parent().hasClass('checked'), false, '取消选中的ui');
         }
 
-        QUnit.start();
+        start();
     });
 
 
-    asyncTest("默认选中", function() {
+    asyncTest("默认选中", is_ie_78 ? 2 : 1, function() {
         var $wrap = $('<label class="ui-radio">' +
             '<input type="radio" name="xieliang" value="谢亮" checked>' +
             '<span>谢亮</span>' +
@@ -72,6 +72,6 @@
             }, 1);
         }
 
-        QUnit.start();
+        start();
     });
 })();
