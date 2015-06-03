@@ -37,6 +37,7 @@
 ## tests
 
 * [美化单选](tests/ui-radio/index.html)
+* [事件驱动](tests/event/index.html)
 
 ## links
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
