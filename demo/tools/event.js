@@ -55,7 +55,7 @@
         listeners = self.__getListener(type);
 
         for (;i < listeners.length; i++) {
-            if(listeners[i].callback.apply(obj, data) === false){
+            if(listeners[i].callback.apply(obj, data || []) === false){
                 return false;
             }
             if(listeners[i].one){
