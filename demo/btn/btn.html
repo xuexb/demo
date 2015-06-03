@@ -193,6 +193,7 @@
                 //创建新的
                 self.__xhr = $.ajax({
                     url: config.url,
+                    dataType: config.dataType,
                     data: config.data,
                     success: function(res){
                         if(res){
@@ -314,7 +315,8 @@
                 success: $.noop,
                 error: $.noop,
                 beforeSend: $.noop,
-                complete: $.noop
+                complete: $.noop,
+                dataType: 'json'
             }
 
             window.Btn = Btn;
