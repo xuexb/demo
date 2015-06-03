@@ -8,7 +8,7 @@
     'use strict';
 
 
-    asyncTest("简单的触发", 1, function() {
+    asyncTest("简单的触发", 3, function() {
         var demo = new Event();
         var res = false;
 
@@ -16,13 +16,9 @@
             res = true;
         });
         demo.trigger('test');
-        setTimeout(function() {
-            strictEqual(res, true, '事件被触发');
-            start();
-        }, 500);
-    });
+        strictEqual(res, true, '事件被触发');
+        
 
-    asyncTest("多次触发", 1, function() {
         var demo2 = new Event();
         var num = 0;
 
@@ -32,32 +28,28 @@
         demo2.trigger('test');
         demo2.trigger('test');
         demo2.trigger('test');
-        setTimeout(function() {
-            strictEqual(num, 3, '触发多次成功');
-            start();
-        }, 500);
-    });
+        strictEqual(num, 3, '触发多次成功');
 
 
-    asyncTest("触发多个事件", 1, function() {
-        var demo = new Event();
+        var demo3 = new Event();
         var length = 0;
 
-        demo.on('test', function() {
+        demo3.on('test', function() {
             length += 1;
         });
-        demo.on('test', function() {
+        demo3.on('test', function() {
             length += 1;
         });
-        demo.on('test', function() {
+        demo3.on('test', function() {
             length += 1;
         });
-        demo.trigger('test');
-        setTimeout(function() {
-            strictEqual(length, 3, '触发事件数量正确');
-            start();
-        }, 500);
+        demo3.trigger('test');
+        strictEqual(length, 3, '触发事件数量正确');
+
+
+        start();
     });
+
 
     asyncTest("触发事件的顺序", 1, function() {
         var demo = new Event();
@@ -82,7 +74,21 @@
         }, 500);
     });
 
-    asyncTest("绑定一次事件", 1, function() {
+    asyncTest("绑定事件", 2, function() {
+        var demo2 = new Event();
+        var a = 0;
+
+        demo2.on('test', function() {
+            a += 1;
+        });
+
+
+        demo2.trigger('test');
+        demo2.trigger('test');
+        strictEqual(a, 2, '绑定成功');
+
+
+
         var demo = new Event();
         var num = 0;
 
@@ -93,14 +99,15 @@
 
         demo.trigger('test');
         demo.trigger('test');
-        setTimeout(function() {
-            strictEqual(num, 1, '一次成功');
-            start();
-        }, 500);
+        strictEqual(num, 1, '一次成功');
+        
+
+
+        start();
     });
 
 
-    asyncTest("移除事件", 1, function() {
+    asyncTest("移除事件", 2, function() {
         var demo = new Event();
         var num = 0;
 
@@ -118,14 +125,9 @@
 
         demo.trigger('test');
         demo.trigger('test');
-        setTimeout(function() {
-            strictEqual(num, 0, '移除全部事件成功');
-            start();
-        }, 500);
+        strictEqual(num, 0, '移除全部事件成功');
 
-    });
 
-    asyncTest("移除事件-单个", 1, function() {
         var demo2 = new Event();
         var str = '';
         var del = function(){
@@ -142,14 +144,10 @@
 
         demo2.off('test', del);
 
-        setTimeout(function(){
-            demo2.trigger('test');
-        }, 100);
+        demo2.trigger('test');
+        strictEqual(str, 'ac', '移除单个成功');
+        start();
 
-        setTimeout(function() {
-            strictEqual(str, 'ac', '移除单个成功');
-            start();
-        }, 500);
     });
 
     asyncTest("触发时带数据", 1, function() {
