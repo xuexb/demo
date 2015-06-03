@@ -55,7 +55,7 @@
         listeners = self.__getListener(type);
 
         for (;i < listeners.length; i++) {
-            if(listeners[i].callback.apply(self, data) === false){
+            if(listeners[i].callback.apply(obj, data) === false){
                 return false;
             }
             if(listeners[i].one){
@@ -127,7 +127,7 @@
 
         if ('function' === typeof callback) {
             for (i = 0; i < listeners.length; i++) {
-                if (callback === listeners[i]) {
+                if (callback === listeners[i].callback) {
                     listeners.splice(i--, 1);
                 }
             }
