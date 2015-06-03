@@ -1,7 +1,5 @@
 # demo
-测试的demo,仓库在 https://github.com/xuexb/demo
-
-[http://github.xuexb.com](http://github.xuexb.com)
+测试的demo,仓库在 https://github.com/xuexb/demo, 预览在 http://github.xuexb.com
 
 ## list
 
