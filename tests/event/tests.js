@@ -125,7 +125,7 @@
 
     });
 
-    asyncTest("移除事件", 1, function() {
+    asyncTest("移除事件-单个", 1, function() {
         var demo2 = new Event();
         var str = '';
         var del = function(){
@@ -137,7 +137,7 @@
         });
         demo2.on('test', del);
         demo2.on('test', function() {
-            str += 'a';
+            str += 'c';
         });
 
         demo2.off('test', del);
@@ -148,6 +148,66 @@
 
         setTimeout(function() {
             strictEqual(str, 'ac', '移除单个成功');
+            start();
+        }, 500);
+    });
+
+    asyncTest("触发时带数据", 1, function() {
+        var demo2 = new Event();
+        var str = '';
+
+        demo2.on('test', function(a, b) {
+            str = a + '+'+ b;
+        });
+
+        setTimeout(function(){
+            demo2.trigger('test', ['a', 'b']);
+        }, 100);
+
+        setTimeout(function() {
+            strictEqual(str, 'a+b', '成功');
+            start();
+        }, 500);
+    });
+
+    asyncTest("回调的this", 1, function() {
+        var demo2 = new Event();
+        var str = '';
+
+        demo2.on('test', function(a, b) {
+            this.trigger('ok', ['data']);
+        });
+
+        demo2.on('ok', function(data){
+            str = data;
+        });
+
+        setTimeout(function(){
+            demo2.trigger('test');
+        }, 100);
+
+        setTimeout(function() {
+            strictEqual(str, 'data', '成功');
+            start();
+        }, 500);
+    });
+
+    asyncTest("改变回调的this", 1, function() {
+        var demo2 = new Event();
+        var str = '';
+
+        demo2.on('test', function(a, b) {
+            str = this.data;
+        });
+
+        setTimeout(function(){
+            demo2.trigger({
+                data: '{}.data'
+            }, 'test');
+        }, 100);
+
+        setTimeout(function() {
+            strictEqual(str, '{}.data', '成功');
             start();
         }, 500);
     });
