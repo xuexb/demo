@@ -1,0 +1,20 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "测试的demo",
+  "author": {
+    "name": "xieliang"
+  },
+  "devDependencies": {
+    "test-ajax": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xuexb/demo.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuexb/demo/issues"
+  },
+  "homepage": "https://github.com/xuexb/demo"
+}
