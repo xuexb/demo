@@ -1,11 +1,3 @@
-/**
- * every(fn, context)  如果有context则在回调里this为这个
- * fn = function(val, index, arr){}  val为当前循环的，index为索引，arr为当前的数组
- *
- * 必须全满足才为true
- * 只要有不满足则退出循环
- */
-
 'use strict';
 
 
