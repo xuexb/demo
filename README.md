@@ -4,7 +4,6 @@
 自豪的使用 [test-ajax](https://github.com/xuexb/test-ajax) 提供的接口响应
 
 ## list
-
 * [美化单选](demo/ui-radio/index.html)
 * [美化复选](demo/ui-checkbox/index.html)
 * [tab的历程](demo/tab/)
@@ -22,20 +21,17 @@
 * [css布局](demo/css-layout/)
 * [jquery deferred](demo/jquery-deferred/)
 * [es5](demo/es5/)
+* [prototype](demo/prototype/)
 
 ## node
 * [redis研究](demo/redis/)
 * [es6-promise](demo/es6-promise/)
 
-
-
 ## list for touch
 * [移动端滚动加载](demo/touch-ajax-page/ajaxPage.js)
 * [浏览器检测](demo/tools/browser.js)
 
-
 ## tests
-
 * [美化单选](tests/ui-radio/index.html)
 * [事件驱动](tests/event/index.html)
 
