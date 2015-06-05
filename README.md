@@ -22,6 +22,7 @@
 * [jquery deferred](demo/jquery-deferred/)
 * [es5](demo/es5/)
 * [prototype](demo/prototype/)
+* [log](demo/log/)
 
 ## node
 * [redis研究](demo/redis/)
