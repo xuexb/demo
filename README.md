@@ -38,6 +38,7 @@
 ## links
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
 * [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+* [https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001](https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001)
 
 ## issues
 [https://github.com/xuexb/demo/issues](https://github.com/xuexb/demo/issues)
