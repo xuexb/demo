@@ -9,5 +9,5 @@ requirejs.config({
     paths: {
         'jquery': '../lib/jquery'
     }
-    // baseUrl: '../src/'
+    // baseUrl: '../src/' 路径不配置，根据data-main找
 });
