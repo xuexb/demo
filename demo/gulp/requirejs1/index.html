@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>requirejs</title>
+</head>
+<body>
+    <h1>
+        loading
+    </h1>
+    
+    <p>
+        baseUrl是基于html所在的path定的，如果有配置data-main则是基于这个 比如 data-main="src/demo1/xx" 那么baseUrl则为src/demo1<br>
+        define模块里都是基于baseUrl的
+    </p>
+
+    <script type="text/javascript" src="src/requirejs/require.js" data-main="./src/demo1/main"></script>
+    <script type="text/javascript" src="src/requirejs/config.js"></script>
+</body>
+</html>
