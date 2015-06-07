@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo4</title>
+</head>
+<body>
+    <h1>
+        loading
+    </h1>
+    
+    <p>
+        测试合并
+    </p>
+   
+
+    <script type="text/javascript" src="/demo/requirejs/src/demo4/all.js"></script>
+
+    <script type="text/javascript">
+        requirejs.config({
+            baseUrl: '../src/demo4/'
+        });
+    </script>
+
+    <script type="text/javascript">
+        requirejs(['main']);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>demo3</title>
+</head>
+<body>
+    <h1>
+        loading
+    </h1>
+    
+    <p>
+        测试 define({});
+    </p>
+   
+
+    <script type="text/javascript" src="/demo/requirejs/src/requirejs/require.js"></script>
+    <script type="text/javascript" src="/demo/requirejs/src/requirejs/config.js"></script>
+
+    <script type="text/javascript">
+        requirejs.config({
+            baseUrl: '../src/demo3/'
+        });
+    </script>
+
+    <script type="text/javascript">
+        requirejs(['main']);
+    </script>
+</body>
+</html>
