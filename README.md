@@ -24,6 +24,8 @@
 * [prototype](demo/prototype/)
 * [log](demo/log/)
 * [requirejs](demo/requirejs/)
+* [gulp](demo/gulp/)
+* [grunt](demo/grunt/)
 
 ## node
 * [redis研究](demo/redis/)
