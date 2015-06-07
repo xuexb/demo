@@ -23,6 +23,7 @@
 * [es5](demo/es5/)
 * [prototype](demo/prototype/)
 * [log](demo/log/)
+* [requirejs](demo/requirejs/)
 
 ## node
 * [redis研究](demo/redis/)
