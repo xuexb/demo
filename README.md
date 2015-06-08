@@ -26,6 +26,7 @@
 * [requirejs](demo/requirejs/)
 * [gulp](demo/gulp/)
 * [grunt](demo/grunt/)
+* [算法](demo/算法/)
 
 ## node
 * [redis研究](demo/redis/)
