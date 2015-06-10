@@ -8,7 +8,7 @@
             var _val = $.fn[value];
             $.fn[value] = function() {
                 _val.apply(this, [].slice.call(arguments));
-                return this.trigger('change');
+                return this.trigger('change.radio');
             }
         });
     }
@@ -30,10 +30,10 @@
 
         //延迟处理下,fix ie78默认值问题
         setTimeout(function() {
-            self.filter(':checked').trigger('change');
+            self.filter(':checked').trigger('change.radio');
         });
 
-        return self.on('change', function() {
+        return self.on('change.radio', function() {
             self.parent().removeClass('checked');
             this.parentNode.className += ' checked';
         });
