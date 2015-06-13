@@ -75,3 +75,26 @@ this.d = 4;
     a();
     console.log(z);
 })();
+
+
+function demo10(a){
+    console.log(a);
+}
+demo10('param');
+
+function demo11(a){
+    console.log(a);
+    var a = 1;
+    console.log(a);//1
+}
+demo11('param');
+
+
+function demo12(a){
+    console.log(a);
+    var a = 1;
+    function a(){
+        
+    }
+}
+demo12('param');
