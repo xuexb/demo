@@ -2,6 +2,10 @@
  * 美化复选框
  * @author xieliang
  * @description 尽量不破坏jquery，使用代码完全兼容jquery操作
+ *
+ * @坑1：在使用prop操作时没有触发change事件，导致ui显示不同
+ * @坑2：禁用的时候还能使用prop操作选中
+ * 
  */
 
 (function() {
@@ -49,9 +53,6 @@
         if (window.addEventListener) {
             return self;
         }
-
-        // 添加标识
-        self.data('checkboxMM', true);
 
         // 绑定事件
         self.on('change checked', function(event, flag) {
