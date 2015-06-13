@@ -3,12 +3,20 @@
  * @author xieliang
  * @description 尽量不破坏jquery，使用代码完全兼容jquery操作
  *
- * @坑1：在使用prop操作时没有触发change事件，导致ui显示不同
+ * @坑1：在使用prop操作时没有触发change事件，导致ui显示不同，解决：在触发prop:checked事件时对元素进行筛选并触发change
  * @坑2：禁用的时候还能使用prop操作选中
+ * @坑3：可能带有别的选择器,比如$('input,div,body'),解决：筛选
+ * @坑4：插件可能多次调用，解决：添加标识
  * 
  */
 
 (function() {
+    /**
+     * 一个标识
+     * @type {String}
+     */
+    var GNAME = 'is_install_checkbox';
+
     //fix使用prop操作时没有触发change事件
     $.each([
         'prop',
@@ -28,10 +36,12 @@
 
             //对选中操作特殊处理
             //因为使用prop操作时没有触发change
+            //触发只触发加载过插件的，比如 $('input').checkboxMM();  $('input, div').prop('checked', true);
             if (name === 'checked') {
-                self.trigger('change', [target]);
+                self.filter('.'+ GNAME).trigger('change', [target]);
             }
 
+            //如果ie9+返回
             if (window.addEventListener) {
                 return self;
             }
@@ -49,9 +59,23 @@
     $.fn.checkboxMM = function() {
         var self = this;
 
+        //筛选没有加载过插件的input
+        self = self.filter('input[type="checkbox"]').filter(function(){
+            return this.className.indexOf(GNAME) === -1;
+        });
+
+        //如果没有
+        //返回this为了链路
+        if(self.length === 0){
+            return this;
+        }
+
+        //打上标识
+        self.addClass(GNAME);
+
         //如果支持:checked伪类
         if (window.addEventListener) {
-            return self;
+            return this;
         }
 
         // 绑定事件
@@ -75,6 +99,6 @@
         //触发默认的禁用ui
         self.filter(':disabled').trigger('disabled', [true]);
 
-        return self;
+        return this;
     }
 }());
