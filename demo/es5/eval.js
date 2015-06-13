@@ -28,3 +28,11 @@ function demo4(){
     console.log(b);
 }
 demo4();
+
+
+function demo5(){
+    var json = '{"xxoo":1}';
+    var a = eval('('+ json +')');
+    console.log(a, typeof a);
+}
+demo5();
