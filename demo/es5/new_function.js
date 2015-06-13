@@ -7,7 +7,7 @@ function demo1() {
     console.log(a);
     a();
 }
-// demo1();
+demo1();
 
 
 //参数
@@ -16,7 +16,7 @@ function demo2() {
     console.log(a);
     a(1, 2);
 }
-// demo2();
+demo2();
 
 
 function demo3() {
@@ -35,7 +35,7 @@ function demo3() {
     console.log(join('1', [1, 2]));
     console.log(join('1', [1, [1, [1, [1, ['arr']]]]]));
 }
-// demo3();
+demo3();
 
 
 function demo4() {
