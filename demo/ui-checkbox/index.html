@@ -12,6 +12,10 @@
         dt{
             padding-top:30px;
         }
+        li{
+            line-height:30px;
+            list-style:none;
+        }
 
 
 
@@ -20,23 +24,34 @@
             display:inline-block;
             *float:left;
             *zoom:1;
+            line-height:18px;
+            vertical-align:middle;
         }
         .ui-checkbox span{
+            height:16px;
             padding-left:20px;
             cursor:pointer;
             background:url('img/icon.png') 0 0 no-repeat;
             display:inline-block;
         }
-.ui-checkbox input:checked + span,
-.ui-checkbox.checked span{
-    background-position:0 -20px;
-}
-.ui-checkbox.checked span{
-    /*background-position:0 -20px;*/
-}
+        .ui-checkbox.checked span{/*选中*/
+            background-position:0 -20px;
+        }
+        .ui-checkbox.disabled span{/*禁用*/
+            cursor:default;
+        }
+        .ui-checkbox.disabled.checked span{/*禁用时选中*/
+            background-position:0 -40px;
+        }
         /*for ie9+*/
+        .ui-checkbox input:checked + span{
+            background-position:0 -20px;
+        }
         .ui-checkbox input:disabled + span{
             cursor:default;
+        }
+        .ui-checkbox input:disabled:checked + span{
+            background-position:0 -40px;
         }
         .ui-checkbox input{
             position:absolute;
@@ -46,7 +61,7 @@
 </head>
 <body>
 
-    <h1>美化复选</h1>
+    <h1>美化复选 - 一种思路</h1>
     
     <dl>
         <dt>
@@ -55,7 +70,7 @@
         <dd>
             <ul>
                 <li>
-                    <label class="ui-checkbox checked">
+                    <label class="ui-checkbox">
                         <input type="checkbox" name="xieliang" value="谢亮1">
                         <span>
                             谢亮1
@@ -162,55 +177,45 @@
                 </li>
             </ul>
         </dd>
+
+
+        <dt>
+            动态设置禁用
+        </dt>
+        <dd id="demo2">
+            <ul>
+                <li>
+                    <label class="ui-checkbox">
+                        <input type="checkbox" name="x" value="ok">
+                        <span>
+                            测试
+                        </span>
+                    </label>
+                </li>
+                <li>
+                    <a href="#">选中</a>
+                    <a href="#">禁用</a>
+                    <button>获取值</button>
+                </li>
+            </ul>
+        </dd>
     </dl>
 
     
 
     <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="checkbox.js"></script>
     <script type="text/javascript">
 
-        (function(){
-            //fix 在ie78里直接使用js的prop,attr等没有改变UI
-            if(!window.addEventListener){
-                $.each([
-                    'attr',
-                    'removeAttr',
-                    'prop',
-                    'removeProp'
-                ], function(index, value){
-                    var _val = $.fn[value];
-                    $.fn[value] = function(){
-                        _val.apply(this, [].slice.call(arguments));
-                        return this.trigger('change');
-                    }
-                });
-            }
-
-            $.fn.checkboxMM = function(){
-                var self = this;
-
-                //如果支持:checked伪类
-                if(window.addEventListener){
-                    return self;
-                }
-                
-                //这里不做判断了,因为可能有选择器数组出现,用的时候选择器必须写对
-                //如果不是绑定的单选
-                // if(!self.length || self[0].nodeName.toUpperCase() !== 'INPUT' || self[0].type !== 'checkbox'){
-                    // return self;
-                // }
-
-                return self.on('change', function(){
-                    $(this).parent().toggleClass('checked');
-                }).filter(':checked').trigger('change');
-            }
-        }());
-
+        
+        $('body, input').checkboxMM();
+        $('body, input').checkboxMM();
+        $('body, input').checkboxMM();
+        $('body, input').checkboxMM();
 
         
-        $('input[type="checkbox"]').checkboxMM();
 
-    
+        // test
         //点击获取        
         $('dl').on('click', 'button', function(){
             var $input = $(this).closest('ul').find('input[type="checkbox"]');
@@ -222,7 +227,21 @@
         });
 
         $('#test1').on('click', function(){
-            $('input').eq(0).prop('checked', !$('input').get(0).checked);
+            $('input').eq(0).prop('checked', !$('input').eq(0).prop('checked'));
+        });
+
+        var $demo2 = $('#demo2');
+        $demo2.find('a').eq(0).on('click', function(){
+            $demo2.find('input').prop('checked', !$demo2.find('input').prop('checked'));
+            return false;
+        });
+        $demo2.find('a').eq(1).on('click', function(){
+            $demo2.find('input').prop('disabled', !$demo2.find('input').prop('disabled'));
+            this.innerHTML = !$demo2.find('input').get(0).disabled ? '禁用' : '启用';
+            return false;
+        });
+        $demo2.find('input').on('change', function(){
+            $demo2.find('a').eq(0).text(this.checked ? '取消': '选中');
         });
     </script>
 </body>
