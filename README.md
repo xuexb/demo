@@ -29,6 +29,7 @@
 * [算法](demo/算法/)
 * [api](demo/api/)
 * [user](demo/user/)
+* [dialog](demo/dialog/)
 
 ## node
 * [redis研究](demo/redis/)
