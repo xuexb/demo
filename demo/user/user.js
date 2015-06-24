@@ -4,6 +4,14 @@
  * @email fe.xiaowu@gmail.com
  * @description 使用iframe+js回调来操作弹出层登录，使用页面href跳转方式操作直接跳转的连接，需要dialog登录页面添加回调
  * @description 登录状态标识需要约定，用户信息需要约定
+ *
+ * @changelog
+ *     1.0 完成大的架子
+ *
+ * @example 登录后提示，并不刷新页面
+ *     User.login(function(){
+ *         alert('我就是不刷新！');
+ *     });
  */
 
 (function() {
@@ -264,6 +272,7 @@
         User.__trigger('login');
     }
 
+    // 初始化
     User.init();
 
     /**
