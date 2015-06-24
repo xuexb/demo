@@ -1,9 +1,6 @@
 # demo
 测试的demo,仓库在 https://github.com/xuexb/demo, 预览在 http://github.xuexb.com
 
-## link
-[http://www.xuexb.com/html/api.html](http://www.xuexb.com/html/api.html)
-
 自豪的使用 [test-ajax](https://github.com/xuexb/test-ajax) 提供的接口响应
 
 ## list
