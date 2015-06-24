@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/**
+ * 弹出层
+ */
+.ui-dl-inner { position: relative; #zoom: 1; box-shadow: 0 0 8px rgba(0, 0, 0, .1); border: solid 1px #dcdcdc; background-color: #fff; }
+.ui-dl-inner h3 { margin: 0; padding: 0; }
+.ui-dl-hd { border-bottom: 2px #eee solid; padding-left: 20px; padding-right: 42px; position: relative; }
+.ui-dl-hd h3 { padding: 13px 0; font-size: 14px; font-weight: bold; color: #333; height: 18px; line-height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-dl-close { position: absolute; right: 0; top: 0; width: 16px; height: 16px; margin: 5px; font-size: 0; padding: 8px; }
+.ui-dl-close i { background: url('./close.png') 0 0 no-repeat; display: block; width: 16px; height: 16px; vertical-align: top; }
+.ui-dl-close:hover i { background-position: -17px 0; }
+@media only screen and (-webkit-min-device-pixel-ratio:1.25), only screen and (min-resolution:120dpi), only screen and (min-resolution:1.25dppx) {
+    .ui-dl-close i { background-image: url('./close@2x.png'); -webkit-background-size: 32px 14px; background-size: 32px 14px; }
+}
+.ui-dl-cnt { padding: 30px 20px; color: #333; font-size: 12px; line-height: 1.6; }
+.ui-dl-ft { padding: 20px; padding-top: 0; line-height: 30px; }
+.ui-dl-btn { float: right; }
+.ui-dl-btn a { margin-left: 10px; display: inline-block; height: 28px; line-height: 28px; font-size: 14px; padding: 0 15px; border-radius: 2px; text-align: center; white-space: nowrap; background-color: #f1f1f1; border: 1px #dedede solid; color: #333; text-decoration: none; }
+.ui-dl-btn a:first-child{margin-left: 0; }
+.ui-dl-btn a.light { border-color: #4898d5; background-color: #2e8ded; color: #fff; }
+.ui-dl-btn a.disabled,.ui-dl-btn a.disabled:hover { background-color: #F9F9F9; color: #ccc; cursor: default; }
+.ui-dl-btn a:hover{background-color: #3092f5; text-decoration: none; background-color: #ececec; }
+.ui-dl-btn a.light:hover{background-color: #3092f5; }
+
+/* 清理浮动 */
+.ui-dl-clear:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+.ui-dl-clear { zoom: 1; /* for IE6 IE7 */ }
