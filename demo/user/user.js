@@ -253,6 +253,7 @@
     User.exit = function(){
         User.status = 0;
         User.__data = {};
+        User.__trigger('exit');
         return User;
     }
 
