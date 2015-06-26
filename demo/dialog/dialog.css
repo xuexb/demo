@@ -32,10 +32,19 @@
 .ui-dl-no-title .ui-dl-hd{border-bottom: none;  }
 
 .ui-dl-mask{
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    user-select: none; 
+    -webkit-filter: blur(3px);
+-moz-filter: blur(3px);
+-o-filter: blur(3px);
+-ms-filter: blur(3px);
+filter: blur(3px);
+
     display: none; 
     position: fixed; width: 100%; height: 100%; left: 0; top: 0; 
-    opacity: .2;
-    filter: alpha(opacity=20);
+    opacity: .4;
+    filter: alpha(opacity=40);
     background-color: #000; 
 }
 
