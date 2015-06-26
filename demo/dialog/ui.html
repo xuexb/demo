@@ -105,5 +105,45 @@
 
         </div>
     </div>
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="dialog.js"></script>
+
+    <script type="text/javascript">
+        new Dialog({
+            content: '多中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>',
+            show: 1
+        }).on('show', function(){
+            new Dialog({
+                title: false,
+                ok: null,
+                cancel: null,
+                lock: false,
+                content: 'fsfs<br>f<br>f<br>f<br>f<br>f地 地'
+            });
+        })
+        new Dialog({
+                title: 'fsdfsfsfdsf无可奈何花落去 顶起',
+                lock: false,
+                ok: null,
+                cancel: false,
+                content: '333 地'
+            });
+
+        // new Dialog({
+        //     content: '多中中中 <br>多中中中多中中中多中中中多中中中多中中中多中中中多中中中多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>',
+        //     show: 1,
+        //     title: false
+        // });
+        // var a = new Dialog({
+        //     content: '中中中中中中中吕中中中中吕中中中中吕中中中中吕中中中中吕中中中中吕'
+        // });
+        // setTimeout(function(){
+        //     a.hide();
+        //     setTimeout(function(){
+        //         a.show();
+        //     }, 2000);
+        // }, 2000);
+    </script>
 </body>
 </html>
