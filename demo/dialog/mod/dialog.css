@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/**
+ * 弹出层
+ * @author xiaowu
+ * @email fe.xiaowu@gmail.com
+ */
+.ui-dl-inner { zoom: 1; position: relative; #zoom: 1; box-shadow: 0 0 8px rgba(0, 0, 0, .1); border: solid 1px #dcdcdc; background-color: #fff; }
+
+/*标题*/
+.ui-dl-inner h3 { margin: 0; padding: 0; }
+.ui-dl-hd { border-bottom: 2px #eee solid; padding-left: 20px; padding-right: 42px; position: relative; }
+.ui-dl-hd h3 { padding: 13px 0; font-size: 14px; font-weight: bold; color: #333; height: 18px; line-height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/*没有标题时*/
+.ui-dl-no-title .ui-dl-hd h3 { display: none; }
+.ui-dl-no-title .ui-dl-hd { border-bottom: none; }
+
+/*关闭按钮*/
+.ui-dl-close { position: absolute; right: 0; top: 0; width: 16px; height: 16px; margin: 5px; font-size: 0; padding: 8px; cursor: pointer; }
+.ui-dl-close i { background: url('./close.png') 0 0 no-repeat; display: block; width: 16px; height: 16px; vertical-align: top; }
+.ui-dl-close:hover i { background-position: -17px 0; }
+
+/*retina*/
+@media only screen and (-webkit-min-device-pixel-ratio:1.25), only screen and (min-resolution:120dpi), only screen and (min-resolution:1.25dppx) {
+    .ui-dl-close i { background-image: url('./close@2x.png'); -webkit-background-size: 32px 14px; background-size: 32px 14px; }
+}
+
+/*内容*/
+.ui-dl-cnt { color: #333; font-size: 12px; line-height: 1.6; }
+
+/*按钮*/
+.ui-dl-btn { padding: 20px; padding-top: 0; line-height: 30px; text-align: right; }
+.ui-dl-btn a { margin-left: 10px; display: inline-block; height: 28px; line-height: 28px; font-size: 14px; padding: 0 15px; border-radius: 2px; text-align: center; white-space: nowrap; background-color: #f1f1f1; border: 1px #dedede solid; color: #333; text-decoration: none; user-select: none; -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; *display: inline; *zoom: 1; text-decoration: none; }
+.ui-dl-btn a:first-child { margin-left: 0; }
+.ui-dl-btn a.light { border-color: #4898d5; background-color: #2e8ded; color: #fff; }
+.ui-dl-btn a.disabled, .ui-dl-btn a.disabled:hover, .ui-dl-btn a.disabled:active, .ui-dl-btn a.loading, .ui-dl-btn a.loading:hover, .ui-dl-btn a.loading:active { background-color: #F9F9F9; color: #ccc; cursor: default; }
+.ui-dl-btn a.loading, .ui-dl-btn a.loading:hover, .ui-dl-btn a.loading:active { background-color: #E7E2E2; }
+.ui-dl-btn a:hover { background-color: #3092f5; text-decoration: none; background-color: #ececec; }
+.ui-dl-btn a.light:hover { background-color: #3092f5; }
+.ui-dl-btn a.loading span { background: url('loading-16-16.gif') left center no-repeat; padding-left: 26px; }
+
+/*遮罩*/
+.ui-dl-mask { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-filter: blur(3px); -moz-filter: blur(3px); -o-filter: blur(3px); -ms-filter: blur(3px); filter: blur(3px); display: none; position: fixed; width: 100%; height: 100%; left: 0; top: 0; opacity: .4; filter: alpha(opacity=40); background-color: #000; }
+
+/*ie9+展现动画*/
+@media screen and (min-width:0) {
+    .ui-dl-inner { -webkit-transform: scale(0); transform: scale(0); -webkit-transition: -webkit-transform .2s ease-in-out, opacity .3s; transition: transform .2s ease-in-out, opacity .3s; }
+    .ui-dl-show .ui-dl-inner { -webkit-transform: scale(1); transform: scale(1); }
+}

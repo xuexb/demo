@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <title>UI</title>
 
-    <link rel="stylesheet" type="text/css" href="dialog.css">
+    <link rel="stylesheet" type="text/css" href="mod/dialog.css">
     <style type="text/css">
-        #demo1{
-            width: 400px; 
-        }
+        .ui-dl-inner { -webkit-transform: scale(1); transform: scale(1); }
+        .ui-dl-cnt{padding:20px 30px;}
     </style>
 </head>
 <body>
@@ -26,8 +25,8 @@
             <div class="ui-dl-ft" i="foot">
                 <div class="ui-dl-clear">
                     <div class="ui-dl-btn">
-                        <a href="#" class="light">确定</a>
-                        <a href="#">取消</a>
+                        <a href="#" class="light"><span>确定</span></a>
+                        <a href="#"><span>取消</span></a>
                     </div>    
                 </div>
             </div>
@@ -43,7 +42,7 @@
         </div>
     </div>
 
-    <div style="width:300px;">
+    <div style="width:500px;">
         <div class="ui-dl-inner">
 
             <div class="ui-dl-cnt" i="content">
@@ -53,9 +52,10 @@
             <div class="ui-dl-ft" i="foot">
                 <div class="ui-dl-clear">
                     <div class="ui-dl-btn">
-                        <a href="#" class="light">确定</a>
-                        <a href="#" class="disabled">禁用</a>
-                        <a href="#">取消</a>
+                        <a href="#" class="light"><span>确定</span></a>
+                        <a href="#" class="disabled"><span>禁用</span></a>
+                        <a href="#" class="loading"><span>加载</span></a>
+                        <a href="#"><span>取消</span></a>
                     </div>    
                 </div>
             </div>
@@ -83,9 +83,9 @@
             <div class="ui-dl-ft" i="foot">
                 <div class="ui-dl-clear">
                     <div class="ui-dl-btn">
-                        <a href="#" class="light">确定</a>
-                        <a href="#" class="disabled">禁用</a>
-                        <a href="#">取消</a>
+                        <a href="#" class="light"><span>确定</span></a>
+                        <a href="#" class="disabled"><span>禁用</span></a>
+                        <a href="#"><span>取消</span></a>
                     </div>    
                 </div>
             </div>
@@ -106,42 +106,6 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="dialog.js"></script>
-
-    <script type="text/javascript">
-        new Dialog({
-            content: '多中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>',
-            show: 1
-        }).on('show', function(){
-            new Dialog({
-                title: false,
-                ok: null,
-                cancel: null,
-                content: 'fsfs<br>f<br>f<br>f<br>f<br>f地 地'
-            });
-        })
-        new Dialog({
-                title: 'fsdfsfsfdsf无可奈何花落去 顶起',
-                ok: null,
-                cancel: false,
-                content: '333 地'
-            });
-
-        // new Dialog({
-        //     content: '多中中中 <br>多中中中多中中中多中中中多中中中多中中中多中中中多中中中多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>多中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>',
-        //     show: 1,
-        //     title: false
-        // });
-        // var a = new Dialog({
-        //     content: '中中中中中中中吕中中中中吕中中中中吕中中中中吕中中中中吕中中中中吕'
-        // });
-        // setTimeout(function(){
-        //     a.hide();
-        //     setTimeout(function(){
-        //         a.show();
-        //     }, 2000);
-        // }, 2000);
-    </script>
+    
 </body>
 </html>

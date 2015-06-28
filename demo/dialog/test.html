@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+
+    <link rel="stylesheet" type="text/css" href="mod/dialog.css">
+</head>
+<body>
+
+    <div>怕就去 看看看看k看看看看看</div>
+
+    <div style="height:1800px;background-color:#ccc;"></div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+    <div>怕就去 看看看看k看看看看看</div>
+
+
+    <script type="text/javascript" src="http://libs.useso.com/js/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="mod/dialog.js"></script>
+
+    <script type="text/javascript">
+        $('body').on('click', function() {
+            var a = new Dialog({
+                content: '发表成功',
+                title: '提示',
+                padding: '10px 30px',
+                fixed: true,
+                lock: false,
+                time: 3000,
+                width: 200,
+                ok: function(){
+                    new Dialog('test', function(){
+                        new Dialog({
+                            lock: false,
+                            content:'关不掉',
+                            visible: false,
+                            button: [
+                                {
+                                    id: 'ok',
+                                    value:'真的',
+                                    loading: true
+                                }
+                            ]
+                        }).on('close', false).show().button({
+                            id: 'test',
+                            value: '点一个试试',
+                            callback: function(){
+                                var self = this;
+                                self.button({
+                                    id: 'test',
+                                    value:'哈哈',
+                                    loading: true
+                                });
+
+                                setTimeout(function(){
+                                    var $elem = self.find('buttons').find('a[data-id=test]');
+                                    self.button({
+                                        id: 'test',
+                                        disabled: true
+                                    });
+
+                                    var count = 5;
+                                    var fn = function(){
+                                        $elem.text('禁用'+ count + '秒');
+                                        count -= 1;
+
+                                        if(count === 0){
+                                            self.button({
+                                                id: 'test',
+                                                value: '关闭',
+                                                light: true,
+                                                focus: true,
+                                                callback: function(){
+                                                    this.off('close');
+                                                }
+                                            });
+                                            return false;
+                                        }
+
+                                        setTimeout(fn, 1000);
+                                    }
+                                    fn();
+                                }, 1000);
+                            }
+                        }).button({
+                            id: 'mask',
+                            value: '开遮罩',
+                            light: true,
+                            callback: function(){
+                                var $elem = this.find('buttons').find('[data-id=mask]');
+
+                                if($elem.data('ok')){
+                                    this.unlock();
+                                    $elem.text('开遮罩').data('ok', 0);
+                                } else {
+                                    this.lock();
+                                    $elem.text('关遮罩').data('ok', 1);
+                                }
+                            }
+                        });
+                    });
+                    return false;
+                },
+                cancel: 1
+            }).on('show', function(){
+            }).lock();
+            // new Dialog({
+            //     content: '多中中中多中中中多中中中多中中中多中中中多中中中多中中中多中中中多中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>中中中 <br>fds jskldjfkl<br>',
+            //     title: false
+            // });
+        });
+        $('body').on('click', '.ui-dl-inner', false);
+    </script>
+</body>
+</html>
