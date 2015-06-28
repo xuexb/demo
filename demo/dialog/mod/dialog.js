@@ -4,7 +4,10 @@
  * @email fe.xiaowu@gmail.com
  *
  * @description 内部方法以 __ 开头，标识类以 _ 开头
- * @description ie7+
+ *              ie7+
+ *              提供事件驱动（`show`,`hide`,`close`）
+ *              提供内部元素接口
+ *              按钮支持多状态
  */
 
 (function() {
@@ -87,6 +90,30 @@
         // 创建骨架到页面，但是看不到类
         self.__create();
 
+        if (config.url) {
+            self.find('wrap').addClass(Prefix+'iframe');
+
+            self.find('content').css('padding', 0);
+
+            self.__jquery.iframe = $('<iframe />')
+                .attr({
+                    src: config.url,
+                    // width: '100%',
+                    // height: '100%',
+                    allowtransparency: 'yes',
+                    scrolling: config.iframeScroll ? 'yes' : 'no' //ie7下有滚动条
+                }).on('load', function() {
+                    self.iframeAuto();
+                });
+
+            self.content(self.__jquery.iframe);
+
+            self.on('close', function() {
+                // 重要！需要重置iframe地址，否则下次出现的对话框在IE6、7无法聚焦input
+                // IE删除iframe后，iframe仍然会留在内存中出现上述问题，置换src是最容易解决的方法
+                this.find('iframe').attr('src', 'about:blank').remove();
+            });
+        }
 
         self.button.apply(self, config.button) //设置按钮
             .time(config.time) //设置时间
@@ -153,6 +180,41 @@
     }
 
     /**
+     * iframe自适应
+     * @return self
+     */
+    Dialog.prototype.iframeAuto = function() {
+        var self = this,
+            config = self.__config,
+            $iframe = self.find('iframe'),
+            test;
+
+        if ($iframe.length && (config.width === 'auto' || config.height === 'auto')) {
+            try {
+                // 跨域测试
+                test = $iframe[0].contentWindow.frameElement;
+            } catch (e) {}
+
+            if (test) {
+
+                if (config.width === 'auto') {
+                    self.width($iframe.contents().width());
+                }
+                if (config.height === 'auto') {
+                    self.height($iframe.contents().height());
+                }
+            }
+        }
+        return self;
+    }
+
+    Dialog.prototype.content = function(message){
+        this.find('content').html(message); //设置内容不解释
+        // this._reset();//重置下位置
+        return this.position();
+    }
+
+    /**
      * 置顶
      * @return self
      */
@@ -174,7 +236,7 @@
 
     /**
      * 绑定事件
-     * @param {string} name 事件名，支持login,exit
+     * @param {string} name 事件名，支持hide,show,close
      * @param {function|boolean} callback 事件回调
      * @return self
      */
@@ -191,7 +253,7 @@
 
     /**
      * 绑定事件（只触发单次）
-     * @param {string} name 事件名，支持login,exit
+     * @param {string} name 事件名，支持hide,show,close
      * @param {function|boolean} callback 事件回调
      * @return self
      */
@@ -430,7 +492,7 @@
         var self = this;
 
         // 如果已经关闭或者回调里返回false则不关闭
-        if (self._closed || this.__trigger('close') === false) {
+        if (self._closed || self.__trigger('close') === false) {
             return self;
         }
 
@@ -667,6 +729,8 @@
         button: [], //按钮组
         okValue: '确定', //确定
         cancelValue: '取消', //取消
+        url: null,//iframeurl
+        iframeScroll: false,//iframe 滚动
         time: null //自动关闭
     }
 
