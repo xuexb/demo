@@ -126,7 +126,16 @@
                                     $elem.text('关遮罩').data('ok', 1);
                                 }
                             }
-                        });
+                        }).button({
+                            id: 'iframe',
+                            value: '弹出iframe',
+                            callback: function(){
+                                new Dialog({
+                                    // url: 'http://www.xuexb.com/?dialog'
+                                    url: '/demo/dialog/test.html'
+                                })
+                            }
+                        })
                     });
                     return false;
                 },
