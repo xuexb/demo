@@ -260,7 +260,7 @@
                 return true;
             } : callback === false ? function() {
                 return false;
-            } : 'function' === typeof callback ? callback : function() {}
+            } : $.isFunction(callback) ? callback : function() {}
         });
         return this;
     }
