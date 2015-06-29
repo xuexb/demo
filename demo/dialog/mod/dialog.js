@@ -10,6 +10,8 @@
  *              按钮支持多状态
  */
 
+/* global $ */
+
 (function() {
     'use strict';
 
@@ -90,24 +92,28 @@
         // 创建骨架到页面，但是看不到类
         self.__create();
 
+        // 如果是iframe
         if (config.url) {
-            self.find('wrap').addClass(Prefix+'iframe');
+            // 添加类名
+            self.find('wrap').addClass(Prefix + 'iframe');
 
+            // 清空填充
             self.find('content').css('padding', 0);
 
+            // 创建iframe
             self.__jquery.iframe = $('<iframe />')
                 .attr({
                     src: config.url,
-                    // width: '100%',
-                    // height: '100%',
                     allowtransparency: 'yes',
                     scrolling: config.iframeScroll ? 'yes' : 'no' //ie7下有滚动条
                 }).on('load', function() {
                     self.iframeAuto();
                 });
 
-            self.content(self.__jquery.iframe);
+            // 设置到页面
+            self.content(self.find('iframe'));
 
+            // 绑定关闭时清空
             self.on('close', function() {
                 // 重要！需要重置iframe地址，否则下次出现的对话框在IE6、7无法聚焦input
                 // IE删除iframe后，iframe仍然会留在内存中出现上述问题，置换src是最容易解决的方法
@@ -126,7 +132,7 @@
         if (is_animate) {
             self.on('show', function() {
                 //强制重排
-                self.find('wrap').get(0).offsetWidth;
+                $.noop(self.find('wrap').get(0).offsetWidth);
                 self.find('wrap').addClass(Prefix + 'show');
             }).on('hide', function() {
                 this.find('wrap').removeClass(Prefix + 'show');
@@ -146,17 +152,21 @@
         // 绑定按钮组事件，禁用和loading不可点
         self.find('buttons').on('click', 'a', function() {
             var that = this,
-                id, fn;
+                fn;
 
+            // 如果禁用或者加载中
             if (that.className.indexOf('disabled') > -1 || that.className.indexOf('loading') > -1) {
                 return false;
             }
 
-            id = $(that).data('id');
-            fn = self.__listeners[id];
+            // 找到这个按钮的回调
+            fn = self.__listeners[$(that).data('id')];
 
-            if (fn && 'function' === typeof fn.callback && fn.callback.call(self) === false) {
-                return false;
+            // 如果回调里返回false则不关闭 或者直接设置false
+            if (fn) {
+                if(fn.callback === false || ('function' === fn.callback && fn.callback.call(self) === false)){
+                    return false;
+                }
             }
 
             return !self.close();
@@ -208,9 +218,13 @@
         return self;
     }
 
-    Dialog.prototype.content = function(message){
+    /**
+     * 设置内容
+     * @param  {string|dom} message 内容
+     * @return self
+     */
+    Dialog.prototype.content = function(message) {
         this.find('content').html(message); //设置内容不解释
-        // this._reset();//重置下位置
         return this.position();
     }
 
@@ -690,7 +704,9 @@
                     <h3 i="title"></h3>\
                     <a class="ui-dl-close" i="close" href="#"><i>关闭</i></a>\
                 </div>\
-                <div class="ui-dl-cnt" i="content" style="padding:' + config.padding + '">' + config.content + '</div>\
+                <div class="ui-dl-cnt" i="content" style="padding:' + config.padding + '">\
+                    ' + config.content + '\
+                </div>\
                 <div class="ui-dl-ft" i="foot">\
                     <div class="ui-dl-btn" i="buttons"></div>\
                 </div>\
@@ -729,8 +745,8 @@
         button: [], //按钮组
         okValue: '确定', //确定
         cancelValue: '取消', //取消
-        url: null,//iframeurl
-        iframeScroll: false,//iframe 滚动
+        url: null, //iframeurl
+        iframeScroll: false, //iframe 滚动
         time: null //自动关闭
     }
 
