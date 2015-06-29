@@ -164,7 +164,7 @@
 
             // 如果回调里返回false则不关闭 或者直接设置false
             if (fn) {
-                if(fn.callback === false || ('function' === fn.callback && fn.callback.call(self) === false)){
+                if (fn.callback === false || ($.isFunction(fn.callback) && fn.callback.call(self) === false)) {
                     return false;
                 }
             }
