@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport" />
+
+    <style type="text/css">
+        *{padding: 0; margin: 0; }
+        /*icon*/
+.wa-singer-v2-song-play,
+.wa-singer-v2-song-down,
+.wa-singer-v2-foot-trans > li:before{
+    background-repeat: no-repeat; 
+    background-image: url('http://github.xuexb.com/uploads/singer-v2.png');
+    -webkit-background-size: 24px 150px; 
+    background-size: 24px 150px; 
+}
+
+
+        /*底部tab导航*/
+.wa-singer-v2-foot { color: #999; }
+.wa-singer-v2-foot-wrap { width: 100%; overflow: hidden; background-color: #fafafa; }
+.wa-singer-v2-foot-trans { font-size: 0; border-top: 1px solid  #dcdcdc; height: 50px; line-height: 50px;   white-space: nowrap;}
+.wa-singer-v2-foot-trans > li { display: inline-block; font-size: 14px; }
+.wa-singer-v2-foot-trans span { padding: 0 5px; height: 18px; display: inline-block; line-height: 18px; vertical-align: middle; border-right: 1px solid  #eee; }
+.wa-singer-v2-foot-trans-current { border-bottom: 1px solid  #3bf; border-right: 1px solid  #dcdcdc; border-left: 1px solid  #dcdcdc; background-color: #fff; position: relative; top: -1px; color: #333; }
+.wa-singer-v2-foot-trans li:first-child.wa-singer-v2-foot-trans-current { border-left: none; }
+.wa-singer-v2-foot-trans > li:before { content: ' '; display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-left: 8px;}
+.wa-singer-v2-foot-trans > li[data-type=baidu]:before{background-position: 0 0; }
+.wa-singer-v2-foot-trans > li[data-type=xiami]:before{background-position: 0 -18px; }
+.wa-singer-v2-foot-trans > li[data-type=qq]:before{background-position: 0 -36px; }
+.wa-singer-v2-foot-trans > li[data-type=yiting]:before{background-position: 0 -54px; }
+.wa-singer-v2-foot-trans > li[data-type=wangyi]:before{background-position: 0 -72px; }
+
+
+body{background-color: #ccc; }
+    </style>
+</head>
+<body>
+    
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+                <li data-type="wangyi">
+                    <span>网易云音乐</span>
+                </li>
+                <li data-type="qq">
+                    <span>QQ音乐</span>
+                </li>
+                <li class="wa-singer-v2-foot-trans-current" data-type="xiami">
+                    <span>虾米音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
+    <script type="text/javascript">
+        var Foot = (function() {
+            'use strict';
+
+            function Foot(config) {
+                var self = this;
+
+                self.__config = config = $.extend(true, {}, Foot.defaults, config || {});
+
+                self.index = config.index;
+
+                self.$wrap = $(config.elem);
+                self.$item = self.$wrap.children();
+
+                self.innerWidth = 0;
+                self.$item.each(function() {
+                    self.innerWidth += $(this).width();
+                });
+
+                self.length = self.$item.length;
+
+                self.wrapWidth = self.$wrap.width();
+
+                self.__left = 0;
+
+                self.__bindTouch();
+            }
+
+            Foot.prototype.__bindTouch = function() {
+                var self = this,
+                    speed = self.__config.speed,
+                    scrollY, startX, startY, distX, distY, move, end, offsetX;
+
+                self.$wrap.on('click', 'li', function(){
+                    console.log(this);
+                });
+
+                self.$wrap.on('touchstart', function(event) {
+                    var point = event.touches[0];
+                    startX = point.pageX;
+                    startY = point.pageY;
+
+                    distX = 0;
+                    offsetX = 0;
+                    scrollY = void 0;
+
+                    //添加“触摸移动”事件监听
+                    self.$wrap[0].addEventListener('touchmove', move, false);
+                    //添加“触摸结束”事件监听
+                    self.$wrap[0].addEventListener('touchend', end, false);
+                });
+
+
+                //触摸移动函数
+                move = function(event) {
+                    var point = event.touches[0];
+
+                    //偏移
+                    distX = point.pageX - startX;
+                    distY = point.pageY - startY;
+
+                    if (scrollY === void 0) {
+                        scrollY = Math.abs(distY) > Math.abs(distX) ? true : false;
+                    }
+
+                    // 如果不是上下滑动
+                    if (scrollY !== true) {
+                        event.preventDefault();
+
+                        if (distX > 0) {
+                            //|| (index >= self.length - 1 && distX < 0)
+                            distX *= 0.4
+                        }
+
+                        offsetX = self.__left + distX;
+
+                        //动画
+                        self.__anim(offsetX, 0);
+                    }
+                }
+
+                //触摸结束函数
+                end = function() {
+                    var left;
+
+                    if (scrollY !== true) {
+                        left = null;
+
+                        //弹性结束后
+                        if(offsetX > 0){
+                            left = 0;
+                        } else if(self.innerWidth < self.wrapWidth){
+                            left = 0;
+                        } else if(-offsetX + self.wrapWidth > self.innerWidth){
+                            left = - (self.innerWidth - self.wrapWidth);
+                        }
+
+                        if(left !== null){
+                            self.__left = left;
+                            self.__anim(left, speed);
+                        }
+                    }
+
+                    self.$wrap[0].removeEventListener('touchmove', move, false);
+                    self.$wrap[0].removeEventListener('touchend', end, false);
+                }
+            }
+
+            Foot.prototype.__anim = function(dist, speed) {
+                var css = this.$wrap[0].style;
+
+                // css.webkitTransitionDuration = css.transitionDuration = speed + 'ms';
+                // css.webkitTransform = css.transform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
+
+                // GPU加速
+                css.webkitTransition = css.transition = speed + 'ms ease-out';
+                css.webkitTransform = css.transform = 'translate3d(' + dist + 'px, 0, 0)';
+            }
+
+            Foot.defaults = {
+                end: $.noop,
+                elem: null,
+                index: 0,
+                speed: 300,
+            }
+
+            return Foot;
+        })();
+
+        // 绑定foot导航change事件
+        new Foot({
+            elem: $('.wa-singer-v2-foot-trans'),
+            change: function(){
+                // var data = DATA[this.index];
+
+                // // 如果切换的没有数据 则视为假的，这里应该不会出现
+                // if (!data) {
+                //     return;
+                // }
+
+                // // 一层一层渲染，从上到下，从里到外
+                // // render_title(data);
+                // // render_info(data);
+                // // render_btn(data);
+
+                // // 先判断当前的索引数据是否渲染过，如果没有则生成，有则忽略，不销毁
+                // // if($song.find('[data-type="'+ data.sitePinyin +'"').length){
+                // //     // $song.children().hide();
+                // //     // $song.find('[data-type="'+ data.sitePinyin +'"').show();
+                // // } else {
+                // //     // render_song(data);
+                // // }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
