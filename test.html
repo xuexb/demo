@@ -79,6 +79,22 @@ body{background-color: #ccc; }
             <ul class="wa-singer-v2-foot-trans">
                 <li data-type="baidu">
                     <span>百度音乐</span>
+                </li>
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
                 </li><li data-type="baidu">
                     <span>百度音乐</span>
                 </li><li data-type="baidu">
@@ -154,7 +170,9 @@ body{background-color: #ccc; }
                         });    
                     }
 
-                    if(left + self.wrapWidth > self.innerWidth){
+                    if(self.innerWidth < self.wrapWidth){
+                        left = 0;
+                    } else if(left + self.wrapWidth > self.innerWidth){
                         left = self.innerWidth - self.wrapWidth;
                     }
 
@@ -243,12 +261,12 @@ body{background-color: #ccc; }
             Foot.prototype.__anim = function(dist, speed) {
                 var css = this.$wrap[0].style;
 
-                // css.webkitTransitionDuration = css.transitionDuration = speed + 'ms';
-                // css.webkitTransform = css.transform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
+                css.webkitTransitionDuration = css.transitionDuration = speed + 'ms';
+                css.webkitTransform = css.transform = 'translate(' + dist + 'px,0)' + 'translateZ(0)';
 
                 // GPU加速
-                css.webkitTransition = css.transition = speed + 'ms ease-out';
-                css.webkitTransform = css.transform = 'translate3d(' + dist + 'px, 0, 0)';
+                // css.webkitTransition = css.transition = speed + 'ms ease-out';
+                // css.webkitTransform = css.transform = 'translate3d(' + dist + 'px, 0, 0)';
             }
 
             Foot.defaults = {
