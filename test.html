@@ -60,6 +60,55 @@ body{background-color: #ccc; }
             </ul>
         </div>
     </div>
+
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li><li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+                <li data-type="wangyi">
+                    <span>网易云音乐</span>
+                </li>
+                <li data-type="qq">
+                    <span>QQ音乐</span>
+                </li>
+                <li class="wa-singer-v2-foot-trans-current" data-type="xiami">
+                    <span>虾米音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
     <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
     <script type="text/javascript">
         var Foot = (function() {
@@ -70,14 +119,15 @@ body{background-color: #ccc; }
 
                 self.__config = config = $.extend(true, {}, Foot.defaults, config || {});
 
-                self.index = config.index;
-
                 self.$wrap = $(config.elem);
                 self.$item = self.$wrap.children();
 
                 self.innerWidth = 0;
+                self.itemWidthArr = [];
                 self.$item.each(function() {
-                    self.innerWidth += $(this).width();
+                    var width = $(this).width();
+                    self.innerWidth += width;
+                    self.itemWidthArr.push(width);
                 });
 
                 self.length = self.$item.length;
@@ -95,7 +145,24 @@ body{background-color: #ccc; }
                     scrollY, startX, startY, distX, distY, move, end, offsetX;
 
                 self.$wrap.on('click', 'li', function(){
-                    console.log(this);
+                    var index = $(this).index(),
+                        left = 0;
+
+                    if(index > 0){
+                        self.itemWidthArr.concat().slice(0, $(this).index()).map(function(val){
+                            left += val;
+                        });    
+                    }
+
+                    if(left + self.wrapWidth > self.innerWidth){
+                        left = self.innerWidth - self.wrapWidth;
+                    }
+
+                    self.__anim(-left, speed);
+
+                    self.__left = -left;
+
+                    self.__config.change.call(self, index);
                 });
 
                 self.$wrap.on('touchstart', function(event) {
@@ -131,7 +198,6 @@ body{background-color: #ccc; }
                         event.preventDefault();
 
                         if (distX > 0) {
-                            //|| (index >= self.length - 1 && distX < 0)
                             distX *= 0.4
                         }
 
@@ -144,28 +210,33 @@ body{background-color: #ccc; }
 
                 //触摸结束函数
                 end = function() {
-                    var left;
 
                     if (scrollY !== true) {
-                        left = null;
-
-                        //弹性结束后
-                        if(offsetX > 0){
-                            left = 0;
-                        } else if(self.innerWidth < self.wrapWidth){
-                            left = 0;
-                        } else if(-offsetX + self.wrapWidth > self.innerWidth){
-                            left = - (self.innerWidth - self.wrapWidth);
-                        }
-
-                        if(left !== null){
-                            self.__left = left;
-                            self.__anim(left, speed);
-                        }
+                        to(offsetX);
                     }
 
                     self.$wrap[0].removeEventListener('touchmove', move, false);
                     self.$wrap[0].removeEventListener('touchend', end, false);
+                }
+
+                function to(target){
+                    var left = null;
+
+                    if(target > 0){
+                        left = 0;
+                    } else if(self.innerWidth < self.wrapWidth){
+                        left = 0;
+                    } else if(-target + self.wrapWidth > self.innerWidth){
+                        left = - (self.innerWidth - self.wrapWidth);
+                    }//这里是缓冲
+
+                    if(left !== null){
+                        self.__anim(left, speed);
+                    } else {
+                        left = target;
+                    }
+
+                    self.__left = left;
                 }
             }
 
@@ -181,40 +252,27 @@ body{background-color: #ccc; }
             }
 
             Foot.defaults = {
-                end: $.noop,
+                change: function(){},
                 elem: null,
-                index: 0,
                 speed: 300,
             }
 
             return Foot;
         })();
 
-        // 绑定foot导航change事件
-        new Foot({
-            elem: $('.wa-singer-v2-foot-trans'),
-            change: function(){
-                // var data = DATA[this.index];
 
-                // // 如果切换的没有数据 则视为假的，这里应该不会出现
-                // if (!data) {
-                //     return;
-                // }
-
-                // // 一层一层渲染，从上到下，从里到外
-                // // render_title(data);
-                // // render_info(data);
-                // // render_btn(data);
-
-                // // 先判断当前的索引数据是否渲染过，如果没有则生成，有则忽略，不销毁
-                // // if($song.find('[data-type="'+ data.sitePinyin +'"').length){
-                // //     // $song.children().hide();
-                // //     // $song.find('[data-type="'+ data.sitePinyin +'"').show();
-                // // } else {
-                // //     // render_song(data);
-                // // }
-            }
+        $('.wa-singer-v2-foot-trans').each(function(){
+            // 绑定foot导航change事件
+            new Foot({
+                elem: this,
+                change: function(index){
+                    console.log(this.index, index);
+                    this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
+                }
+            });
         });
+
+        
 
     </script>
 
