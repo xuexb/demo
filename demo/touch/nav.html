@@ -18,56 +18,31 @@
 }
 
 
-        /*底部tab导航*/
+
 .wa-singer-v2-foot { color: #999; }
-.wa-singer-v2-foot-wrap { width: 100%; overflow: hidden; background-color: #fafafa;border-top: 1px solid  #dcdcdc; }
-.wa-singer-v2-foot-trans { font-size: 0; /*border-top: 1px solid  #dcdcdc;*/ height: 50px; line-height: 50px;   white-space: nowrap;}
+.wa-singer-v2-foot-wrap { width: 100%; background-color: #fafafa; border-top: 1px solid  #d9d9d9; }
+.wa-singer-v2-foot-trans { overflow: hidden; font-size: 0; height: 50px; line-height: 50px; white-space: nowrap; width: 100%; overflow-x: auto; margin-top: -1px; }
+.wa-singer-v2-foot-trans { -webkit-overflow-scrolling: touch; }
+.wa-singer-v2-foot-trans::-webkit-scrollbar { display: none; }
+.wa-singer-v2-foot-trans > li { -webkit-transform: translateZ(0px); }
 .wa-singer-v2-foot-trans > li { display: inline-block; font-size: 14px; }
-.wa-singer-v2-foot-trans span { padding: 0 5px; height: 18px; display: inline-block; line-height: 18px; vertical-align: middle; border-right: 1px solid  #eee; }
-.wa-singer-v2-foot-trans-current { border-bottom: 1px solid  #3bf; border-right: 1px solid  #dcdcdc; border-left: 1px solid  #dcdcdc; background-color: #fff; position: relative; top: -1px; color: #333; }
+.wa-singer-v2-foot-trans > li:last-child span{border-right: none; }
+.wa-singer-v2-foot-trans span { padding: 0 10px; height: 18px; display: inline-block; line-height: 18px; vertical-align: middle; border-right: 1px solid  #eee; }
+.wa-singer-v2-foot-trans-current { border-right: 1px solid  #d9d9d9; border-left: 1px solid  #d9d9d9; background-color: #fff; position: relative; top: -1px; color: #333;height: 51px; line-height: 51px;  }
+.wa-singer-v2-foot-trans-current span{border-right: none; }
 .wa-singer-v2-foot-trans li:first-child.wa-singer-v2-foot-trans-current { border-left: none; }
-.wa-singer-v2-foot-trans > li:before { content: ' '; display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-left: 8px;}
-.wa-singer-v2-foot-trans > li[data-type=baidu]:before{background-position: 0 0; }
-.wa-singer-v2-foot-trans > li[data-type=xiami]:before{background-position: 0 -18px; }
-.wa-singer-v2-foot-trans > li[data-type=qq]:before{background-position: 0 -36px; }
-.wa-singer-v2-foot-trans > li[data-type=yiting]:before{background-position: 0 -54px; }
-.wa-singer-v2-foot-trans > li[data-type=wangyi]:before{background-position: 0 -72px; }
+.wa-singer-v2-foot-trans > li:before { content: ' '; width: 14px; height: 14px; vertical-align: middle; margin-left: 14px; display: none;  }
+.wa-singer-v2-foot-trans > .wa-singer-v2-foot-trans-current:before{display: inline-block; }
+.wa-singer-v2-foot-trans > li[data-type=baidu]:before { background-position: 0 0; }
+.wa-singer-v2-foot-trans > li[data-type=xiami]:before { background-position: 0 -18px; }
+.wa-singer-v2-foot-trans > li[data-type=qq]:before { background-position: 0 -36px; }
+.wa-singer-v2-foot-trans > li[data-type=yiting]:before { background-position: 0 -54px; }
+.wa-singer-v2-foot-trans > li[data-type=wangyi]:before { background-position: 0 -72px; }
 
-
-
-/*icon*/
-.wa-singer-v3-song-play,
-.wa-singer-v3-song-down,
-.wa-singer-v3-foot-trans > li:before{
-    background-repeat: no-repeat; 
-    background-image: url('http://github.xuexb.com/uploads/singer-v2.png');
-    -webkit-background-size: 24px 150px; 
-    background-size: 24px 150px; 
-}
-
-
-        /*底部tab导航*/
-.wa-singer-v3-foot { color: #999; }
-.wa-singer-v3-foot-wrap { width: 100%; background-color: #fafafa; border-top: 1px solid  #dcdcdc; }
-.wa-singer-v3-foot-trans { overflow: hidden; font-size: 0; height: 50px; line-height: 50px; white-space: nowrap; width: 100%; overflow-x: auto; margin-top: -1px; }
-.wa-singer-v3-foot-trans { -webkit-overflow-scrolling: touch; }
-.wa-singer-v3-foot-trans::-webkit-scrollbar { display: none; }
-.wa-singer-v3-foot-trans > li { -webkit-transform: translateZ(0px); }
-.wa-singer-v3-foot-trans > li { display: inline-block; font-size: 14px; }
-.wa-singer-v3-foot-trans span { padding: 0 5px; height: 18px; display: inline-block; line-height: 18px; vertical-align: middle; border-right: 1px solid  #eee; }
-.wa-singer-v3-foot-trans-current { border-bottom: 1px solid  #3bf; border-right: 1px solid  #dcdcdc; border-left: 1px solid  #dcdcdc; background-color: #fff; position: relative; top: -1px; color: #333; }
-.wa-singer-v3-foot-trans-current span{border-right: none; }
-.wa-singer-v3-foot-trans li:first-child.wa-singer-v3-foot-trans-current { border-left: none; }
-.wa-singer-v3-foot-trans > li:before { content: ' '; display: inline-block; width: 14px; height: 14px; vertical-align: middle; margin-left: 8px; }
-.wa-singer-v3-foot-trans > li[data-type=baidu]:before { background-position: 0 0; }
-.wa-singer-v3-foot-trans > li[data-type=xiami]:before { background-position: 0 -18px; }
-.wa-singer-v3-foot-trans > li[data-type=qq]:before { background-position: 0 -36px; }
-.wa-singer-v3-foot-trans > li[data-type=yiting]:before { background-position: 0 -54px; }
-.wa-singer-v3-foot-trans > li[data-type=wangyi]:before { background-position: 0 -72px; }
 
 
 .wa-singer-v2-foot,.wa-singer-v3-foot{margin: 10px 0; }
-
+.wa-singer-v2-foot{border-bottom: 1px solid  #ccc; }
     </style>
 </head>
 <body>
@@ -354,18 +329,18 @@
 
         $('.wa-singer-v2-foot-trans').each(function(){
             // 绑定foot导航change事件
-            new Foot({
-                elem: this,
-                change: function(index){
-                    console.log(this.index, index);
-                    this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
-                }
-            });
+            // new Foot({
+            //     elem: this,
+            //     change: function(index){
+            //         console.log(this.index, index);
+            //         this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
+            //     }
+            // });
         });
 
         
-        $('.wa-singer-v3-foot-trans').find('li').click(function(){
-            $(this).addClass('wa-singer-v3-foot-trans-current').siblings().removeClass('wa-singer-v3-foot-trans-current')
+        $('.wa-singer-v2-foot-trans').find('li').click(function(){
+            $(this).addClass('wa-singer-v2-foot-trans-current').siblings().removeClass('wa-singer-v2-foot-trans-current')
         });
     </script>
 
