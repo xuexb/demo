@@ -329,13 +329,13 @@
 
         $('.wa-singer-v2-foot-trans').each(function(){
             // 绑定foot导航change事件
-            // new Foot({
-            //     elem: this,
-            //     change: function(index){
-            //         console.log(this.index, index);
-            //         this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
-            //     }
-            // });
+            new Foot({
+                elem: this,
+                change: function(index){
+                    console.log(this.index, index);
+                    this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
+                }
+            });
         });
 
         
