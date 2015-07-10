@@ -136,6 +136,8 @@
                 self.$wrap = $(config.elem);
                 self.$item = self.$wrap.children();
 
+                self.index = 0;
+
                 self.innerWidth = 0;
                 self.itemWidthArr = [];
                 self.$item.each(function() {
@@ -151,6 +153,11 @@
                 self.__left = 0;
 
                 self.__bindTouch();
+
+                $(window).on('resize.foot', function(){
+                    self.wrapWidth = self.$wrap.width();
+                    self.$item.eq(self.index).trigger('click');
+                });
             }
 
             Foot.prototype.__bindTouch = function() {
@@ -179,6 +186,8 @@
                     self.__left = -left;
 
                     self.__config.change.call(self, index);
+
+                    self.index = index;
                 });
 
                 self.$wrap.on('touchstart', function(event) {
@@ -282,7 +291,6 @@
             new Foot({
                 elem: this,
                 change: function(index){
-                    console.log(this.index, index);
                     this.$item.removeClass('wa-singer-v2-foot-trans-current').eq(index).addClass('wa-singer-v2-foot-trans-current');
                 }
             });
