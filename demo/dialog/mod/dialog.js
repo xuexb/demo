@@ -137,6 +137,19 @@
             }).on('hide', function() {
                 this.find('wrap').removeClass(Prefix + 'show');
             });
+
+            //覆盖方法
+            $.each(['hide', 'close'], function(index, val){
+                var _that = self[val];
+                self[val] = function(){
+                    self.find('wrap').addClass(Prefix +'hide');
+                    clearTimeout(self._closetime);
+                    self._closetime = setTimeout(function(){
+                        _that.call(self);
+                    }, 300);
+                    return self;
+                }
+            });
         }
 
         // 绑定关闭事件
@@ -471,6 +484,7 @@
 
         return self.zIndex();
     }
+
 
     /**
      * 隐藏
