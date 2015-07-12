@@ -139,12 +139,12 @@
             });
 
             //覆盖方法
-            $.each(['hide', 'close'], function(index, val){
+            $.each(['hide', 'close'], function(index, val) {
                 var _that = self[val];
-                self[val] = function(){
-                    self.find('wrap').addClass(Prefix +'hide');
+                self[val] = function() {
+                    self.find('wrap').addClass(Prefix + 'hide');
                     clearTimeout(self._closetime);
-                    self._closetime = setTimeout(function(){
+                    self._closetime = setTimeout(function() {
                         _that.call(self);
                     }, 300);
                     return self;
