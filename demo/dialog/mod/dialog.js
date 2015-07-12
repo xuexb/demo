@@ -438,7 +438,7 @@
             }
         }
 
-        buttons.style.display = ags.length ? '' : 'none';
+        buttons.style.display = buttons.children.length ? '' : 'none';
 
         if (self._focus) {
             self._focus.focus(); //只操作按钮的焦点，而不管窗口的焦点，否则ie6有严重bug
