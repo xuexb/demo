@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport" />
+
+    <style type="text/css">
+        *{padding: 0; margin: 0; }
+        
+
+        /*底部tab导航*/
+.wa-singer-v2-foot { color: #999; padding-top: 12px; }
+.wa-singer-v2-foot-wrap { width: 100%; background-color: #fafafa; border-top: 1px solid  #d9d9d9; }
+.wa-singer-v2-foot-trans { font-size: 0; height: 38px; line-height: 38px; white-space: nowrap; width: 100%; overflow-x: scroll; margin-top: -1px; overflow-y: hidden; }
+.wa-singer-v2-foot-trans { -webkit-overflow-scrolling: touch; }
+.wa-singer-v2-foot-trans::-webkit-scrollbar { display: none; }
+.wa-singer-v2-foot-trans > li { -webkit-transform: translateZ(0px); }
+.wa-singer-v2-foot-trans > li { display: inline-block; font-size: 14px; }
+.wa-singer-v2-foot-trans > li:last-child span { border-right: none; }
+.wa-singer-v2-foot-trans span { padding: 0 12px; height: 18px; display: inline-block; line-height: 18px; vertical-align: middle; border-left: 1px solid  #eee; }
+.wa-singer-v2-foot-trans-current { border-right: 1px solid  #d9d9d9; border-left: 1px solid  #d9d9d9; background-color: #fff; color: #333; border-bottom: 2px solid  #3388ff; height: 36px; }
+.wa-singer-v2-foot-trans-current span { border-left: none; padding-left: 6px; }
+.wa-singer-v2-foot-trans-current + li span { border-left: none; }
+.wa-singer-v2-foot-trans li:first-child.wa-singer-v2-foot-trans-current { border-left: none; }
+.wa-singer-v2-foot-trans > li:before { content: ' '; width: 14px; height: 14px; vertical-align: middle; margin-left: 15px; display: none; background: url('//m.baidu.com/static/ala/singer-v2/site.png') 0 0 no-repeat; -webkit-background-size: 14px 90px; background-size: 14px 90px; }
+.wa-singer-v2-foot-trans > .wa-singer-v2-foot-trans-current:before { display: inline-block; }
+.wa-singer-v2-foot-trans > li[data-type=xiami]:before { background-position: 0 -18px; }
+.wa-singer-v2-foot-trans > li[data-type=qq]:before { background-position: 0 -36px; }
+.wa-singer-v2-foot-trans > li[data-type=yiting]:before { background-position: 0 -54px; }
+.wa-singer-v2-foot-trans > li[data-type=wangyi]:before { background-position: 0 -72px; }
+    </style>
+</head>
+<body>
+
+    <div style="height:300px;" id="test"></div>
+    
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li class="wa-singer-v2-foot-trans-current" data-type="xiami">
+                    <span>虾米音乐</span>
+                </li>
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+                <li data-type="wangyi">
+                    <span>网易云音乐</span>
+                </li>
+                <li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li>
+                
+            </ul>
+        </div>
+    </div><div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li class="wa-singer-v2-foot-trans-current" data-type="xiami">
+                    <span>虾米音乐</span>
+                </li>
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+                <li data-type="wangyi">
+                    <span>网易云音乐</span>
+                </li>
+                <li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li><li data-type="qq">
+                    <span>QQ音乐</span>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wa-singer-v2-foot">
+        <div class="wa-singer-v2-foot-wrap">
+            <ul class="wa-singer-v2-foot-trans">
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="baidu">
+                    <span>百度音乐</span>
+                </li>
+                <li data-type="yiting">
+                    <span>一听音乐</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="height:1000px;"></div>
+
+    <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
+    <script type="text/javascript">
+        console.log = function(str){
+            $('#test').get(0).innerHTML += str;
+        }
+
+        ;(function(){
+            var X = 0;
+            var Y = 0;
+            var isY = null;
+            var $elem = $('.wa-singer-v2-foot-trans');
+
+            $elem.on('touchstart', function(event){
+                var point = event.touches[0];
+                X = point.pageX;
+                Y = point.pageY;
+                isY = null;
+
+                //添加“触摸移动”事件监听
+                this.addEventListener('touchmove', move, false);
+                //添加“触摸结束”事件监听
+                this.addEventListener('touchend', end, false);
+            });
+
+            var move = function(event) {
+                var point = event.touches[0];
+                if (isY === null) {
+                    isY = Math.abs(point.pageY - Y) > Math.abs(point.pageX - X) ? true : false;
+                }
+
+                // 如果不是上下滑动
+                if (isY === true) {
+                    event.preventDefault();
+                }
+            }
+
+            var end = function() {
+                this.removeEventListener('touchmove', move, false);
+                this.removeEventListener('touchend', end, false);
+            }
+        })();
+
+        var flag = false;
+        // $('.wa-singer-v2-foot-trans').on('touchstart', function(event){
+        //     if(flag){
+        //         // event.preventDefault();
+        //     }
+        // }).on('touchmove', function(event){
+        //     event.preventDefault();
+        // }).on('touchend', function(){
+        //     // $(this).css('overflow-x', 'auto');
+        //     // $(this).scrollTop(0);
+        //     // flag = false;
+        // }).on('scroll', function(event){
+        //     if($(this).scrollTop() != 0){
+        //         // $(this).css('overflow', 'hidden');
+        //         // console.log($(this).scrollTop());
+
+                
+        //         // return false;
+        //     }
+        //     // $('#test').get(0).innerHTML += $(this).scrollTop();
+        //     // console.log(event, $(this).scrollLeft(), $(this).scrollTop());
+        // });
+    </script>
+   
+</body>
+</html>
