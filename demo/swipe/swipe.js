@@ -19,7 +19,7 @@
 /* global $ */
 
 var Swipe = (function () {
-    // 'use strict';
+    'use strict';
 
     var guid = 0;
     var $window = $(window);
