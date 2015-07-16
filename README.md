@@ -30,6 +30,7 @@
 * [api](demo/api/)
 * [user](demo/user/)
 * [dialog](demo/dialog/)
+* [swipe](demo/swipe/swipe.js)
 
 ## node
 * [redis研究](demo/redis/)
