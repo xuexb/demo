@@ -16,9 +16,9 @@
  *         页面默认展示请使用php循环直接显示，更友好
  */
 
-/* global $ */
+/* global $,A */
 
-var Swipe = (function () {
+(function () {
     'use strict';
 
     var guid = 0;
@@ -271,5 +271,7 @@ var Swipe = (function () {
         speed: 300
     };
 
-    return Swipe;
+    // 对外暴露
+    A.js = A.js || {};
+    A.js.voiceseasonSwipe = Swipe;
 })();
