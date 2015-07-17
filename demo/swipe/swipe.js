@@ -1,5 +1,5 @@
 /**
- * @file 滑动组件,只支持左右缓冲滑动，支持change事件
+ * @file 移动端滑动插件,只支持左右缓冲滑动和change事件
  * @author xieyaowu
  * @email xieyaowu@baidu.com
  *
@@ -7,13 +7,12 @@
  *     html: #demo>ul>li
  *     js: new Swipe({elem: '#demo', end: function(){}});
  *     css:
- *         #demo{ overflow: hidden; }
- *         #demo ul { width: 100000px; backface-visibility: hidden; perspective: 1000; }
- *         #demo ul li { display: table-cell; vertical-align: top; width: 2000px; }
+ *         #demo ul { overflow: hidden; max-height:xxx; backface-visibility: hidden; perspective: 1000; }
+ *         #demo ul li { vertical-align: top; width: 100%; float:left; }
  *     说明:
- *         设置li宽是为了页面加载js前不变形，因为页面resize的时候js会动态设置li的宽，
- *         如果只是一页建议不初始化js，可设置li,ul为display:block;width:100%;
- *         页面默认展示请使用php循环直接显示，更友好
+ *         为了更好的用户体验，且保持在加载js前页面排版不变形，需要设置ul的最大高并益出隐藏，设置li为宽100%，并左浮云，这样可以
+ *         保证加载前不变形，然后插件会在初始化时设置ul为10000px以让li可纵型排列
+ *         如果页面分页不够时建议不加载js初始化
  */
 
 /* global $,A */
@@ -45,6 +44,9 @@
 
         // 当前滚动的宽，这个宽会在resize的时候初始
         self.__width = self.$wrap.width();
+
+        // 设置很大，为的是让li纵型排列
+        self.$inner.width(10000);
 
         // 设置内容宽
         self.$item.width(self.__width);
