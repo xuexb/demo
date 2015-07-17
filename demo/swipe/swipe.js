@@ -5,7 +5,7 @@
  *
  * @example
  *     html: #demo>ul>li
- *     js: new Swipe({elem: '#demo', end: function(){}});
+ *     js: new Swipe({elem: '#demo', change: function(){}});
  *     css:
  *         #demo ul { overflow: hidden; max-height:xxx; backface-visibility: hidden; perspective: 1000; }
  *         #demo ul li { vertical-align: top; width: 100%; float:left; }
