@@ -7,6 +7,7 @@
  *     html: #demo>ul>li
  *     js: new Swipe({elem: '#demo', change: function(){}});
  *     css:
+ *         #demo { overflow: hidden; }
  *         #demo ul { overflow: hidden; max-height:xxx; backface-visibility: hidden; perspective: 1000; }
  *         #demo ul li { vertical-align: top; width: 100%; float:left; }
  *     说明:
