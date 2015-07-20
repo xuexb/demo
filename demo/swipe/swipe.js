@@ -11,7 +11,7 @@
  *         #demo ul { overflow: hidden; max-height:xxx; backface-visibility: hidden; perspective: 1000; }
  *         #demo ul li { vertical-align: top; width: 100%; float:left; }
  *     说明:
- *         为了更好的用户体验，且保持在加载js前页面排版不变形，需要设置ul的最大高并益出隐藏，设置li为宽100%，并左浮云，这样可以
+ *         为了更好的用户体验，且保持在加载js前页面排版不变形，需要设置ul的最大高并益出隐藏，设置li为宽100%，并左浮动，这样可以
  *         保证加载前不变形，然后插件会在初始化时设置ul为10000px以让li可纵型排列
  *         如果页面分页不够时建议不加载js初始化
  */
@@ -39,7 +39,7 @@
         self.length = self.$item.length;
 
         // 当前显示的索引
-        self.index = null;
+        self.index = 0;
 
         self.__guid = guid++;
 
@@ -68,7 +68,14 @@
     Swipe.prototype.resetWidth = function () {
         var self = this;
 
-        self.__width = self.$wrap.width();
+        var width = self.$wrap.width();
+
+        // 如果不可见
+        if (width === 0) {
+            return self;
+        }
+
+        self.__width = width;
 
         self.$item.width(self.__width);
 
@@ -167,7 +174,7 @@
      * @return {Object} self
      */
     Swipe.prototype.prev = function () {
-        return this.to('prev');
+        return this.to(this.index + 1);
     };
 
     /**
@@ -176,7 +183,7 @@
      * @return {Object} self
      */
     Swipe.prototype.next = function () {
-        return this.to('next');
+        return this.to(this.index + 1);
     };
 
     /**
@@ -189,7 +196,6 @@
     Swipe.prototype.to = function (index, speed) {
         var self = this;
         var length = self.length;
-        var oldIndex = self.index;
 
         // 如果没有内容
         if (length < 1) {
@@ -203,18 +209,8 @@
 
         // 如果没有则默认为直接跳转默认索引
         if (index === void 0) {
-            index = oldIndex;
+            index = self.index;
             speed = 0;
-
-            // 处理next,prev的情况
-        }
-        else if ('string' === typeof index) {
-            if (index === 'next') {
-                index = oldIndex + 1;
-            }
-            else if (index === 'prev') {
-                index = oldIndex - 1;
-            }
         }
         else {
             index = parseInt(index, 10) || 0;
