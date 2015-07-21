@@ -174,7 +174,7 @@
      * @return {Object} self
      */
     Swipe.prototype.prev = function () {
-        return this.to(this.index + 1);
+        return this.to(this.index - 1);
     };
 
     /**
