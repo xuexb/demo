@@ -1,7 +1,8 @@
 /**
- * @file 移动端滑动插件,只支持左右缓冲滑动和change事件
+ * @file 移动端滑动插件，支持左右滑动
  * @author xieyaowu
  * @email xieyaowu@baidu.com
+ * @todu demo
  *
  * @example
  *     html: #demo>ul>li
