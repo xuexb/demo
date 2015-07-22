@@ -268,13 +268,13 @@
      * @type {Object}
      */
     Swipe.defaults = {
-        // change回调
+        // change回调, 参数1为index,参数2为length,this指向当前实例
         change: function () {},
-        // 容器
+        // 滑屏包裹容器，支持string,elem,Zepto
         elem: null,
-        // 时间
+        // 动画展现时间，单位ms
         speed: 300,
-        // 默认索引
+        // 默认索引，如果不为0可在实例化后调用.to()方法移动到该索引位置
         index: 0
     };
 

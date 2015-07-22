@@ -80,13 +80,13 @@ $('.demo3 .wa-voiceseason-nav-item').on('click', function(){
  * @type {Object}
  */
 Swipe.defaults = {
-    // change回调
-    change: function (index, length) {},
-    // 容器
+    // change回调, 参数1为index,参数2为length,this指向当前实例
+    change: function (inex, length) {},
+    // 滑屏包裹容器，支持string,elem,Zepto
     elem: null,
-    // 时间
+    // 动画展现时间，单位ms
     speed: 300,
-    // 默认索引
+    // 默认索引，如果不为0可在实例化后调用.to()方法移动到该索引位置
     index: 0
 };
 ```
