@@ -72,6 +72,25 @@ $('.demo3 .wa-voiceseason-nav-item').on('click', function(){
 
 ## API
 
+### 默认配置
+
+``` js
+/**
+ * 配置参数
+ * @type {Object}
+ */
+Swipe.defaults = {
+    // change回调
+    change: function (index, length) {},
+    // 容器
+    elem: null,
+    // 时间
+    speed: 300,
+    // 默认索引
+    index: 0
+};
+```
+
 ### resizeWidth
 
 ```
