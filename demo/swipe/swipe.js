@@ -2,22 +2,23 @@
  * @file 移动端滑动插件，支持左右滑动
  * @author xieyaowu
  * @email xieyaowu@baidu.com
- * @todu demo
  *
  * @example
- *     html: #demo>ul>li
+ *     html: #demo>ul>li*n
  *     js: new Swipe({elem: '#demo', change: function(){}});
  *     css:
  *         #demo { overflow: hidden; }
  *         #demo ul { overflow: hidden; max-height:xxx; backface-visibility: hidden; perspective: 1000; }
  *         #demo ul li { vertical-align: top; width: 100%; float:left; }
  *     说明:
+ *         该插件不集成css
+ *         li为纵向排列，js控制ul的X轴来滑动
  *         为了更好的用户体验，且保持在加载js前页面排版不变形，需要设置ul的最大高并益出隐藏，设置li为宽100%，并左浮动，这样可以
  *         保证加载前不变形，然后插件会在初始化时设置ul为10000px以让li可纵型排列
  *         如果页面分页不够时建议不加载js初始化
  */
 
-/* global $,A */
+/* global $ */
 
 (function () {
     'use strict';
@@ -40,7 +41,7 @@
         self.length = self.$item.length;
 
         // 当前显示的索引
-        self.index = 0;
+        self.index = config.index;
 
         self.__guid = guid++;
 
@@ -62,7 +63,7 @@
     }
 
     /**
-     * 重置宽
+     * 重置宽，在窗口resize的时候自动调用，如果页面有变形可手动调用该接口，会判断必须滑屏在可见时才算
      *
      * @return {Object} self
      */
@@ -72,6 +73,7 @@
         var width = self.$wrap.width();
 
         // 如果不可见
+        // 这里是Zepto的判断，如果为jquery则为is(':hidden')
         if (width === 0) {
             return self;
         }
@@ -170,7 +172,7 @@
     };
 
     /**
-     * 上一页
+     * 上一页，目前如果小于0 则＝0
      *
      * @return {Object} self
      */
@@ -179,7 +181,7 @@
     };
 
     /**
-     * 下一页
+     * 下一页，目前不可超出最大页
      *
      * @return {Object} self
      */
@@ -190,6 +192,7 @@
     /**
      * 设置到第几页
      *
+     * @description 如果不传参则直接移动到当前索引，常用于resize时重围位置、初始化时设置默认位置
      * @param  {number} index 索引
      * @param  {number} speed 速度
      * @return {Object} self
@@ -264,14 +267,20 @@
      */
     Swipe.defaults = {
         // change回调
-        change: $.noop,
+        change: function () {},
         // 容器
         elem: null,
         // 时间
-        speed: 300
+        speed: 300,
+        // 默认索引
+        index: 0
     };
 
     // 对外暴露
-    A.js = A.js || {};
-    A.js.voiceseasonSwipe = Swipe;
+    var A = window.A;
+    if (!A) {
+        A = window.A = {};
+    }
+    A.ui = A.ui || {};
+    A.ui.swipeXW = Swipe;
 })();
