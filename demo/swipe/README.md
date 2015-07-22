@@ -14,6 +14,7 @@
 ## demo
 
 [查看](http://github.xuexb.com/demo/swipe/demo.html)
+![](http://s.jiathis.com/qrcode.php?url=http://github.xuexb.com/demo/swipe/demo.html)
 
 ### css
 ```
