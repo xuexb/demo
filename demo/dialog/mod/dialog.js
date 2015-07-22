@@ -12,7 +12,7 @@
 
 /* global $ */
 
-(function() {
+(function () {
     'use strict';
 
     var $window = $(window),
@@ -39,7 +39,6 @@
             config.button = [];
         }
 
-
         // 确定按钮
         if (ok !== undefined) {
             config.ok = ok;
@@ -55,7 +54,6 @@
                 light: true //高亮
             });
         }
-
 
         // 取消按钮
         if (cancel !== undefined) {
@@ -106,7 +104,7 @@
                     src: config.url,
                     allowtransparency: 'yes',
                     scrolling: config.iframeScroll ? 'yes' : 'no' //ie7下有滚动条
-                }).on('load', function() {
+                }).on('load', function () {
                     self.iframeAuto();
                 });
 
@@ -114,7 +112,7 @@
             self.content(self.find('iframe'));
 
             // 绑定关闭时清空
-            self.on('close', function() {
+            self.on('close', function () {
                 // 重要！需要重置iframe地址，否则下次出现的对话框在IE6、7无法聚焦input
                 // IE删除iframe后，iframe仍然会留在内存中出现上述问题，置换src是最容易解决的方法
                 this.find('iframe').attr('src', 'about:blank').remove();
@@ -130,40 +128,40 @@
 
         // 如果支持动画则添加css3类让其动画显示出来
         if (is_animate) {
-            self.on('show', function() {
+            self.on('show', function () {
                 //强制重排
                 $.noop(self.find('wrap').get(0).offsetWidth);
                 self.find('wrap').addClass(Prefix + 'show');
-            }).on('hide', function() {
+            }).on('hide', function () {
                 this.find('wrap').removeClass(Prefix + 'show');
             });
 
             //覆盖方法
-            $.each(['hide', 'close'], function(index, val) {
-                var _that = self[val];
-                self[val] = function() {
-                    self.find('wrap').addClass(Prefix + 'hide');
-                    clearTimeout(self._closetime);
-                    self._closetime = setTimeout(function() {
-                        _that.call(self);
-                    }, 300);
-                    return self;
-                }
-            });
+            // $.each(['hide', 'close'], function (index, val) {
+            //     var _that = self[val];
+            //     self[val] = function () {
+            //         self.find('wrap').addClass(Prefix + 'hide');
+            //         clearTimeout(self._closetime);
+            //         self._closetime = setTimeout(function () {
+            //             _that.call(self);
+            //         }, 300);
+            //         return self;
+            //     }
+            // });
         }
 
         // 绑定关闭事件
-        self.find('close').on('click', function() {
+        self.find('close').on('click', function () {
             return !self.close();
         });
 
         // 绑定点击层的时候置顶
-        self.find('wrap').on('mousedown', function() {
+        self.find('wrap').on('mousedown', function () {
             self.zIndex();
         });
 
         // 绑定按钮组事件，禁用和loading不可点
-        self.find('buttons').on('click', 'a', function() {
+        self.find('buttons').on('click', 'a', function () {
             var that = this,
                 fn;
 
@@ -197,7 +195,7 @@
         self._guid = ++guid;
 
         // 绑定resize定位，这里不用cache是因为jquery触发resize本来就是队列形式，所有没有全局cache
-        $window.on('resize.dialog-' + guid, function() {
+        $window.on('resize.dialog-' + guid, function () {
             self.position();
         });
     }
@@ -206,7 +204,7 @@
      * iframe自适应
      * @return self
      */
-    Dialog.prototype.iframeAuto = function() {
+    Dialog.prototype.iframeAuto = function () {
         var self = this,
             config = self.__config,
             $iframe = self.find('iframe'),
@@ -216,7 +214,8 @@
             try {
                 // 跨域测试
                 test = $iframe[0].contentWindow.frameElement;
-            } catch (e) {}
+            }
+            catch (e) {}
 
             if (test) {
 
@@ -236,7 +235,7 @@
      * @param  {string|dom} message 内容
      * @return self
      */
-    Dialog.prototype.content = function(message) {
+    Dialog.prototype.content = function (message) {
         this.find('content').html(message); //设置内容不解释
         return this.position();
     }
@@ -245,7 +244,7 @@
      * 置顶
      * @return self
      */
-    Dialog.prototype.zIndex = function() {
+    Dialog.prototype.zIndex = function () {
         var self = this,
             zIndex = Dialog.defaults.zIndex + 2;
 
@@ -267,13 +266,13 @@
      * @param {function|boolean} callback 事件回调
      * @return self
      */
-    Dialog.prototype.on = function(name, callback) {
+    Dialog.prototype.on = function (name, callback) {
         this.__getListener(name).push({
-            callback: callback === true ? function() {
+            callback: callback === true ? function () {
                 return true;
-            } : callback === false ? function() {
+            } : callback === false ? function () {
                 return false;
-            } : $.isFunction(callback) ? callback : function() {}
+            } : $.isFunction(callback) ? callback : function () {}
         });
         return this;
     }
@@ -284,10 +283,10 @@
      * @param {function|boolean} callback 事件回调
      * @return self
      */
-    Dialog.prototype.one = function(name, callback) {
+    Dialog.prototype.one = function (name, callback) {
         // 内部方法，为了卸载
         var fn;
-        fn = callback === true ? true : callback === false ? false : 'function' === typeof callback ? function() {
+        fn = callback === true ? true : callback === false ? false : 'function' === typeof callback ? function () {
             //卸载
             this.off(name, fn);
 
@@ -304,7 +303,7 @@
      * @param  {Function|undefined} callback 事件句柄，如果空则卸载全部事件
      * @return self
      */
-    Dialog.prototype.off = function(name, callback) {
+    Dialog.prototype.off = function (name, callback) {
         var listeners = this.__getListener(name),
             i;
 
@@ -314,7 +313,8 @@
                     listeners.splice(i--, 1);
                 }
             }
-        } else {
+        }
+        else {
             listeners.length = 0;
         }
 
@@ -325,7 +325,7 @@
      * 内部触发事件
      * @param {string} name 事件名
      */
-    Dialog.prototype.__trigger = function(name) {
+    Dialog.prototype.__trigger = function (name) {
         var listeners = this.__getListener(name),
             i, len, mark;
 
@@ -333,7 +333,6 @@
         if (!listeners.length) {
             return this;
         }
-
 
         // 执行队列
         i = 0;
@@ -353,7 +352,7 @@
      * @param  {string} name 事件名
      * @return {array} 事件队列
      */
-    Dialog.prototype.__getListener = function(name) {
+    Dialog.prototype.__getListener = function (name) {
         var listeners = this.__listeners;
 
         // 防止报错
@@ -375,7 +374,7 @@
      *     ({id:'',name:'',callback:noop},{})
      * @return self
      */
-    Dialog.prototype.button = function() {
+    Dialog.prototype.button = function () {
         var self = this,
             buttons = self.find('buttons')[0], //dom下
             callback = self.__listeners, //0000事件空间
@@ -390,9 +389,7 @@
 
             id = val.id || value; //找到id
 
-
             value = val.value || (callback[id] && callback[id].value) || '确定'; //如果没有设置value
-
 
             isNewButton = !callback[id]; //是否已经存在
             button = isNewButton ? document.createElement('a') : callback[id].elem; //如果已存在则拿dom，否则创建dom
@@ -407,11 +404,11 @@
             callback[id].value = value;
             button.innerHTML = '<span>' + value + '</span>';
 
-
             //如果禁用
             if (val.disabled) {
                 className += ' disabled'; //禁用的class
-            } else {
+            }
+            else {
                 //如果有回调
                 if (val.callback !== undefined) {
                     callback[id].callback = val.callback;
@@ -438,10 +435,7 @@
                 className += ' ' + val.className;
             }
 
-
-
             button.className = className;
-
 
             button.setAttribute('data-id', id); //为了委托事件用
 
@@ -464,7 +458,7 @@
      * 显示
      * @return self
      */
-    Dialog.prototype.show = function() {
+    Dialog.prototype.show = function () {
         var self = this;
 
         if (self._visibled) {
@@ -485,12 +479,11 @@
         return self.zIndex();
     }
 
-
     /**
      * 隐藏
      * @return self
      */
-    Dialog.prototype.hide = function() {
+    Dialog.prototype.hide = function () {
         var self = this;
 
         if (self._visibled === false) {
@@ -516,7 +509,7 @@
      * @description 与hide的区别是close后就会销毁，不能再显示
      * @return self
      */
-    Dialog.prototype.close = function() {
+    Dialog.prototype.close = function () {
         var self = this;
 
         // 如果已经关闭或者回调里返回false则不关闭
@@ -546,7 +539,7 @@
      * 关闭锁屏
      * @return self
      */
-    Dialog.prototype.unlock = function() {
+    Dialog.prototype.unlock = function () {
         var self = this;
 
         if (!self._locked) {
@@ -567,7 +560,7 @@
      * 锁屏
      * @return self
      */
-    Dialog.prototype.lock = function() {
+    Dialog.prototype.lock = function () {
         var self = this,
             config = self.__config,
             div, css;
@@ -589,10 +582,7 @@
             css['opacity'] = config.backgroundOpacity;
         }
 
-
-
         document.body.appendChild(div);
-
 
         if (self._visibled) {
             css.display = 'block';
@@ -611,7 +601,7 @@
      * 定位
      * @return self
      */
-    Dialog.prototype.position = function() {
+    Dialog.prototype.position = function () {
         var wrap = this.find('wrap')[0],
             fixed = this.__config.fixed, //判断是否为fixed定位
             dl = fixed ? 0 : $document.scrollLeft(), //如果不是则找到滚动条
@@ -636,7 +626,7 @@
      * @param  {boolean} mark 如果有值则不触发定位
      * @return self
      */
-    Dialog.prototype.width = function(val, mark) {
+    Dialog.prototype.width = function (val, mark) {
         this.find('content').width(val);
         return mark ? this : this.position();
     }
@@ -647,7 +637,7 @@
      * @param  {boolean} mark 如果有值则不触发定位
      * @return self
      */
-    Dialog.prototype.height = function(val, mark) {
+    Dialog.prototype.height = function (val, mark) {
         this.find('content').height(val);
         return mark ? this : this.position();
     }
@@ -657,10 +647,11 @@
      * @param  {boolean|string} title 设置标题，如果为false则不显示标题
      * @return self
      */
-    Dialog.prototype.title = function(title) {
+    Dialog.prototype.title = function (title) {
         if (title === false) {
             this.find('wrap').addClass(Prefix + 'no-title');
-        } else {
+        }
+        else {
             this.find('title').text(title);
             this.find('wrap').removeClass(Prefix + 'no-title');
         }
@@ -672,7 +663,7 @@
      * @param  {string} name 元素名，支持 wrap,foot,buttons,header,title,close,inner,content
      * @return jquery元素
      */
-    Dialog.prototype.find = function(name) {
+    Dialog.prototype.find = function (name) {
         var $elem = this.__jquery[name];
 
         if (!$elem) {
@@ -687,7 +678,7 @@
      * @param  {undefined|int} num 关闭时间单位ms，为空则清除自动关闭
      * @return self
      */
-    Dialog.prototype.time = function(num) {
+    Dialog.prototype.time = function (num) {
         var self = this,
             timer = self._timer;
 
@@ -696,11 +687,10 @@
         }
 
         if (num) {
-            self._timer = setTimeout(function() {
+            self._timer = setTimeout(function () {
                 self.close();
             }, num);
         }
-
 
         return self;
     }
@@ -708,7 +698,7 @@
     /**
      * 内部创建弹层到页面
      */
-    Dialog.prototype.__create = function() {
+    Dialog.prototype.__create = function () {
         var config, tpl, wrap;
 
         config = this.__config;
