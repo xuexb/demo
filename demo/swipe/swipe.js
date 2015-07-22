@@ -234,7 +234,9 @@
         self.__anim(-index * self.__width, speed);
 
         // 触发change事件
-        self.__config.change.call(self, index, length);
+        if ('function' === typeof self.__config.change) {
+            self.__config.change.call(self, index, length);
+        }
 
         return self;
     };
