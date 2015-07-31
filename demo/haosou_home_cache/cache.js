@@ -11,7 +11,11 @@
      * 暴露空间
      * @type {Object}
      */
-    var cache = window.cache = {};
+    var cache = window.cache = {
+        set: function () {},
+        get: function () {}
+
+    };
 
     /**
      * 别名
@@ -82,21 +86,12 @@
         localStorage[id] = elem.innerHTML.trim();
     };
 
-    /**
-     * 空方法
-     */
-    var noop = function () {};
-
     // 如果支持缓存
-    if (window.localStorage) {
-        cache.get = cache2html;
-        cache.set = html2cache;
+    try {
+        if (window.localStorage) {
+            cache.get = cache2html;
+            cache.set = html2cache;
+        }
     }
-    else {
-        cache = {
-            set: noop,
-            get: noop
-
-        };
-    }
+    catch (e) {}
 })(window, document);
