@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>好搜cache</title>
+    <script type="text/javascript" src="./cache.js"></script>
+
+    <!-- 第一次加载 -->
+    <!-- <style id="main_css">
+        div{
+            height: 100px; 
+        }
+        .demo1{
+            background-color: #f00; 
+        }
+        .demo2{
+            background-color: #00f; 
+        }
+        .demo3{
+            background-color: #0f0; 
+        }
+        .demo4{
+            background-color: #0ff; 
+        }
+        .demo5{
+            background-color: #000; 
+        }
+        .demo6{
+            background-color: #ccc; 
+        }
+    </style>
+    <script>
+        cache.set('main_css');
+    </script>
+    -->
+
+    <!-- 有缓存加载 -->
+    <script>
+    </script>
+</head>
+<body>
+
+    <div class="demo1">0001</div>
+    <div class="demo2">0002</div>
+    <div class="demo3">0003</div>
+    <div class="demo4">0004</div>
+    <div class="demo5">0005</div>
+    <div class="demo6">0006</div>
+    
+    <!-- 如果目标cookie不存在，则输出文件，并写入cache -->
+    <%if !cookie('testjs'){%>
+        <script type="text/javascript" id="testjs">
+            window.xl = 1;
+            window.xl2 = 2;
+        </script>
+        <script type="text/javascript">
+            cache.set('testjs');
+        </script>
+    {%}else{%}
+        <script type="text/javascript">
+            cache.get('testjs', 'script');
+        </script>
+    {%}%}
+</body>
+</html>
