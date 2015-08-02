@@ -29,4 +29,3 @@ tpl = marked(tpl);
 console.log('1');
 
 console.log(tpl);
-
