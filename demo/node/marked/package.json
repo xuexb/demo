@@ -1,0 +1,14 @@
+{
+  "name": "demo",
+  "description": "demo",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xuexb/demo.git"
+  },
+  "author": "xiaowu",
+  "devDependencies": {
+    "marked": "*",
+    "highlight.js": "*"
+  }
+}
