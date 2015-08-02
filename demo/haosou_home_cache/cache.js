@@ -1,5 +1,6 @@
 /**
- * @file 360缓存模拟
+ * @file 好搜首页缓存模拟
+ * @description 只是玩玩，代码没有考虑过多的场景
  * @author xiaowu
  * @email fe.xiaowu@baidu.com
  */
@@ -62,10 +63,12 @@
     var cache2html = function (id, type) {
         var data = localStorage[id];
 
+        // 如果缓存里没有数据
         if (!data) {
             return;
         }
 
+        // 把数据写入到页面中
         append(cname[type], data);
     };
 
@@ -77,16 +80,20 @@
     var html2cache = function (id) {
         var elem = document.getElementById(id);
 
+        // 如果没有元素
         if (!elem) {
             return;
         }
 
+        // 设置cookie标识
         setcookie(id, '1');
 
+        // 写入缓存
         localStorage[id] = elem.innerHTML.trim();
     };
 
     // 如果支持缓存
+    // 为了防止禁用cookie时的报错
     try {
         if (window.localStorage) {
             cache.get = cache2html;
