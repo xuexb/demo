@@ -33,6 +33,7 @@
 * [swipe](demo/swipe/swipe.js)
 
 ## node
+* [marked](demo/node/marked)
 * [redis研究](demo/redis/)
 * [es6-promise](demo/es6-promise/)
 
