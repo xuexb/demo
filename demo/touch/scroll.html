@@ -15,6 +15,16 @@
             background-color: #ccc; 
             word-break: break-word;
         }
+        .test{
+            background-color: #ccc; 
+            height: 50px; line-height: 50px; 
+            text-align: center; 
+        }
+        .test.fixed{
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+        }
     </style>
 </head>
 <body>
@@ -52,6 +62,10 @@
         <p>0000000000000030</p>
         <p>0000000000000031</p>
         <p>0000000000000032</p>
+
+        <div class="test">
+            <div class="box">测试</div>
+        </div>
         <p>0000000000000033</p>
         <p>0000000000000034</p>
         <p>0000000000000035</p>
@@ -426,43 +440,54 @@
 
     <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
     <script type="text/javascript">
-        $(window).on('scroll', function () {
-            $('#test').get(0).innerHTML += ','+ $(this).scrollTop();
-        });
-        $('#test').on('click', function(){
-            this.innerHTML = '';
-        });
+        var $elem = $('.test');
+        var offset_top = $elem.offset().top;
+        var $window = $(window);
+        $window.on('scroll resize', function(){
+            if($window.scrollTop() >= offset_top){
+                $elem.addClass('fixed');
+            } else {
+                $elem.removeClass('fixed');
+            }
+        }).trigger('scroll');
 
-        function callback(str){
-            $('#test').get(0).innerHTML += ','+ str;
-        }
+        // $(window).on('scroll', function () {
+        //     $('#test').get(0).innerHTML += ','+ $(this).scrollTop();
+        // });
+        // $('#test').on('click', function(){
+        //     this.innerHTML = '';
+        // });
 
-        function Scroll(){
-            this.bind();
-        }
+        // function callback(str){
+        //     $('#test').get(0).innerHTML += ','+ str;
+        // }
 
-        Scroll.prototype.bind = function(){
-            var self = this;
-            self.timer = setInterval(function(){
-                callback($(window).scrollTop());
-            }, 100);
-        }
+        // function Scroll(){
+        //     this.bind();
+        // }
 
         // Scroll.prototype.bind = function(){
         //     var self = this;
-        //     $(window).one('touchmove', function(){
-        //         self.timer = setInterval(function(){
-        //             callback($(window).scrollTop());
-        //         }, 100);
-        //         $(window).one('scroll', function(){
-        //             clearTimeout(self.timer);
-        //             delete self.timer;
-        //             self.bind();
-        //         });
-        //     });
+        //     self.timer = setInterval(function(){
+        //         callback($(window).scrollTop());
+        //     }, 100);
         // }
 
-        new Scroll();
+        // // Scroll.prototype.bind = function(){
+        // //     var self = this;
+        // //     $(window).one('touchmove', function(){
+        // //         self.timer = setInterval(function(){
+        // //             callback($(window).scrollTop());
+        // //         }, 100);
+        // //         $(window).one('scroll', function(){
+        // //             clearTimeout(self.timer);
+        // //             delete self.timer;
+        // //             self.bind();
+        // //         });
+        // //     });
+        // // }
+
+        // new Scroll();
     </script>
    
 </body>
