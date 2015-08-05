@@ -428,7 +428,7 @@
     <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
     <script type="text/javascript">
         $(window).on('scroll', function () {
-            $('#test').get(0).innerHTML += ','+ $(this).scrollTop();
+            $('#test').get(0).innerHTML += ',"'+ $(this).scrollTop()+'"';
         });
         $('#test').on('click', function(){
             this.innerHTML = '';
