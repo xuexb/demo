@@ -25,6 +25,12 @@
             top: 0; 
             width: 100%; 
         }
+        .test2{
+            position: -webkit-sticky;
+            position:sticky;
+            top: 0; 
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
@@ -64,7 +70,7 @@
         <p>0000000000000032</p>
 
         <div class="test">
-            <div class="box">测试</div>
+            <div class="box">测试111</div>
         </div>
         <p>0000000000000033</p>
         <p>0000000000000034</p>
@@ -73,6 +79,10 @@
         <p>0000000000000037</p>
         <p>0000000000000038</p>
         <p>0000000000000039</p>
+
+        <div class="test test2">
+            <div class="box">测试22222</div>
+        </div>
         <p>0000000000000040</p>
         <p>0000000000000041</p>
         <p>0000000000000042</p>
@@ -440,7 +450,7 @@
 
     <script type="text/javascript" src="http://h5-static.hunpai.cc/src/lib/zepto.js"></script>
     <script type="text/javascript">
-        var $elem = $('.test');
+        var $elem = $('.test').eq(0);
         var offset_top = $elem.offset().top;
         var $window = $(window);
         $window.on('scroll resize', function(){
