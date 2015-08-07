@@ -1,0 +1,22 @@
+body,html,div,ul,li,dl,dd,dt{margin: 0;padding: 0;}
+a{color:#333;}
+ul,dl{list-style: none;}
+
+#J-demo dt{
+    margin-top: 15px;
+}
+#J-demo dd{
+    padding-left:20px;
+}
+#J-demo ul{
+    line-height: 26px;
+}
+#J-demo li{
+    display: inline-block;
+    cursor: pointer;
+    padding:0 6px;
+}
+#J-demo li:hover,
+#J-demo li.current{
+background-color: #ccc;
+}

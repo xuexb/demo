@@ -30,7 +30,7 @@
 * [api](demo/api/)
 * [user](demo/user/)
 * [dialog](demo/dialog/)
-* [swipe](demo/swipe/swipe.js)
+* [搜索](demo/search/)
 
 ## node
 * [marked](demo/node/marked)
@@ -40,6 +40,7 @@
 ## list for touch
 * [移动端滚动加载](demo/touch-ajax-page/ajaxPage.js)
 * [浏览器检测](demo/tools/browser.js)
+* [swipe](demo/swipe/swipe.js)
 
 ## tests
 * [美化单选](tests/ui-radio/index.html)
