@@ -16,7 +16,10 @@ ul,dl{list-style: none;}
     cursor: pointer;
     padding:0 6px;
 }
-#J-demo li:hover,
+#J-demo li:hover{
+    background-color: #ccc; 
+}
 #J-demo li.current{
-background-color: #ccc;
+    background-color: #09f;
+    color: #fff; 
 }
