@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>搜索 - 插件化</title>
+<link rel="stylesheet" type="text/css" href="./search.css">
+<style type="text/css">
+    .mask-wrap{
+        position: relative; 
+        padding: 20px; 
+    }
+    .mask{
+        position: absolute; 
+        left: 0; top: 0; 
+        width: 100%; 
+        background: rgba(255,255,255,0.6) url('//static.jiapai.cc/res/img/loading-32-32.gif') no-repeat center center; 
+        height: 100%; 
+        display: none; 
+    }
+</style>
+</head>
+
+<body>
+
+    <div id="J-demo">
+        <dl>
+            <dt>
+                名称（单选）：
+            </dt>
+            <dd>
+                <ul class="J-param">
+                    <li data-type="name" class="current">默认</li>
+                    <li data-type="name" data-id="baidu">百度</li>
+                    <li data-type="name" data-id="360">360</li>
+                    <li data-type="name" data-id="google">谷歌</li>
+                    <li data-type="name" data-id="facebook">非死不可</li>
+                    <li data-type="name" data-id="facebook">推特</li>
+                </ul>
+            </dd>
+            <dt>
+                排序（多选）：
+            </dt>
+            <dd>
+                <ul class="J-params">
+                    <li data-type="order" class="current">默认</li>
+                    <li data-type="order" data-id="time">时间</li>
+                    <li data-type="order" data-id="id">id</li>
+                    <li data-type="order" data-id="name">名称</li>
+                </ul>
+            </dd>
+            <dt>
+                视图（单选）：
+            </dt>
+            <dd>
+                <ul class="J-param">
+                    <li data-type="view" class="current">默认</li>
+                    <li data-type="view" data-id="code">代码</li>
+                    <li data-type="view" data-id="full">全屏</li>
+                    <li data-type="view" data-id="test">测试</li>
+                </ul>
+            </dd>
+            <dt>
+                分页大小：
+            </dt>
+            <dd>
+                <select name="" id="J-page_size">
+                    <option value="10" selected>10条</option>
+                    <option value="20">20条</option>
+                    <option value="30">30条</option>
+                </select>
+            </dd>
+
+            <dt>
+                关键词：
+            </dt>
+            <dd>
+                <input type="text" id="J-query">
+            </dd>
+
+
+            <dd>
+                <button id="J-btn">搜索</button>
+            </dd>
+        </dl>
+    </div> 
+
+    <hr>
+    <h2>结果：</h2>
+
+    <div class="mask-wrap">
+        <div id="J-write">请点击...为了测试响应，故意让后端响应时间为1500ms</div>
+        <div class="mask"></div>
+    </div>
+
+
+    <script type="text/javascript" src="http://static.meishichina.com/v6/js/lib/jquery.js"></script>
+
+    <script type="text/javascript" src="search.js"></script>
+
+    <script type="text/javascript">
+        var renderTpl = function(res){
+            var html = '';
+            $.each(res.items || [], function(){
+                html += '<li>'+ this.content +'</li>';
+            });
+
+            if(XXOO.get('query')){
+                html = html.replace(new RegExp(XXOO.get('query'), 'g'), function($0){
+                    return '<mark>'+ $0 +'</mark>';
+                });
+            }
+
+            return '<ul>'+ html + '</ul>';
+        }
+        var XXOO = new Search({
+            url: '/api/search/index',
+            success: function(res){
+                var html = '';
+
+                html += renderTpl(res);
+
+                $('#J-write').html(html);
+            },
+            error: function(){
+                $('#J-write').text('出错了');
+            },
+            beforeSend: function(){
+                $('.mask').stop().fadeIn();
+            },
+            complete: function(){
+                $('.mask').stop().fadeOut();
+            }
+
+        });
+
+        // 单选
+        $('.J-param').on('click', 'li', function(){
+            var id = $(this).data('id');
+            var type = $(this).data('type');
+
+            $(this).addClass('current').siblings().removeClass('current');
+
+            if(!id){
+                XXOO.del(type);
+            } else {
+                XXOO.set(type, id);
+            }
+
+            XXOO.request();
+        });
+
+        // 多选
+        $('.J-params').on('click', 'li', function(){
+            var id = $(this).data('id');
+            var type = $(this).data('type');
+            var ids;
+
+            // 处理是否点击的默认，如果是默认则清除其他的
+            // 不是默认
+            if(id){
+                $(this).toggleClass('current');
+                ids = $(this).parent().children('.current').map(function(){
+                    return $(this).data('id');
+                }).get().join(',');
+
+                // 如果一个高亮的标签也没有
+                if(!ids){
+                    $(this).parent().children().eq(0).addClass('current');
+                    XXOO.del(type);
+                } else {
+                    $(this).parent().children().eq(0).removeClass('current');
+                    XXOO.set(type, ids);
+                }
+            } else {
+                XXOO.del(type);
+                $(this).addClass('current').siblings().removeClass('current');
+            }
+
+            XXOO.request();
+        });
+
+        // 分页
+        $('#J-page_size').on('change', function(){
+            XXOO.set('page_size', this.value).request();
+        });
+
+        // 关键词
+        $('#J-query').on('blur', function(){
+            XXOO.set('query', this.value);
+        });
+
+        // 搜索
+        $('#J-btn').on('click', function(){
+            XXOO.request();
+        });
+    </script>
+</body>
+</html>
