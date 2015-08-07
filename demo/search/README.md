@@ -14,3 +14,9 @@
 使用默认定义一个数据对象，并委托所有的链接，连接上具有`data-type`的类型标识，具有`data-id`的`id`标识
 
 [demo](delegate.html)
+
+## 插件化
+
+doto说明
+
+[demo](search.html)
