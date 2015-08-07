@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>搜索 - 委托</title>
+<link rel="stylesheet" type="text/css" href="./search.css">
+</head>
+
+<body>
+
+    <div id="J-demo">
+        <dl>
+            <dt>
+                名称：
+            </dt>
+            <dd>
+                <ul>
+                    <li class="current">默认</li>
+                    <li data-type="name" data-id="baidu">百度</li>
+                    <li data-type="name" data-id="360">360</li>
+                    <li data-type="name" data-id="google">谷歌</li>
+                    <li data-type="name" data-id="facebook">非死不可</li>
+                    <li data-type="name" data-id="facebook">推特</li>
+                </ul>
+            </dd>
+            <dt>
+                排序：
+            </dt>
+            <dd>
+                <ul>
+                    <li data-type="order" class="current">默认</li>
+                    <li data-type="order" data-id="time">时间</li>
+                    <li data-type="order" data-id="id">id</li>
+                    <li data-type="order" data-id="name">名称</li>
+                </ul>
+            </dd>
+            <dt>
+                视图：
+            </dt>
+            <dd>
+                <ul>
+                    <li data-type="view" class="current">默认</li>
+                    <li data-type="view" data-id="code">代码</li>
+                    <li data-type="view" data-id="full">全屏</li>
+                    <li data-type="view" data-id="test">测试</li>
+                </ul>
+            </dd>
+        </dl>
+    </div> 
+
+    <hr>
+    <h2>返回值：</h2>
+    <div id="J-write">请点击~</div>
+
+
+    <script type="text/javascript" src="http://static.meishichina.com/v6/js/lib/jquery.js"></script>
+
+    <script type="text/javascript" src="delegate.js"></script>
+</body>
+</html>
