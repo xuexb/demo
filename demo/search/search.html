@@ -19,6 +19,51 @@
         height: 100%; 
         display: none; 
     }
+    .ui-page{
+        font-size: 0;
+        line-height: 24px;
+        padding-top: 10px; 
+    }
+    .ui-page a,
+    .ui-page span{
+        display: inline-block; 
+        font-size: 12px; 
+        padding: 0 10px; 
+        border: 1px solid  #ccc; 
+        margin-left: 8px; 
+        text-decoration: none; 
+    }
+    .ui-page a:first-child{
+        margin-left: 0; 
+    }
+    .ui-page a:hover,
+    .ui-page .current{
+        background-color: #09f; 
+        border-color: #09f; 
+        color: #fff; 
+    }
+    .ui-page .disabled{
+        background-color: #ccc; 
+        color: #999; 
+        border-color: #ccc; 
+    }
+    .ui-list li{
+        border-top: 1px solid  #ddd; 
+        padding: 10px 0; 
+    }
+    .ui-list li:first-child{
+        border-top: none; 
+    }
+    .ui-list-index{
+        display: inline-block; 
+        background-color: #ccc; 
+        color: #333; 
+        padding: 0 4px; 
+         height: 16px; line-height: 16px; text-align: center; 
+        font-size: 12px; 
+        margin-right: 8px; 
+        vertical-align: middle; 
+    }
 </style>
 </head>
 
@@ -69,6 +114,19 @@
                     <option value="10" selected>10条</option>
                     <option value="20">20条</option>
                     <option value="30">30条</option>
+                    <option value="46">46条</option>
+                </select>
+            </dd>
+
+            <dt>
+                后端返回多少条（模拟分页）：
+            </dt>
+            <dd>
+                <select name="" id="J-total">
+                    <option value="100" selected>100条</option>
+                    <option value="200">200条</option>
+                    <option value="300">300条</option>
+                    <option value="518">518条</option>
                 </select>
             </dd>
 
@@ -103,7 +161,7 @@
         var renderTpl = function(res){
             var html = '';
             $.each(res.items || [], function(){
-                html += '<li>'+ this.content +'</li>';
+                html += '<li><span class="ui-list-index">'+ this.index +'</span>'+ this.content +'</li>';
             });
 
             if(XXOO.get('query')){
@@ -112,14 +170,96 @@
                 });
             }
 
-            return '<ul>'+ html + '</ul>';
+            return '<ul class="ui-list">'+ html + '</ul>';
         }
+
+        var renderPage = function(res){
+            var page_size = parseInt(XXOO.get('page_size'), 10) || 10;
+            var pageCount = Math.ceil(res.total / page_size);
+            var page = parseInt(XXOO.get('page'), 10) || 1;
+            var str = '';
+            var i = 1;
+
+            console.log(pageCount, page)
+
+            if (pageCount > 1) {
+
+                if (page > 1) {
+                    str += '<a href="#" data-page="' + (page - 1) + '">上一页</a>';
+                } else {
+                    str += '<span class="disabled">上一页</span>';
+                }
+
+                if (pageCount < 7) {
+                    for (i; i <= pageCount; i++) {
+                        if (page === i) {
+                            str += '<span class="current">' + i + '</span>';
+                        } else {
+                            str += '<a href="#" data-page="' + (i) + '">' + i + '</a>';
+                        }
+                    }
+                } else {
+                    var start, end;
+                    if (page === 1) {
+                        str += '<span class="current">1</span>';
+                    } else {
+                        str += '<a href="#" data-page="' + (1) + '">1</a>';
+                    }
+                    if (page > 4) {
+                        str += '<span class="dot">...</span>';
+                    }
+                    if (page < 5) {
+                        start = 1;
+                    } else {
+                        start = page - 2;
+                    }
+
+                    if (page > (pageCount - 4)) {
+                        end = pageCount;
+                    } else {
+                        end = page + 3;
+                    }
+                    for (var i2 = start; i2 < end; i2++) {
+                        if (i2 !== 1 && i2 !== pageCount) { //避免重复输出1和最后一页
+                            if (i2 === page) {
+                                str += '<span class="current">' + i2 + '</span>';
+                            } else {
+                                str += '<a href="#" data-page="' + (i2) + '">' + i2 + '</a>';
+                            }
+                        }
+                    }
+                    if (page < (pageCount - 4)) {
+                        str += '<span class="dot">...</span>';
+                    }
+                    if (page === pageCount) {
+                        str += '<span class="current">' + pageCount + '</span>';
+                    } else {
+                        str += '<a href="#" data-page="' + (pageCount) + '">' + pageCount + '</a>';
+                    }
+                    start = end = null;
+                }
+
+                if (page < pageCount) {
+                    str += '<a href="#" data-page="' + (page + 1) + '">下一页</a>';
+                } else {
+                    str += '<span class="disabled">下一页</span>';
+                }
+
+
+                str = '<div class="ui-page">' + str + '</div>';
+            }
+
+            return str;
+        }
+
         var XXOO = new Search({
             url: '/api/search/index',
             success: function(res){
                 var html = '';
 
                 html += renderTpl(res);
+
+                html += renderPage(res);
 
                 $('#J-write').html(html);
             },
@@ -181,9 +321,14 @@
             XXOO.request();
         });
 
-        // 分页
+        // 分页大小
         $('#J-page_size').on('change', function(){
-            XXOO.set('page_size', this.value).request();
+            XXOO.set('page_size', this.value).set('page', 1).request();
+        });
+
+        // 总数
+        $('#J-total').on('change', function(){
+            XXOO.set('total', this.value).set('page', 1).request();
         });
 
         // 关键词
@@ -194,6 +339,12 @@
         // 搜索
         $('#J-btn').on('click', function(){
             XXOO.request();
+        });
+
+        // 分页
+        $('#J-write').on('click', '.ui-page a', function(){
+            XXOO.set('page', this.getAttribute('data-page')).request();
+            return false;
         });
     </script>
 </body>
