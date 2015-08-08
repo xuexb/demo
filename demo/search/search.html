@@ -64,6 +64,15 @@
         margin-right: 8px; 
         vertical-align: middle; 
     }
+    #J-btn{
+        display: inline-block; 
+        width: 100px; 
+        height: 30px; 
+        color: #fff; 
+        background-color: #09f; 
+        border: none; 
+        margin-top: 30px; 
+    }
 </style>
 </head>
 
@@ -136,7 +145,11 @@
             <dd>
                 <input type="text" id="J-query">
             </dd>
-
+            
+            <dt>快速跳页：</dt>
+            <dd>
+                <input type="text" id="J-quick-page"><button id="J-quick-btn">跳转</button>
+            </dd>
 
             <dd>
                 <button id="J-btn">搜索</button>
@@ -160,14 +173,21 @@
     <script type="text/javascript">
         var renderTpl = function(res){
             var html = '';
-            $.each(res.items || [], function(){
-                html += '<li><span class="ui-list-index">'+ this.index +'</span>'+ this.content +'</li>';
-            });
 
-            if(XXOO.get('query')){
-                html = html.replace(new RegExp(XXOO.get('query'), 'g'), function($0){
-                    return '<mark>'+ $0 +'</mark>';
+            res.items = res.items || [];
+
+            if(res.items.length){
+                $.each(res.items, function(){
+                    html += '<li><span class="ui-list-index">'+ this.index +'</span>'+ this.content +'</li>';
                 });
+
+                if(XXOO.get('query')){
+                    html = html.replace(new RegExp(XXOO.get('query'), 'g'), function($0){
+                        return '<mark>'+ $0 +'</mark>';
+                    });
+                }
+            } else {
+                html = '<li>真空~</li>';
             }
 
             return '<ul class="ui-list">'+ html + '</ul>';
@@ -180,9 +200,7 @@
             var str = '';
             var i = 1;
 
-            console.log(pageCount, page)
-
-            if (pageCount > 1) {
+            if (pageCount > 1 && page <= pageCount) {
 
                 if (page > 1) {
                     str += '<a href="#" data-page="' + (page - 1) + '">上一页</a>';
@@ -345,6 +363,20 @@
         $('#J-write').on('click', '.ui-page a', function(){
             XXOO.set('page', this.getAttribute('data-page')).request();
             return false;
+        });
+
+        // 快速跳页
+        var $quickPage = $('#J-quick-page');
+        $('#J-quick-btn').on('click', function(){
+            var value = $quickPage.val();
+            if(!value){
+                $quickPage.focus();
+            } else if(!/^\d+$/.test(value)){
+                $quickPage.focus().select();
+            } else {
+                value = parseInt(value, 10) || 1;
+                XXOO.set('page', value).request();
+            }
         });
     </script>
 </body>
