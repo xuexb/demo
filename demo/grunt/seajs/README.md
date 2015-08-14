@@ -16,6 +16,12 @@
 [sudo] npm install
 ```
 
+目前没有仓库可直接`clone`，请下载以下文件：
+
+* [app.js](app.js)
+* [Gruntfile.js](Gruntfile.js)
+* [package.json](package.json)
+
 ## 提供的命令
 
 
