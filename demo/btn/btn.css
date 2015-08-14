@@ -56,7 +56,7 @@ button,input{
 
 /*loading效果*/
 .ui-btn.loading > span{
-    background:url('http://static.meishichina.com/v6/img/loading-16-16.gif') left center no-repeat;
+    background:url('//github.xuexb.com/static/img/loading-16-16.gif') left center no-repeat;
     padding-left:26px;
 }
 
