@@ -1,0 +1,12 @@
+/**
+ * 尾部样式
+ */
+
+.foot{
+    background-color: #ccc; 
+    line-height: 30px; 
+}
+.foot a{
+    display: inline-block; 
+    padding: 0 10px; 
+}

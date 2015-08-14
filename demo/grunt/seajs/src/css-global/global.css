@@ -1,0 +1,7 @@
+/**
+ * import是以当前路径起
+ */
+@import url(../lib/reset.css);
+@import url(../lib/topbar.css);
+@import url(../lib/foot.css);
+@import url(./main.css);
