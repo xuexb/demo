@@ -1,0 +1,14 @@
+/**
+ * 头部样式
+ */
+
+.topbar{
+    background-color: #000; 
+    line-height: 30px; 
+}
+
+.topbar a{
+    color: #fff; 
+    display: inline-block; 
+    padding: 0 10px; 
+}
