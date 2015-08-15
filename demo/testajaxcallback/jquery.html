@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery版本</title>
+</head>
+<body>
+
+    <h2>请点击并查看控制台</h2>
+    <br>
+
+    <button data-url="/api/testajax/success">成功</button>
+    <button data-url="/api/testajax/404">404</button>
+    <button data-url="/api/testajax/500">500</button>
+    <button data-url="/api/testajax/parseError">解析json错误</button>
+    <button data-url="/api/testajax/empty">返回值空</button>
+    <button data-url="/api/testajax/timeout">超时</button>
+    
+
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript">
+        function send(url){
+            $.ajax({
+                url: url,
+                data: {
+                    r: new Date().getTime()
+                },
+                dataType: 'json',
+                error: function(a,b){
+                    console.log(a,b, 'error');
+                },
+                success: function(a){
+                    console.log(a, 'success');
+                },
+                complete: function(a){
+                    console.log(a, 'complete');
+                },
+                timeout: 3000
+            });    
+        }
+        $('button').on('click', function(){
+            send($(this).data('url'));
+        });
+    </script>
+</body>
+</html>
