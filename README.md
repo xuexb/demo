@@ -31,6 +31,7 @@
 * [user](demo/user/)
 * [dialog](demo/dialog/)
 * [搜索](demo/search/)
+* [异步回调的研究](demo/testajaxcallback)
 
 ## node
 * [marked](demo/node/marked)
