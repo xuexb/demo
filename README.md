@@ -1,7 +1,7 @@
 # demo
-测试的demo,仓库在 https://github.com/xuexb/demo, 预览在 http://github.xuexb.com
+测试的demo,仓库在 https://github.com/xuexb/demo, 预览在 https://github.xuexb.com
 
-自豪的使用 [test-ajax](https://github.com/xuexb/test-ajax) 提供的接口响应
+使用 [test-ajax](https://github.com/xuexb/test-ajax) 构建的该网站并提供接口响应
 
 ## list
 * [美化单选](demo/ui-radio/index.html)
