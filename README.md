@@ -32,6 +32,7 @@
 * [dialog](demo/dialog/)
 * [搜索](demo/search/)
 * [异步回调的研究](demo/testajaxcallback)
+* [字号的研究](demo/font-size)
 
 ## node
 * [marked](demo/node/marked)
