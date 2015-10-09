@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>
+         字号的研究 
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+        #out p {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid  #ccc;
+
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>字号研究</h1>
+    <p>
+         如果显示绿色(#0f0)表示支持，显示红色(#f00)表示不支持 
+    </p>
+    <div id="out">
+         loading... 
+    </div>
+    <script src="/static/jquery.js"></script>
+    <script>
+        (function () {
+            var $out = $('#out');
+            var html = '';
+            var i = 0;
+            var len = parseInt(location.search.replace('?', ''), 10) || 20;
+            for (; i <= len; i++) {
+                html += '<p data-fontsize="' + i + 'px" style="font-size:' + i + 'px;">' + i + '号字体</p>';
+            }
+            $out.html(html);
+
+            $out.find('p').each(function () {
+                var $this = $(this);
+                console.log($this.css('font-size'), $this.data('fontsize'));
+                if ($this.css('font-size') === $this.data('fontsize')) {
+                    $this.css('background-color', '#0f0');
+                }
+                else {
+                    $this.css('background-color', '#f00');
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
