@@ -33,7 +33,7 @@
 * [搜索](demo/search/)
 * [异步回调的研究](demo/testajaxcallback)
 * [字号的研究](demo/font-size/index.html)
-* [html文件中lang的研究](demo/lang/)
+* [html文件中lang的研究](demo/html-lang/)
 
 ## node
 * [marked](demo/node/marked)
