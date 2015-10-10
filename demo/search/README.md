@@ -1,5 +1,7 @@
 # 搜索逻辑
 
+> 异步使用[test-ajax](https://github.com/xuexb/test-ajax)驱动
+
 写一些常用异步搜索的逻辑
 
 ## 简单
