@@ -103,6 +103,7 @@ module.exports = function (req, res, next) {
 
     // 开始分析
     resdata = {
+        errcode: 0,
         browser: {},
         os: {},
         http_status: {},
@@ -110,9 +111,7 @@ module.exports = function (req, res, next) {
         http_bot: {
             bot: 0,
             all: 0
-
         }
-
     };
 
     parser = new UAParser();
