@@ -8,7 +8,7 @@
   },
   "JSON_DIR": "/home/wwwlog/nginx-log-json/",
   "VAR_PATH": "/home/wwwlog/nginx-log-json/var.json",
-  "LOG_PATH": "/home/wwwlog/nginx/access/last.log",
+  "LOG_PATH": "/home/wwwlog/nginx/blog/last.log",
   "author": "xiaowu",
   "devDependencies": {
     "nginxparser": "*",
