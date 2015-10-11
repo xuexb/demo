@@ -160,7 +160,10 @@ module.exports = function (req, res, next) {
         }
 
         // 机器人
-        temp = val.http_user_agent.match(new RegExp('(' + ROBOT_ARR.join('|') + ')'));
+        temp = null;
+        if(val.http_user_agent){
+            temp = val.http_user_agent.match(new RegExp('(' + ROBOT_ARR.join('|') + ')'));
+        }
         if (temp) {
             resdata.http_bot.bot += 1;
             if (!resdata.robot[temp]) {
