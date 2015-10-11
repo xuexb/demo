@@ -10,18 +10,19 @@ var fs = require('fs');
 var path = require('path');
 var util = require('./util');
 var UAParser = require('ua-parser-js');
+var pack = require('./package.json');
 
 /**
  * json文档存放目录
  * @type {String}
  */
-var JSON_DIR = '/Users/baidu/Desktop/';
+var JSON_DIR = pack.JSON_DIR;
 
 /**
  * 版本文件目录
  * @type {String}
  */
-var VAR_PATH = '/Users/baidu/Desktop/var.json';
+var VAR_PATH = pack.VAR_PATH;
 
 /**
  * 机器人列表
@@ -119,40 +120,44 @@ module.exports = function (req, res, next) {
         var temp = parser.setUA(val.http_user_agent).getResult();
 
         // 浏览器
-        if (!resdata.browser[temp.browser.name]) {
-            resdata.browser[temp.browser.name] = {
-                count: 0,
-                version: {}
+        if (temp.browser && temp.browser.name && temp.browser.version) {
+            if (!resdata.browser[temp.browser.name]) {
+                resdata.browser[temp.browser.name] = {
+                    count: 0,
+                    version: {}
 
-            };
+                };
+            }
+            resdata.browser[temp.browser.name].count += 1;
+            temp.browser.version = temp.browser.version.split('.')[0];
+            if (!resdata.browser[temp.browser.name].version[temp.browser.version]) {
+                resdata.browser[temp.browser.name].version[temp.browser.version] = 0;
+            }
+            resdata.browser[temp.browser.name].version[temp.browser.version] += 1;
         }
-        resdata.browser[temp.browser.name].count += 1;
-        temp.browser.version = temp.browser.version.split('.')[0];
-        if (!resdata.browser[temp.browser.name].version[temp.browser.version]) {
-            resdata.browser[temp.browser.name].version[temp.browser.version] = 0;
-        }
-        resdata.browser[temp.browser.name].version[temp.browser.version] += 1;
 
         // 系统
-        if (!resdata.os[temp.os.name]) {
-            resdata.os[temp.os.name] = {
-                count: 0,
-                version: {}
+        if (temp.os && temp.os.name && temp.os.version) {
+            if (!resdata.os[temp.os.name]) {
+                resdata.os[temp.os.name] = {
+                    count: 0,
+                    version: {}
 
-            };
-        }
-        resdata.os[temp.os.name].count += 1;
-        temp.os.version = temp.os.version.split('.')[0];
-        if (!resdata.os[temp.os.name].version[temp.os.version]) {
-            resdata.os[temp.os.name].version[temp.os.version] = 0;
-        }
-        resdata.os[temp.os.name].version[temp.os.version] += 1;
+                };
+            }
+            resdata.os[temp.os.name].count += 1;
+            temp.os.version = temp.os.version.split('.')[0];
+            if (!resdata.os[temp.os.name].version[temp.os.version]) {
+                resdata.os[temp.os.name].version[temp.os.version] = 0;
+            }
+            resdata.os[temp.os.name].version[temp.os.version] += 1;
 
-        // http状态码
-        if (!resdata.http_status[val.status]) {
-            resdata.http_status[val.status] = 0;
+            // http状态码
+            if (!resdata.http_status[val.status]) {
+                resdata.http_status[val.status] = 0;
+            }
+            resdata.http_status[val.status] += 1;
         }
-        resdata.http_status[val.status] += 1;
 
         // 机器人
         temp = val.http_user_agent.match(new RegExp('(' + ROBOT_ARR.join('|') + ')'));

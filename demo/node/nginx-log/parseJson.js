@@ -11,6 +11,7 @@ var NginxParser = require('nginxparser');
 var fs = require('fs');
 var path = require('path');
 var util = require('./util');
+var pack = require('./package.json');
 
 /**
  * 日志文件全路径
@@ -18,17 +19,19 @@ var util = require('./util');
  */
 var LOG_PATH = '/usr/local/var/log/nginx/access.log';
 
+LOG_PATH = pack.LOG_PATH;
+
 /**
  * json文档存放目录
  * @type {String}
  */
-var JSON_DIR = '/Users/baidu/Desktop/';
+var JSON_DIR = pack.JSON_DIR;
 
 /**
  * 版本文件目录
  * @type {String}
  */
-var VAR_PATH = '/Users/baidu/Desktop/var.json';
+var VAR_PATH = pack.VAR_PATH;
 
 /**
  * 日志文件规则
