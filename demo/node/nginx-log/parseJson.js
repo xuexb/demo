@@ -17,9 +17,7 @@ var pack = require('./package.json');
  * 日志文件全路径
  * @type {String}
  */
-var LOG_PATH = '/usr/local/var/log/nginx/access.log';
-
-LOG_PATH = pack.LOG_PATH;
+var LOG_PATH = pack.LOG_PATH;
 
 /**
  * json文档存放目录
