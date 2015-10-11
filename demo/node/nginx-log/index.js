@@ -161,7 +161,7 @@ module.exports = function (req, res, next) {
 
         // 机器人
         temp = null;
-        if(val.http_user_agent){
+        if (val.http_user_agent) {
             temp = val.http_user_agent.match(new RegExp('(' + ROBOT_ARR.join('|') + ')'));
         }
         if (temp) {
@@ -174,6 +174,9 @@ module.exports = function (req, res, next) {
         }
         resdata.http_bot.all += 1;
     });
+
+    // 写入缓存
+    fs.writeFileSync(filepath + '.data', JSON.stringify(resdata));
 
     res.json(resdata);
 };
