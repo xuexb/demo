@@ -6,9 +6,9 @@
     "type": "git",
     "url": "git@github.com:xuexb/demo.git"
   },
-  "JSON_DIR": "/home/wwwlog/nginx-log-json/",
-  "VAR_PATH": "/home/wwwlog/nginx-log-json/var.json",
-  "LOG_PATH": "/home/wwwlog/nginx/blog/last.log",
+  "JSON_DIR": "/Users/baidu/Downloads/",
+  "VAR_PATH": "/Users/baidu/Downloads/var.json",
+  "LOG_PATH": "/Users/baidu/Downloads/last.log",
   "author": "xiaowu",
   "devDependencies": {
     "nginxparser": "*",
