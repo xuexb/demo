@@ -235,4 +235,22 @@
 
         });
     };
+
+    /**
+     * IE浏览器版本号
+     */
+    filter.iever = function () {
+        return filter.render({
+            key: 'browser',
+            text: 'IE浏览器版本',
+            name: '版本号',
+            keyFilter: function (data) {
+                return Object.keys(data.IE.version);
+            },
+            valueFilter: function (key, data) {
+                return data.IE.version[key];
+            }
+
+        });
+    };
 })();
