@@ -1,5 +1,5 @@
 /**
- * 统计web.js
+ * @file 统计web.js
  * @author xiaowu
  * @email fe.xiaowu@gmail.com
  */
@@ -12,81 +12,27 @@
     var echartsDispose;
     var $content = $('#content');
 
-    require.config({
-        paths: {
-            echarts: '/static/echarts/'
-
-        }
-
-    });
-
-    require([
-        'echarts',
-        'echarts/chart/pie'
-    ], function (ec) {
-        echarts = ec;
-
-        $.ajax({
-            url: '/api/log',
-            success: function (res) {
-                DATA = res;
-                init();
-            },
-            dataType: 'json',
-            type: 'GET',
-            cache: true,
-            error: function () {
-                alert('加载失败～');
-            }
-
-        });
-    });
-
-    var init = function () {
-        $('.demo-nav li').on('click', function () {
-            var $this = $(this);
-            var type = $this.data('type');
-            var option = null;
-
-            // 高亮导航
-            $this.addClass('ui-tab-active').siblings().removeClass('ui-tab-active');
-
-            // 销毁
-            if (echartsDispose && 'function' === typeof echartsDispose.dispose) {
-                echartsDispose.dispose();
-                echartsDispose = null;
-            }
-
-            // 清空当前的
-            $content.removeClass('empty').empty();
-
-            if ('function' === typeof filter[type]) {
-                option = filter[type]();
-            }
-
-            if (option === null) {
-                $content.text('真空～').addClass('empty');
-            }
-            else {
-                echartsDispose = echarts.init($('#content').get(0));
-                echartsDispose.setOption(option);
-            }
-        }).eq(0).trigger('click');
-
-        $content.addClass('ok');
-    };
-
+    /**
+     * 检查器
+     *
+     * @type {Object}
+     */
     var filter = {};
 
     /**
      * 浏览器别名
+     *
      * @type {Object}
      */
-    filter.browser_alias = {};
+    filter.browserAlias = {};
 
     /**
      * 渲染配置
-     * @param  {Object} config 配置
+     *
+     * @date   2015-10-13
+     *
+     * @param  {Object}   config 配置
+     *
      * @return {Object}
      */
     filter.render = function (config) {
@@ -148,6 +94,8 @@
 
     /**
      * 系统
+     *
+     * @return {Function}
      */
     filter.os = function () {
         return filter.render({
@@ -166,6 +114,8 @@
 
     /**
      * 浏览器
+     *
+     * @return {Function}
      */
     filter.browser = function () {
         return filter.render({
@@ -184,6 +134,8 @@
 
     /**
      * 机器人
+     *
+     * @return {Function}
      */
     filter.robot = function () {
         return filter.render({
@@ -202,6 +154,8 @@
 
     /**
      * http状态码
+     *
+     * @return {Function}
      */
     filter.status = function () {
         return filter.render({
@@ -220,6 +174,8 @@
 
     /**
      * 谷歌浏览器版本号
+     *
+     * @return {Function}
      */
     filter.chromever = function () {
         return filter.render({
@@ -238,6 +194,8 @@
 
     /**
      * IE浏览器版本号
+     *
+     * @return {Function}
      */
     filter.iever = function () {
         return filter.render({
@@ -253,4 +211,73 @@
 
         });
     };
+
+    /**
+     * 初始化
+     *
+     * @date   2015-10-13
+     */
+    var init = function () {
+        $('.demo-nav li').on('click', function () {
+            var $this = $(this);
+            var type = $this.data('type');
+            var option = null;
+
+            // 高亮导航
+            $this.addClass('ui-tab-active').siblings().removeClass('ui-tab-active');
+
+            // 销毁
+            if (echartsDispose && 'function' === typeof echartsDispose.dispose) {
+                echartsDispose.dispose();
+                echartsDispose = null;
+            }
+
+            // 清空当前的
+            $content.removeClass('empty').empty();
+
+            if ('function' === typeof filter[type]) {
+                option = filter[type]();
+            }
+
+            if (option === null) {
+                $content.text('真空～').addClass('empty');
+            }
+            else {
+                echartsDispose = echarts.init($('#content').get(0));
+                echartsDispose.setOption(option);
+            }
+        }).eq(0).trigger('click');
+
+        $content.addClass('ok');
+    };
+
+    require.config({
+        paths: {
+            echarts: '/static/echarts/'
+
+        }
+
+    });
+
+    require([
+        'echarts',
+        'echarts/chart/pie'
+    ], function (ec) {
+        echarts = ec;
+
+        $.ajax({
+            url: '/api/log',
+            success: function (res) {
+                DATA = res;
+                init();
+            },
+            dataType: 'json',
+            type: 'GET',
+            cache: true,
+            error: function () {
+                alert('加载失败～');
+            }
+
+        });
+    });
 })();
