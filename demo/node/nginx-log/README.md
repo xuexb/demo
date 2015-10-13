@@ -5,3 +5,7 @@
 [查看统计结果](index.html)
 
 [源码](https://github.com/xuexb/demo/tree/master/demo/node/nginx-log)
+
+## todo
+
+实时统计，按小时/分钟统计
