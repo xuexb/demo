@@ -109,7 +109,7 @@
             },
             tooltip: {
                 trigger: 'item',
-                formatter: '{a} <br/>{b} : {c} ({d}%)'
+                formatter: '{a}:{b}<br/>数量:{c}<br>比例:{d}%'
 
             },
             legend: {
