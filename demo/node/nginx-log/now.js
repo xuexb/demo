@@ -14,12 +14,6 @@ var parseJson = require('./parseJson-now');
 var util = require('./util');
 
 /**
- * 日志文件路径
- * @type {string}
- */
-var LOG_PATH = pack.LOG_PATH;
-
-/**
  * json文件路径
  * @type {string}
  */

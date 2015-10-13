@@ -35,21 +35,44 @@ if (rule) {
 }
 
 module.exports = function (callback) {
-    parser.read(path.resolve(LOG_PATH), function (row) {
-        var temp = {};
-        // 必须符合检查器
-        rule.forEach(function (val) {
-            if (row.hasOwnProperty(val) && row[val] !== null && row[val] !== undefined) {
-                temp[val] = row[val];
+    var i = 0;
+    var len;
+    var fn;
+
+    if ('string' === typeof LOG_PATH) {
+        LOG_PATH = [
+            LOG_PATH
+        ];
+    }
+
+    len = LOG_PATH.length;
+
+    fn = function () {
+        parser.read(path.resolve(LOG_PATH[i]), function (row) {
+            var temp = {};
+            // 必须符合检查器
+            rule.forEach(function (val) {
+                if (row.hasOwnProperty(val) && row[val] !== null && row[val] !== undefined) {
+                    temp[val] = row[val];
+                }
+            });
+            data.push(temp);
+        }, function (err) {
+            if (err) {
+                throw err;
+            }
+            i += 1;
+
+            if (i < len) {
+                fn();
+            }
+            else {
+                if ('function' === typeof callback) {
+                    callback(data);
+                }
             }
         });
-        data.push(temp);
-    }, function (err) {
-        if (err) {
-            throw err;
-        }
-        if ('function' === typeof callback) {
-            callback(data);
-        }
-    });
+    };
+
+    fn();
 };
