@@ -40,11 +40,17 @@
         var res;
         var key;
 
+        // 如果不是对象
         if (!data || $.isEmptyObject(data) || !$.isPlainObject(data)) {
             return null;
         }
 
         key = config.keyFilter(data);
+
+        // filter返回null
+        if (!key || !key.length) {
+            return null;
+        }
 
         res = {
             title: {
@@ -203,7 +209,7 @@
             text: 'IE浏览器版本',
             name: '版本号',
             keyFilter: function (data) {
-                return data && data.IE && data.IE.version ? Object.keys(data.IE.version) : null
+                return data && data.IE && data.IE.version ? Object.keys(data.IE.version) : null;
             },
             valueFilter: function (key, data) {
                 return data.IE.version[key];
