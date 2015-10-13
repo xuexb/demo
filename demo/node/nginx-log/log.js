@@ -183,7 +183,7 @@
             text: '谷歌浏览器版本',
             name: '版本号',
             keyFilter: function (data) {
-                return Object.keys(data.Chrome.version);
+                return data && data.Chrome && data.Chrome.version ? Object.keys(data.Chrome.version) : null;
             },
             valueFilter: function (key, data) {
                 return data.Chrome.version[key];
@@ -203,7 +203,7 @@
             text: 'IE浏览器版本',
             name: '版本号',
             keyFilter: function (data) {
-                return Object.keys(data.IE.version);
+                return data && data.IE && data.IE.version ? Object.keys(data.IE.version) : null
             },
             valueFilter: function (key, data) {
                 return data.IE.version[key];
