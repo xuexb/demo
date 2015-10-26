@@ -40,7 +40,7 @@
 * [redis研究](demo/redis/)
 * [es6-promise](demo/es6-promise/)
 * [nginx日志分析](demo/node/nginx-log/)
-* [event](demo/events/)
+* [event](demo/node/events/index.js)
 
 ## list for touch
 * [移动端滚动加载](demo/touch-ajax-page/ajaxPage.js)
