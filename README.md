@@ -21,6 +21,7 @@
 * [css布局](demo/css-layout/)
 * [jquery deferred](demo/jquery-deferred/)
 * [es5](demo/es5/)
+* [es6](demo/es6/)
 * [prototype](demo/prototype/)
 * [log](demo/log/)
 * [requirejs](demo/requirejs/)
