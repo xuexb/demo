@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
 </head>
 <body>
-    <h2>demo1</h2>
+    <h2>demo1 - 很普通的</h2>
     <dl id="J-dl">
         <dt> <input type="checkbox" id="J-all"><label for="J-all">
                 全选
@@ -74,30 +74,144 @@
             </label>
         </dd>
     </dl>
-<script>
-    (function () {
-        var $all = $('#J-all');
-        var $dl = $('#J-dl');
+    <script>
+        (function () {
+            var $all = $('#J-all');
+            var $dl = $('#J-dl');
 
-        // 绑定全选按钮点击事件，让下面所有的复选框是跟全选的一样
-        $all.on('click', function(){
-            $dl.find('.J-input').prop('checked', !!this.checked);
-        });
-
-        // 绑定点击所有的复选框，点击的时候判断是否页面中全选了
-        $dl.find('.J-input').on('click', function(){
-            var $没有选中的元素 = $dl.find('.J-input').filter(function(){
-                return !this.checked;
+            // 绑定全选按钮点击事件，让下面所有的复选框是跟全选的一样
+            $all.on('click', function () {
+                $dl.find('.J-input').prop('checked', !!this.checked);
             });
 
-            // 如果有没有选中的，则让全选的取消
-            if($没有选中的元素.length){
-                $all.prop('checked', false);
-            } else {
-                $all.prop('checked', true);
+            // 绑定点击所有的复选框，点击的时候判断是否页面中全选了
+            $dl.find('.J-input').on('click', function () {
+                var $没有选中的元素 = $dl.find('.J-input').filter(function () {
+                    return !this.checked;
+                });
+
+                // 如果有没有选中的，则让全选的取消
+                if ($没有选中的元素.length) {
+                    $all.prop('checked', false);
+                }
+                else {
+                    $all.prop('checked', true);
+                }
+            });
+        })();
+    </script>
+
+
+
+
+    <hr>
+
+    <h2>demo2 - 使用委托</h2>
+    <dl id="J-dl2">
+        <dt> <input type="checkbox" id="J-all2"><label for="J-all2">
+                全选
+            </label> 
+            <button id="J-dl2-btn">动态插入一个</button>
+        </dt>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-1">
+            <label for="J-input-1">
+                0001
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-2">
+            <label for="J-input-2">
+                0002
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-3">
+            <label for="J-input-3">
+                0003
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-4">
+            <label for="J-input-4">
+                0004
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-5">
+            <label for="J-input-5">
+                0005
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-6">
+            <label for="J-input-6">
+                0006
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-7">
+            <label for="J-input-7">
+                0007
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-8">
+            <label for="J-input-8">
+                0008
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-9">
+            <label for="J-input-9">
+                0009
+            </label>
+        </dd>
+        <dd>
+            <input type="checkbox" class="J-input" id="J-input1-10">
+            <label for="J-input-10">
+                0010
+            </label>
+        </dd>
+    </dl>
+    <script>
+        (function () {
+            var $all = $('#J-all2');
+            var $dl = $('#J-dl2');
+
+            // 绑定全选按钮点击事件，让下面所有的复选框是跟全选的一样
+            $all.on('click', function () {
+                $dl.find('.J-input').prop('checked', !!this.checked);
+            });
+
+            var check = function(){
+                var $没有选中的元素 = $dl.find('.J-input').filter(function () {
+                    return !this.checked;
+                });
+
+                // 如果有没有选中的，则让全选的取消
+                if ($没有选中的元素.length) {
+                    $all.prop('checked', false);
+                }
+                else {
+                    $all.prop('checked', true);
+                }
             }
-        });
-    })();
-</script>
+
+            // 绑定点击所有的复选框，点击的时候判断是否页面中全选了
+            $dl.on('click', '.J-input', function () {
+                check();
+            });
+
+            // 动态插入一个，为了测委托
+            $('#J-dl2-btn').on('click', function(){
+                var uid = $dl.find('dd').length + 1;
+                var str = '<dd><input type="checkbox" class="J-input" id="J-input1-'+uid+'">\
+                    <label for="J-input1-'+ uid +'">'+uid+'</label></dd>';
+                $dl.append(str);
+                check();
+            });
+        })();
+    </script>
 </body>
 </html>
