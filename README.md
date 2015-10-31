@@ -34,6 +34,7 @@
 * [异步回调的研究](demo/testajaxcallback)
 * [字号的研究](demo/font-size/index.html)
 * [html文件中lang的研究](demo/html-lang/)
+* [全选的研究](demo/all-checked/index.html)
 
 ## node
 * [marked](demo/node/marked)
