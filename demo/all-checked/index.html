@@ -189,19 +189,22 @@
                     return !this.checked;
                 });
 
+                // 添加用户体验好的东东，如果大于0则说明至少有一个选中的
+                // https://imququ.com/post/native-tri-state-checkbox.html
+                if($dl.find('.J-input:checked').length > 0){
+                    $all.prop('indeterminate', true);
+                } else {
+                    $all.prop('indeterminate', false);
+                }
+
                 // 如果有没有选中的，则让全选的取消
                 if ($没有选中的元素.length) {
                     $all.prop('checked', false);
                 }
                 else {
                     $all.prop('checked', true);
-                }
 
-                // 添加用户体验好的东东，如果大于0则说明至少有一个选中的
-                // https://imququ.com/post/native-tri-state-checkbox.html
-                if($dl.find('.J-input:checked').length > 0){
-                    $all.prop('indeterminate', true);
-                } else {
+                    // 让indeterminate消失
                     $all.prop('indeterminate', false);
                 }
             }
