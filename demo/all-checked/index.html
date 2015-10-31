@@ -196,6 +196,14 @@
                 else {
                     $all.prop('checked', true);
                 }
+
+                // 添加用户体验好的东东，如果大于0则说明至少有一个选中的
+                // https://imququ.com/post/native-tri-state-checkbox.html
+                if($dl.find('.J-input:checked').length > 0){
+                    $all.prop('indeterminate', true);
+                } else {
+                    $all.prop('indeterminate', false);
+                }
             }
 
             // 绑定点击所有的复选框，点击的时候判断是否页面中全选了
@@ -213,5 +221,7 @@
             });
         })();
     </script>
+
+
 </body>
 </html>
