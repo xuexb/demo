@@ -2,7 +2,7 @@
 测试的demo,仓库在 https://github.com/xuexb/demo, 预览在 https://github.xuexb.com
 
 使用 [test-ajax](https://github.com/xuexb/test-ajax) 构建的该网站并提供接口响应
-
+![](uploads/zhuangxiu/4.jpg)
 ## list
 * [美化单选](demo/ui-radio/index.html)
 * [美化复选](demo/ui-checkbox/index.html)
