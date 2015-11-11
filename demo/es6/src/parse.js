@@ -1,9 +1,11 @@
-'use strict';
-
 /**
  * 解析器
  * @author xiaowu
  */
+
+
+'use strict';
+
 
 // let [foo, [[bar], baz]] = [1, [[2], 3]];
 // console.log(foo, bar, baz);
