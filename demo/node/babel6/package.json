@@ -1,0 +1,25 @@
+{
+  "name": "babel6",
+  "version": "1.0.0",
+  "description": "测试",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel src --out-dir dist",
+    "watch-compile": "npm run compile -- --watch"
+  },
+  "author": "xiaowu",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "babel-preset-stage-3": "^6.1.18"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "stage-3"
+    ]
+  }
+}
