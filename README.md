@@ -43,6 +43,7 @@
 * [es6-promise](demo/es6-promise/)
 * [nginx日志分析](demo/node/nginx-log/)
 * [event](demo/node/events/index.js)
+* [babel6](demo/node/babel6)
 
 ## list for touch
 * [移动端滚动加载](demo/touch-ajax-page/ajaxPage.js)
