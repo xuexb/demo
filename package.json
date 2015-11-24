@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "小武的demo",
   "version": "1.0.0",
   "description": "测试的demo",
   "author": {
@@ -16,5 +16,18 @@
   "bugs": {
     "url": "https://github.com/xuexb/demo/issues"
   },
-  "homepage": "https://github.com/xuexb/demo"
+  "homepage": "https://github.com/xuexb/demo",
+  "mdjs": {
+    "name": "小武的demo",
+    "port": 8888,
+    "dir_alias": {
+      "demo": "例子"
+    },
+    "static_prefix": "mdjs_static",
+    "ignore_dir": [
+      ".git",
+      ".cache",
+      "node_modules"
+    ]
+  }
 }
