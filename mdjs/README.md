@@ -30,7 +30,7 @@ var app = new Mdjs(options);
 
 ---
 
-## 过程
+## 由来
 
 ### 前世
 
