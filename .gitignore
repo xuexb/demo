@@ -1,5 +1,4 @@
 node_modules
-/__cache
-/index.js
+/.cache/
 /temp
 *.log
