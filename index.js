@@ -10,6 +10,9 @@ app.express.post('/update', function (req, res, next) {
         cwd: app.options.root
     }, function (a, b) {
         console.log(a, b, new Date().getTime());
+
+        // 清空缓存
+        app.clear_cache();
     });
 
     res.end('ok');
