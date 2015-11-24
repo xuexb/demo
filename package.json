@@ -22,7 +22,7 @@
     "port": 8888,
     "dir_alias": {
       "demo": "例子",
-      "api": "API"
+      "api": "APIdd"
     },
     "static_prefix": "mdjs_static",
     "ignore_dir": [
