@@ -6,7 +6,7 @@
     "name": "xiaowu"
   },
   "devDependencies": {
-    "test-ajax": "*"
+    "mdjs": "0.x.x"
   },
   "repository": {
     "type": "git",
