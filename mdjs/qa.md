@@ -6,7 +6,7 @@
 
 ## 如何支持勾子
 
-[express接口](./hook.md#h2-0)
+[express接口](./api.md#express-hook)
 
 
 
