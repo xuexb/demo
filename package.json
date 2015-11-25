@@ -21,8 +21,7 @@
     "name": "小武的demo",
     "port": 8888,
     "dir_alias": {
-      "demo": "例子",
-      "api": "API"
+      "demo": "列表"
     },
     "static_prefix": "mdjs_static",
     "ignore_dir": [
