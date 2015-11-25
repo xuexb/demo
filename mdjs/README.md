@@ -52,3 +52,7 @@ var app = new Mdjs(options);
 ## 定位
 
 一个`md`在线浏览的服务，也符合`mdjs`这个命名。
+
+## 感谢
+
+`mdjs`默认的样式使用 [pjax](https://github.com/welefen/pjax) 和 [阮老师的es6样式](http://es6.ruanyifeng.com/)
