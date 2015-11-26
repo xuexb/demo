@@ -18,7 +18,7 @@
 
 var Mdocjs = require('mdjs');
 
-new Mdocjs({});
+new Mdocjs({}).run();
 ```
 
 ## 默认配置

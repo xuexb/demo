@@ -2,6 +2,18 @@
 
 > 实例对象接口
 
+## run
+
+> 运行的`express.listen()`
+
+```js
+/**
+ * 运行
+ *
+ * @return {Object} this
+ */
+```
+
 ## get_render_nav
 
 ```js
@@ -56,7 +68,7 @@
 
 var Mdocjs = require('mdjs');
 
-var app = new Mdocjs();
+var app = new Mdocjs().run();
 
 var express = app.express;
 ```
@@ -64,7 +76,7 @@ var express = app.express;
 <a id="express-hook" name="express-hook"></a>
 ### 制作更新勾子
 
-> 只是例子，具体情况视自己而定
+> 常见于使用`svn/git`做版本控制时，当开发者`push`(推送)数据后，服务器自动更新，只是例子，具体情况视自己而定
 
 ```js
 'use strict';
@@ -90,4 +102,7 @@ app.express.post('/update', function (req, res, next) {
 
     res.end('ok');
 });
+
+// 运行代码
+app.run();
 ```

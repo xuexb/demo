@@ -12,7 +12,7 @@ var Mdocjs = require('mdjs');
 
 new Mdocjs({
     port: 8088
-});
+}).run();
 ```
 
 `nginx`监听`80`并绑定`hostname`
