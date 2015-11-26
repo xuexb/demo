@@ -2,6 +2,10 @@
 
 一个纯洁的`md`文档在线浏览，`md`是指`markdown`
 
+---
+
+[![npm version](https://badge.fury.io/js/mdjs.svg)](https://badge.fury.io/js/mdjs) [![Build Status](https://travis-ci.org/xuexb/mdjs.svg?branch=master)](https://travis-ci.org/xuexb/mdjs) [![Coverage Status](https://coveralls.io/repos/xuexb/mdjs/badge.svg?branch=master&service=github)](https://coveralls.io/github/xuexb/mdjs?branch=master)
+
 ## 功能
 
 - [x] 目录导航自动抓取（递归抓取`options.root`目录下包含`.md`文件的非空目录）
