@@ -23,3 +23,6 @@ app.express.post('/update', function (req, res, next) {
 
     res.end('ok');
 });
+
+// 运行
+app.run();

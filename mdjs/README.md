@@ -27,7 +27,7 @@ npm install mdjs --save
 ```js
 var Mdjs = require('mdjs');
 
-var app = new Mdjs(options);
+var app = new Mdjs(options).run();
 ```
 
 `options`配置点这里：[配置](options.md)
