@@ -41,7 +41,7 @@ app.run();
 
 ## 配置git server勾子
 
-配置`push`时请求`{平台域名}/api`
+配置`push`时请求`{平台域名}/update`
 
 ---
 
