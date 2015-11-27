@@ -12,6 +12,7 @@
  *
  * @return {Object} this
  */
+app.run();
 ```
 
 ## get_render_nav
@@ -24,6 +25,7 @@
  *
  * @return {string}     html代码
  */
+app.get_render_nav([uri]);
 ```
 
 ## clear_cache
@@ -34,6 +36,7 @@
  *
  * @return {Object} this
  */
+app.clear_cache();
 ```
 
 ## get_list
@@ -45,6 +48,7 @@
  * @description 会先读取缓存
  * @return {Array} 数组
  */
+app.get_list();
 ```
 
 ## renderMarkdown
@@ -57,6 +61,7 @@
  *
  * @return {Object}         {content:html代码, catalog: h2,3分类}
  */
+app.renderMarkdown(content);
 ```
 
 ## express
