@@ -1,25 +1,15 @@
 {
-    "name": "es6-demo",
+    "name": "es6-babel5",
     "version": "0.0.1",
-    "description": "文档js",
+    "description": "开发es6，基于babel5",
     "scripts": {
-        "check": "fecs check src/*.js",
-        "build": "babel --loose all --stage 0 --modules common src/ --out-dir dist/",
-        "watch": "npm run build -- --watch",
-        "start": "node test.js"
+        "compile": "babel --optional runtime --loose all --stage 0 --modules common src/ --out-dir lib/",
+        "watch": "npm run compile -- --watch"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/xuexb/demo.git"
+    "dependencies": {
+        "babel-runtime": "^5.8.20"
     },
-    "author": "xiaowu",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/xuexb/demo/issues"
-    },
-    "homepage": "https://github.com/xuexb/demo/",
     "devDependencies": {
-        "babel": "5.8.21",
-        "fecs": "^0.4.13"
+        "babel": "5.8.21"
     }
 }

@@ -44,4 +44,4 @@ Because even with babel compilation will retain some global objects , such as It
 
 ## Links
 
-[../babel6/](Babel6 development using es6+)
+[Babel6 development using es6+](../babel6/)
