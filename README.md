@@ -44,6 +44,7 @@
 * [es6-promise](demo/es6-promise/)
 * [nginx日志分析](demo/node/nginx-log/)
 * [event](demo/node/events/index.js)
+* [babel5](demo/node/babel5)
 * [babel6](demo/node/babel6)
 
 ## list for touch

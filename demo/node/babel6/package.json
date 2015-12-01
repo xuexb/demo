@@ -1,25 +1,29 @@
 {
-  "name": "babel6",
-  "version": "1.0.0",
-  "description": "测试",
-  "main": "index.js",
+  "name": "es6-babel6",
+  "version": "0.0.1",
+  "description": "开发es6，基于babel6",
   "scripts": {
-    "compile": "babel src --out-dir dist",
-    "watch-compile": "npm run compile -- --watch"
+    "compile": "babel src --out-dir lib",
+    "watch": "npm run compile -- --watch"
   },
-  "author": "xiaowu",
-  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-stage-0": "^6.1.18",
-    "babel-preset-stage-3": "^6.1.18"
+    "babel-preset-es2015": "6.x.x",
+    "babel-preset-stage-0": "6.x.x",
+    "babel-preset-stage-3": "6.x.x",
+    "babel-plugin-transform-runtime": "6.x.x"
   },
   "babel": {
     "presets": [
       "es2015",
       "stage-0",
       "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime"
     ]
+  },
+  "dependencies": {
+    "babel-runtime": "^5.0.0"
   }
 }
