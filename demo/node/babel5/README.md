@@ -41,3 +41,7 @@ npm run watch
 ## Why use runtime
 
 Because even with babel compilation will retain some global objects , such as Iterator, Generator, Set, Map, Symbol, Promise, in order to achieve compatible es5, you can use runtime can solve these problems
+
+## Links
+
+[../babel6/](Babel6 development using es6+)
