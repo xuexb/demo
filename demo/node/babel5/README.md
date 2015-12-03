@@ -1,4 +1,4 @@
-# Babel6 development using es6+
+# Babel5 development using es6+
 
 ## install
 
