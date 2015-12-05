@@ -29,7 +29,10 @@
 var Mdjs = require('mdjs');
 
 // 实例化
-var app = new Mdjs();
+var app = new Mdjs({
+    // 本地开发启动debug则不缓存文件
+    debug: true
+});
 
 // 清空缓存
 app.clear_cache();
@@ -48,5 +51,7 @@ app.run();
 
 ## 安装依赖并启动
 
-执行`npm install`安装依赖文件，执行`node index`启动`mdjs`，默认端口为`8091`
+执行`npm install`安装依赖文件，执行`node index`启动`mdjs`，默认端口为`8091`。
+
+然后就可以在`demo/`这个目录里随便添加`markdown`文件或者文件夹了。
 
