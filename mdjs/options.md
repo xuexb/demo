@@ -16,9 +16,9 @@
 ```js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 
-new Mdocjs({}).run();
+new Mdjs({}).run();
 ```
 
 ## 默认配置

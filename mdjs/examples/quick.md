@@ -3,10 +3,10 @@
 ```js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 
 // 实例化
-var app = new Mdocjs();
+var app = new Mdjs();
 
 // 清空缓存
 app.clear_cache();

@@ -8,9 +8,9 @@
 // index.js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 
-new Mdocjs({
+new Mdjs({
     port: 8088
 }).run();
 ```
