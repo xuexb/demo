@@ -46,3 +46,7 @@ app.run();
 
 > 注：`mdjs`以该`README.md`为默认主页
 
+## 安装依赖并启动
+
+执行`npm install`安装依赖文件，执行`node index`启动`mdjs`，默认端口为`8091`
+
