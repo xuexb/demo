@@ -27,10 +27,12 @@ npm install mdjs --save
 ```js
 var Mdjs = require('mdjs');
 
-var app = new Mdjs(options).run();
+var app = new Mdjs().run();
 ```
 
-`options`配置点这里：[配置](options.md)
+## 快速使用
+
+[快速使用](examples/quick.md)
 
 ## 作者
 
