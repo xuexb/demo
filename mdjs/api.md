@@ -71,9 +71,9 @@ app.renderMarkdown(content);
 ```js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 
-var app = new Mdocjs().run();
+var app = new Mdjs().run();
 
 var express = app.express;
 ```

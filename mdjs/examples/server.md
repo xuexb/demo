@@ -16,10 +16,10 @@
 ```js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 var child_process = require('child_process');
 
-var app = new Mdocjs();
+var app = new Mdjs();
 
 // 更新勾子
 app.express.post('/update', function (req, res, next) {

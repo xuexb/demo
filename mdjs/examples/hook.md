@@ -5,10 +5,10 @@
 ```js
 'use strict';
 
-var Mdocjs = require('mdjs');
+var Mdjs = require('mdjs');
 var child_process = require('child_process');
 
-var app = new Mdocjs().clear_cache();
+var app = new Mdjs().clear_cache();
 
 // 更新勾子
 app.express.post('/update', function (req, res, next) {
