@@ -7,15 +7,15 @@
 ## es5
 
 - [ ] Object.keys
-- [x] Date.now
+- [ ] Date.now
 - [ ] Date.parse
-- [x] Array.isArray
-- [x] JSON.parse
-- [x] JSON.stringify
+- [ ] Array.isArray
+- [ ] JSON.parse
+- [ ] JSON.stringify
 - [ ] Function.prototype.bind
 - [ ] String.prototype.trim
-- [x] Array.prototype.map
-- [x] Array.prototype.forEach
+- [ ] Array.prototype.map
+- [ ] Array.prototype.forEach
 - [ ] Array.prototype.lastIndexOf
 - [ ] Array.prototype.every
 - [ ] Array.prototype.some
