@@ -1,5 +1,13 @@
 # 更新日志
 
+## 0.1.2
+
+* 添加目录浏览功能（当没有找到默认主页时）
+* 添加可配置的默认主页（必须是`.md`），详情：[options.default_index](./options.md)
+* 添加简单搜索（目录只是搜索导致目录里的文件名），使用 [typeahead.js](http://twitter.github.io/typeahead.js/examples/)
+* 去掉依赖的`extend`，使用`Object.assign`
+* 添加`babel-runtime`环境
+
 ## 0.1.1
 
 * 优化移动端样式

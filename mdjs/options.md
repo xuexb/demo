@@ -105,7 +105,17 @@ new Mdjs({}).run();
      * @description 开启后不使用缓存
      * @type {Boolean}
      */
-    debug: false
+    debug: false,
+
+    /**
+     * 默认主页
+     *
+     * @type {Array}
+     */
+    default_index: [
+        'readme.md',
+        'README.md'
+    ]
 }
 ```
 
