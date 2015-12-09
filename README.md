@@ -4,62 +4,40 @@
 
 使用 [mdjs](https://github.com/xuexb/mdjs) 提供`web`浏览服务
 
-## list
-* [美化单选](demo/ui-radio/index.html)
-* [美化复选](demo/ui-checkbox/index.html)
-* [tab的历程](demo/tab/)
-* [异步请求按钮的研究](demo/btn/)
-* [异步分页加载](demo/ajaxPage/ajaxPage.js)
-* [分享](demo/share/share.js)
-* [桌面提醒](demo/tools/notification.js)
-* [日期方法](demo/tools/date.js)
-* [事件驱动](demo/tools/event.js)
-* [表单上传](demo/upload/form-upload.js)
-* [placeholder](demo/placeholder/placeholder.js)
-* [图片懒加载](demo/imgLoad/imgLoad.js)
-* [jquery的width研究](demo/width/index.html)
-* [bfc](demo/bfc/index.html)
-* [css布局](demo/css-layout/)
-* [jquery deferred](demo/jquery-deferred/)
-* [es5](demo/es5/)
-* [es6](demo/es6/)
-* [prototype](demo/prototype/)
-* [log](demo/log/)
-* [requirejs](demo/requirejs/)
-* [gulp](demo/gulp/)
-* [grunt](demo/grunt/)
-* [算法](demo/算法/)
-* [api](demo/api/)
-* [user](demo/user/)
-* [dialog](demo/dialog/)
-* [搜索](demo/search/)
-* [异步回调的研究](demo/testajaxcallback)
-* [字号的研究](demo/font-size/index.html)
-* [html文件中lang的研究](demo/html-lang/)
-* [全选的研究](demo/all-checked/index.html)
+## es5
 
-## node
-* [marked](demo/node/marked)
-* [redis研究](demo/redis/)
-* [es6-promise](demo/es6-promise/)
-* [nginx日志分析](demo/node/nginx-log/)
-* [event](demo/node/events/index.js)
-* [babel5](demo/node/babel5)
-* [babel6](demo/node/babel6)
+- [ ] Object.keys
+- [x] Date.now
+- [ ] Date.parse
+- [x] Array.isArray
+- [x] JSON.parse
+- [x] JSON.stringify
+- [ ] Function.prototype.bind
+- [ ] String.prototype.trim
+- [x] Array.prototype.map
+- [x] Array.prototype.forEach
+- [ ] Array.prototype.lastIndexOf
+- [ ] Array.prototype.every
+- [ ] Array.prototype.some
+- [ ] Array.prototype.filter
+- [ ] Array.prototype.reduce
+- [ ] Array.prototype.reduceRight
+- [ ] Strict mode
 
-## list for touch
-* [移动端滚动加载](demo/touch-ajax-page/ajaxPage.js)
-* [浏览器检测](demo/tools/browser.js)
-* [swipe](demo/swipe/swipe.js)
+## es6
 
-## tests
-* [美化单选](tests/ui-radio/index.html)
-* [事件驱动](tests/event/index.html)
+todo
+
 
 ## links
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
 * [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 * [https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001](https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001)
+* [兼容性查询](http://caniuse.com/)
+* [es5](http://kangax.github.io/compat-table/es5/)
+* [es6](http://kangax.github.io/compat-table/es6/)
+* [js挑战](https://github.com/nimojs/learn-js)  一个 JavaScript 互助学习的项目。接受组件开发的挑战，提交代码让他人评论你的代码以提高
 
 ## issues
+
 [https://github.com/xuexb/demo/issues](https://github.com/xuexb/demo/issues)
