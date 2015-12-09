@@ -7,6 +7,7 @@
 * 添加简单搜索（目录只是搜索导致目录里的文件名），使用 [typeahead.js](http://twitter.github.io/typeahead.js/examples/)
 * 去掉依赖的`extend`，使用`Object.assign`
 * 添加`babel-runtime`环境
+* 优化导航目录排序，采用`目录>文件`方式
 
 ## 0.1.1
 
