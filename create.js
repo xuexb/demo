@@ -28,6 +28,15 @@ var list = {
         'Array.prototype.reduce',
         'Array.prototype.reduceRight',
         'Strict mode'
+    ],
+    es6: [
+        'const',
+        'let',
+        'default function parameters',
+        'template strings',
+        'arrow functions',
+        'class',
+        'Object static methods'
     ]
 };
 
