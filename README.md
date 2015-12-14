@@ -7,19 +7,19 @@
 ## es5
 
 - [ ] Object.keys
-- [ ] Date.now
+- [x] Date.now
 - [ ] Date.parse
-- [ ] Array.isArray
+- [x] Array.isArray
 - [ ] JSON.parse
 - [ ] JSON.stringify
 - [ ] Function.prototype.bind
-- [ ] String.prototype.trim
-- [ ] Array.prototype.map
-- [ ] Array.prototype.forEach
-- [ ] Array.prototype.lastIndexOf
-- [ ] Array.prototype.every
-- [ ] Array.prototype.some
-- [ ] Array.prototype.filter
+- [x] String.prototype.trim
+- [x] Array.prototype.map
+- [x] Array.prototype.forEach
+- [x] Array.prototype.lastIndexOf
+- [x] Array.prototype.every
+- [x] Array.prototype.some
+- [x] Array.prototype.filter
 - [ ] Array.prototype.reduce
 - [ ] Array.prototype.reduceRight
 - [ ] Strict mode

@@ -25,6 +25,8 @@ var list = {
         'Array.prototype.every',
         'Array.prototype.some',
         'Array.prototype.filter',
+        'Array.prototype.forEach',
+        'Array.prototype.map',
         'Array.prototype.reduce',
         'Array.prototype.reduceRight',
         'Strict mode'

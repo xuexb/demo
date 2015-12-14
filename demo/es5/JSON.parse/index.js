@@ -1,6 +1,3 @@
-# JSON.parse
-
-```js
 /**
  * @file 解析为json对象
  * @author xiaowu
@@ -11,8 +8,13 @@
  * @example
  *     JSON.parse(str);
  */
-```
 
-## 兼容性
 
-兼容 `ie9+` ，[link](http://kangax.github.io/compat-table/es5/#test-JSON)
+'use strict';
+
+var str = '{"name":"leinov","sex":"famle","address":"beijing"}';
+
+
+console.log(JSON.parse(str));
+console.log(JSON.parse('[]'));
+console.log(JSON.parse('{a:1}'));
