@@ -6,11 +6,11 @@
 
 ## es5
 
-- [ ] Object.keys
+- [x] Object.keys
 - [x] Date.now
 - [ ] Date.parse
 - [x] Array.isArray
-- [ ] JSON.parse
+- [x] JSON.parse
 - [ ] JSON.stringify
 - [ ] Function.prototype.bind
 - [x] String.prototype.trim
