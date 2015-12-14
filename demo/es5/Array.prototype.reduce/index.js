@@ -1,6 +1,3 @@
-# Array.prototype.lastIndexOf
-
-```js
 /**
  * @file 查找数组里值的索引
  * @author xiaowu
@@ -14,8 +11,17 @@
  * @example
  *     Array.prototype.lastIndexOf(val [,startIndex]);
  */
-```
 
-## 兼容性
 
-兼容`ie9+` [link](http://kangax.github.io/compat-table/es5/#test-Array.prototype.lastIndexOf)
+'use strict';
+
+var arr = [
+    1,
+    3,
+    5,
+    3,
+    3
+];
+arr.reduce(function(val, index, content){
+    console.log(val, index, content);
+});
