@@ -6,7 +6,7 @@ var child_process = require('child_process');
 var app = new Mdocjs().clear_cache();
 
 // 更新勾子
-app.express.post('/update', function (req, res, next) {
+app.express.all('/update', function (req, res, next) {
     child_process.exec('git pull', {
         cwd: app.options.root
     }, function (a, b) {
