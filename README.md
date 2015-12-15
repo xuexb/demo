@@ -6,23 +6,23 @@
 
 ## es5
 
-- [x] Object.keys
-- [x] Date.now
-- [ ] Date.parse
-- [x] Array.isArray
-- [x] JSON.parse
-- [ ] JSON.stringify
-- [ ] Function.prototype.bind
-- [x] String.prototype.trim
-- [x] Array.prototype.map
-- [x] Array.prototype.forEach
-- [x] Array.prototype.lastIndexOf
-- [x] Array.prototype.every
-- [x] Array.prototype.some
-- [x] Array.prototype.filter
-- [ ] Array.prototype.reduce
-- [ ] Array.prototype.reduceRight
-- [ ] Strict mode
+- [x] [Object.keys](./demo/es5/Object.keys/)
+- [x] [Date.now](./demo/es5/Date.now/)
+- [ ] [Date.parse](./demo/es5/Date.parse/)
+- [x] [Array.isArray](./demo/es5/Array.isArray/)
+- [x] [JSON.parse](./demo/es5/JSON.parse/)
+- [ ] [JSON.stringify](./demo/es5/JSON.stringify/)
+- [ ] [Function.prototype.bind](./demo/es5/Function.prototype.bind/)
+- [x] [String.prototype.trim](./demo/es5/String.prototype.trim/)
+- [x] [Array.prototype.map](./demo/es5/Array.prototype.map/)
+- [x] [Array.prototype.forEach](./demo/es5/Array.prototype.forEach/)
+- [x] [Array.prototype.lastIndexOf](./demo/es5/Array.prototype.lastIndexOf/)
+- [x] [Array.prototype.every](./demo/es5/Array.prototype.every/)
+- [x] [Array.prototype.some](./demo/es5/Array.prototype.some/)
+- [x] [Array.prototype.filter](./demo/es5/Array.prototype.filter/)
+- [ ] [Array.prototype.reduce](./demo/es5/Array.prototype.reduce/)
+- [ ] [Array.prototype.reduceRight](./demo/es5/Array.prototype.reduceRight/)
+- [ ] [Strict mode](./demo/es5/Strict mode/)
 
 ## es6
 
