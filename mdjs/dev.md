@@ -18,4 +18,7 @@ npm run check
 
 // 运行测试用例
 npm run test
+
+// 运行代码覆盖率
+npm run test-cov
 ```
