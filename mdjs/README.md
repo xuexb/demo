@@ -42,6 +42,10 @@ var app = new Mdjs().run();
 * fe.xiaowu(at)gmail.com
 * [Blog](https://xuexb.com/)
 
+## 参与开发
+
+[参与开发](./dev.md)
+
 ## 感谢
 
 `mdjs`默认的样式使用 [pjax](https://github.com/welefen/pjax) 和 [阮老师的es6样式](http://es6.ruanyifeng.com/)
