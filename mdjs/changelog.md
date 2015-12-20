@@ -2,7 +2,7 @@
 
 ## 0.1.3
 
-* 修复绑定的`hook`不被执行，因为`更新勾子`是在`serve-index`初始化前，而`serve-index`是会拦截`post`请求，[源码](https://github.com/expressjs/serve-index/blob/master/index.js#L102-L108)，现把初始化`serve-index`服务放在`run`方法内，对使用没有任何影响
+* 修复绑定的`hook`不被执行，因为`更新勾子`是在`serve-index`初始化后，而`serve-index`是会拦截`post`请求，[serve-index源码](https://github.com/expressjs/serve-index/blob/master/index.js#L102-L108)，现把初始化`serve-index`服务放在`run`方法内，对使用没有任何影响
 
 ## 0.1.2
 
