@@ -1,5 +1,12 @@
 # 更新日志
 
+## 0.1.4
+
+* [fix #3](https://github.com/xuexb/mdjs/issues/3)
+* [fix #4](https://github.com/xuexb/mdjs/issues/4)
+* 修复`windows`中路径实别问题
+* 添加 [appveyor集成测试](https://ci.appveyor.com/project/xuexb/mdjs)
+
 ## 0.1.3
 
 * 修复绑定的`hook`不被执行，因为`更新勾子`是在`serve-index`初始化后，而`serve-index`是会拦截`post`请求，[serve-index源码](https://github.com/expressjs/serve-index/blob/master/index.js#L102-L108)，现把初始化`serve-index`服务放在`run`方法内，对使用没有任何影响
