@@ -10,7 +10,7 @@
  *              如果有一个返回true则退出当前循环
  * @param {Function} fn 回调，参数1为当前循环的值，参数2为索引，参数3为目标数组
  * @param {Object|undefined} context 回调fn的this的上下文
- * @return {boolean} 判断结果，必须全部返回true才为true，否则为false
+ * @return {boolean} 判断结果，如果有一个返回true则为true
  * @example
  *     Array.prototype.some(fn [,context]);
  */
