@@ -2,6 +2,11 @@
 
 ## 0.1.6
 
+* 为了统一命名，把`renderMarkdown`改成`render_markdown`
+* 添加获取`.md`文件标题的接口：[get_markdown_title](./api.md)
+
+## 0.1.6
+
 * 优化`h1,h2,h3`标题的`hash`，可以直接使用标题的文字进行定位
 
 ## 0.1.5

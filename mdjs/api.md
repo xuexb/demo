@@ -51,7 +51,7 @@ app.clear_cache();
 app.get_list();
 ```
 
-## renderMarkdown
+## render_markdown
 
 ```js
  /**
@@ -61,7 +61,20 @@ app.get_list();
  *
  * @return {Object}         {content:html代码, catalog: h2,3分类}
  */
-app.renderMarkdown(content);
+app.render_markdown(content);
+```
+
+## get_markdown_title
+
+```js
+/**
+ * 获取md文档的标题
+ *
+ * @param  {string} filepath 文件路径
+ *
+ * @return {string}     标题
+ */
+app.get_markdown_title(filepath);
 ```
 
 ## express
