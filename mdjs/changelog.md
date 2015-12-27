@@ -1,6 +1,6 @@
 # 更新日志
 
-## 0.1.6
+## 0.1.8
 
 * 为了统一命名，把`renderMarkdown`改成`render_markdown`
 * 添加获取`.md`文件标题的接口：[get_markdown_title](./api.md)
