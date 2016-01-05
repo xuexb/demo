@@ -3,7 +3,7 @@
 > 使用 ~~删除线~~ 表示该建议无反馈或者忽略
 
 - [x] pc qq客户端的等级窗口里vip浮层错位
-- [x] vip.baidu.com页面底部二维码错位
+- [x] vip.qq.com页面底部二维码错位
 - [x] github Webhook tab style错位
 - [ ] qq空间说说以位置查看时重复加载
 - [x] 百度图片结果页快速切换类目时js报错
