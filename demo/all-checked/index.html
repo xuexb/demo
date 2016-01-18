@@ -86,12 +86,14 @@
 
             // 绑定点击所有的复选框，点击的时候判断是否页面中全选了
             $dl.find('.J-input').on('click', function () {
-                var $没有选中的元素 = $dl.find('.J-input').filter(function () {
+                // 我只是喜欢用filter(fn),用选择器也行
+                // 查找没有选择的元素
+                var $unSelectedElem = $dl.find('.J-input').filter(function () {
                     return !this.checked;
                 });
 
                 // 如果有没有选中的，则让全选的取消
-                if ($没有选中的元素.length) {
+                if ($unSelectedElem.length) {
                     $all.prop('checked', false);
                 }
                 else {
@@ -181,11 +183,14 @@
 
             // 绑定全选按钮点击事件，让下面所有的复选框是跟全选的一样
             $all.on('click', function () {
+                // !!是为了让其返回绝对是布而值类型
                 $dl.find('.J-input').prop('checked', !!this.checked);
             });
 
             var check = function(){
-                var $没有选中的元素 = $dl.find('.J-input').filter(function () {
+                // 我只是喜欢用filter(fn),用选择器也行
+                // 查找没有选择的元素
+                var $unSelectedElem = $dl.find('.J-input').filter(function () {
                     return !this.checked;
                 });
 
@@ -198,7 +203,7 @@
                 }
 
                 // 如果有没有选中的，则让全选的取消
-                if ($没有选中的元素.length) {
+                if ($unSelectedElem.length) {
                     $all.prop('checked', false);
                 }
                 else {
