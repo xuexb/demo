@@ -1,6 +1,5 @@
 // 并行
-// Promise.all如果里面有Promise失败，则先执行catch方法，在等所有的promise执行完返回
-// 只使用 then(success) 和最后添加catch(error)
+// 有问题
 
 var arr = [];
 new Array(10).join(',').split(',').forEach((val, index) => {
