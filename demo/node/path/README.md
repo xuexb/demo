@@ -34,3 +34,5 @@ __dirname => /a/b/c
 * `__dirname`当前执行文件目录为基线的绝对路径
 
 > ps：之前一直用`path.resolve(__dirname, './index.js')`来查找当前文件目录下的`index.js`，现在可以直接使用`require.resolve('./index.js')`来引用了，么么哒～
+> 
+> 但`require.resolve`是用来查找完整模块名称id的，用时得谨慎
