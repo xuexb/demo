@@ -1,13 +1,17 @@
 
-var length = 10000 * 10000;
+var length = 10000 * 1000;
 var Test = {};
+var obj = {
+    toString: () => 1,
+    valueOf: () => 1
+};
 
 Test['1 === 1'] = () => {
     return 1 === 1;
 };
 
 Test['1 === "1"'] = () => {
-    return 1 === "1";
+    return 1 === obj;
 };
 
 Test['1 == 1'] = () => {
@@ -15,7 +19,7 @@ Test['1 == 1'] = () => {
 };
 
 Test['1 == "1"'] = () => {
-    return 1 == "1";
+    return 1 == obj;
 };
 
 Test['1 === parseInt("1", 10)'] = () => {
