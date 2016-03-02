@@ -1,3 +1,7 @@
+/**
+ * @file 测试==和===的性能
+ * @author xiaowu
+ */
 
 var length = 10000 * 1000;
 var Test = {};
