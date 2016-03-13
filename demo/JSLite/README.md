@@ -17,6 +17,12 @@
 经我简单的写了个test case发现JSLite是使用`gulp-umd`打的`wrap`，但我们测试应该要跑真正的源码（是指打包前），然后发现`JSLite.js`里的`JSLite`变量跟`window.JSLite`变量有冲突，导致test case不通过，目前我是使用在`JSLite.js`再包一层`function`解决。
 
 
+## 我已经做出相关的case
+
+- [x] 使用`karma`测试
+- [ ] 使用`npm run`方式，目前发现运行`gulp`时报错，待解决
+- [ ] 代码覆盖率，目前我没有去开启`coveralls`
+
 ---
 
 首先作为一个前端，真心的希望`JSLite`越做越好！
