@@ -20,6 +20,8 @@
 
 ## 我已经做出相关的case
 
+代码在：[@xuexb/JSLite:dev](https://github.com/xuexb/JSLite/tree/dev)
+
 - [x] 使用`karma`测试
 - [ ] 使用`npm run`方式，目前发现运行`gulp`时报错，待解决
 - [ ] 代码覆盖率，目前我没有去开启`coveralls`
