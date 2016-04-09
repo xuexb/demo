@@ -47,6 +47,9 @@
   white-space: nowrap;
 }
 
+.md-scroll {
+    overflow: auto; 
+}
 .md-scroll::-webkit-scrollbar {
     height: 10px;
     width: 7px;
@@ -113,6 +116,7 @@ body {
     right: 0;
     background-color: #fff;
     border-bottom: 1px solid  #ddd; 
+    border-bottom-color: #136ec2; 
 }
 .md-title {
     display: inline-block;
@@ -167,7 +171,6 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    overflow-y: auto;
     background-color: #fafafa;
 }
 .md-body-tab-search {
@@ -217,7 +220,6 @@ body {
     top: 52px;
     left: 0;
     right: 0;
-    overflow-y: auto;
     bottom: 0;
     border-top: 1px solid #eee;
 }
@@ -243,4 +245,12 @@ body {
 .md-body-tab-search-result-active {
     background-color: #e4e3df;
     color: #333;
+}
+.md-body-right {
+    position: absolute;
+    left: 280px;
+    top: 55px;
+    z-index: 300;
+    bottom: 0;
+    right: 0;
 }
