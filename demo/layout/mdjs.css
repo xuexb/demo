@@ -1,0 +1,246 @@
+/*
+ * 全局间距样式
+ * 定义大/中/小三种,四个方向间距
+ */
+.c-gap-top {
+  margin-top: 8px;
+}
+.c-gap-right {
+  margin-right: 8px;
+}
+.c-gap-bottom {
+  margin-bottom: 8px;
+}
+.c-gap-left {
+  margin-left: 8px;
+}
+.c-gap-top-small {
+  margin-top: 4px;
+}
+.c-gap-right-small {
+  margin-right: 4px;
+}
+.c-gap-bottom-small {
+  margin-bottom: 4px;
+}
+.c-gap-left-small {
+  margin-left: 4px;
+}
+.c-gap-top-large {
+  margin-top: 12px
+}
+.c-gap-right-large {
+  margin-right: 12px
+}
+.c-gap-bottom-large {
+  margin-bottom: 12px
+}
+.c-gap-left-large {
+  margin-left: 12px
+}
+
+
+.c-line-clamp1 {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.md-scroll::-webkit-scrollbar {
+    height: 10px;
+    width: 7px;
+    background: rgba(0,0,0,.1);
+}
+.md-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.3);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border-radius: 6px;
+}
+
+/* 清理浮动 */
+.clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.clear {
+    zoom:1; /* for IE6 IE7 */
+}
+
+a {
+    color: #136ec2;
+    text-decoration: none;
+    outline: 0;
+}
+
+input, select, textarea, button, body, code {
+    font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body {
+    color: #222;
+    background-color: #fff;
+    font-size: 14px;
+    word-wrap: break-word;
+    line-height: 1em;
+}
+
+.md-wrap {
+    min-width: 980px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-top: 55px;
+}
+.md-head {
+    min-width: 980px;
+    height: 54px;
+    line-height: 54px;
+    padding: 0 .8em;
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-bottom: 1px solid  #ddd; 
+}
+.md-title {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    color: #333;
+    font-size: 16px; 
+}
+.md-body-left {
+    position: absolute;
+    left: 0;
+    top: 55px;
+    z-index: 301;
+    bottom: 0;
+    width: 279px;
+    border-right: 1px solid #ddd;
+    background-color: #fafafa;
+}
+.md-body-tabnav {
+    border-bottom: 1px solid #ddd;
+}
+.md-body-tabnav-item {
+    padding: 0 9px;
+    cursor: pointer;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+}
+.md-body-tabnav-item .icon {
+    color: #aaa; 
+    margin-right: 4px; 
+}
+.md-body-tabnav-active {
+    border-bottom: 1px solid #fafafa;
+    margin-bottom: -1px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.md-body-tabnav-item:hover,
+.md-body-tabnav-item:hover .icon,
+.md-body-tabnav-active,
+.md-body-tabnav-active .icon {
+    color: #333; 
+}
+.md-body-tabcont {
+    display: none;
+    position: absolute;
+    top: 31px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+.md-body-tab-search {
+    padding: 0 12px;
+}
+.md-body-tab-search-form {
+    margin-top: 9px; 
+    position: relative; 
+}
+.md-body-tab-search-form-text {
+    display: block;
+    padding-right: 36px;
+}
+.md-body-tab-search-form-text input {
+    padding: 6px 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 24px;
+    width: 100%; 
+}
+.md-body-tab-search-form-text input:focus {
+    outline: 0;
+    border-color: #4db559;
+    box-shadow: 0 0 4px rgba(77,181,89,.7);
+}
+.md-body-tab-search-form-btn {
+    line-height: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    height: 20px;
+    width: 20px;
+    margin-top: -10px;
+    border: 0;
+    background-color: #fff;
+    background-color: transparent;
+    border-radius: 10px;
+    right: 6px;
+}
+.md-body-tab-search-form-btn:focus {
+    outline: 0; 
+}
+.md-body-tab-search-result {
+    position: absolute;
+    top: 52px;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    bottom: 0;
+    border-top: 1px solid #eee;
+}
+.md-body-tab-search-form-btn-loading {
+    background: url(./loading-16-16.gif) no-repeat 50% 50%;
+    cursor: default;
+    line-height: 9;
+    overflow: hidden;
+}
+.md-body-tab-search-result li {
+    padding: 5px;
+    padding-left: 12px; 
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.md-body-tab-search-result li:hover {
+    background-color: #f4f3ef;
+}
+.md-body-tab-search-result-active {
+    background-color: #e4e3df;
+    color: #333;
+}
