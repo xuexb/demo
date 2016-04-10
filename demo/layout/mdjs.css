@@ -95,7 +95,7 @@ body {
     line-height: 1em;
 }
 
-.md-wrap {
+/*.md-wrap {
     min-width: 980px;
     position: absolute;
     left: 0;
@@ -103,11 +103,10 @@ body {
     bottom: 0;
     right: 0;
     padding-top: 55px;
-}
+}*/
 .md-head {
-    min-width: 980px;
-    height: 54px;
-    line-height: 54px;
+    height: 40px;
+    line-height: 40px;
     padding: 0 .8em;
     z-index: 900;
     position: fixed;
@@ -116,7 +115,7 @@ body {
     right: 0;
     background-color: #fff;
     border-bottom: 1px solid  #ddd; 
-    border-bottom-color: #136ec2; 
+    border-bottom-color: #4791ff; 
 }
 .md-title {
     display: inline-block;
@@ -128,7 +127,7 @@ body {
 .md-body-left {
     position: absolute;
     left: 0;
-    top: 55px;
+    top: 41px;
     z-index: 301;
     bottom: 0;
     width: 279px;
@@ -173,12 +172,9 @@ body {
     right: 0;
     background-color: #fafafa;
 }
-.md-body-tab-search {
-    padding: 0 12px;
-}
 .md-body-tab-search-form {
-    margin-top: 9px; 
     position: relative; 
+    z-index: 310; 
 }
 .md-body-tab-search-form-text {
     display: block;
@@ -186,7 +182,6 @@ body {
 }
 .md-body-tab-search-form-text input {
     padding: 6px 10px;
-    border-radius: 3px;
     border: 1px solid #ccc;
     height: 20px;
     line-height: 20px;
@@ -195,8 +190,7 @@ body {
 }
 .md-body-tab-search-form-text input:focus {
     outline: 0;
-    border-color: #4db559;
-    box-shadow: 0 0 4px rgba(77,181,89,.7);
+    border-color: #4791ff;
 }
 .md-body-tab-search-form-btn {
     line-height: 100%;
@@ -215,21 +209,27 @@ body {
 .md-body-tab-search-form-btn:focus {
     outline: 0; 
 }
-.md-body-tab-search-result {
+
+.md-body-tab-dir-tree {
     position: absolute;
+    z-index: 309; 
     top: 52px;
     left: 0;
     right: 0;
     bottom: 0;
     border-top: 1px solid #eee;
 }
-.md-body-tab-search-form-btn-loading {
-    background: url(./loading-16-16.gif) no-repeat 50% 50%;
-    cursor: default;
-    line-height: 9;
-    overflow: hidden;
+
+/*搜索下拉提示*/
+.md-body-search-down {
+    position: absolute;
+    top: 34px;
+    border: 1px solid  #eee; 
+    background-color: #fff; 
+    width: 100%; 
+    display: none; 
 }
-.md-body-tab-search-result li {
+.md-body-search-down li {
     padding: 5px;
     padding-left: 12px; 
     height: 20px;
@@ -239,18 +239,51 @@ body {
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.md-body-tab-search-result li:hover {
+.md-body-search-down li:hover {
     background-color: #f4f3ef;
 }
-.md-body-tab-search-result-active {
+.md-body-search-down-active {
     background-color: #e4e3df;
     color: #333;
 }
+
+/*左侧导航隐藏切换*/
+.md-body-left-tools {
+        position: absolute;
+    top: 50%;
+    right: -14px;
+}
+.md-body-left-tools span {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #5cb85c;
+    border-radius: 50%;
+    color: #fff;
+    position: relative;
+    font-size: 18px;
+    vertical-align: top;
+    display: none; 
+}
+.md-body-left-tools span:before {
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+.md-body-left-tools-open .icon-chevron-left,
+.md-body-left-tools-close .icon-chevron-right {
+    display: inline-block; 
+}
+
+
 .md-body-right {
     position: absolute;
     left: 280px;
-    top: 55px;
+    top: 41px;
     z-index: 300;
     bottom: 0;
     right: 0;
+}
+.md-body-right-inner {
+    padding: 10px; 
 }
