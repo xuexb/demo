@@ -5,6 +5,38 @@
     <meta charset="UTF-8">
     <title>测试滚动事件</title>
     <meta content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport" />
+
+    <style type="text/css">
+        #nav {
+            /*给高是为了是使用js写hack设置fixed后页面高度有变化*/
+            height: 30px; 
+
+            /*css3*/
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0; 
+
+            /*以下只是效果*/
+            background-color: #ccc;
+            width: 100%; 
+            z-index: 100; 
+        }
+
+        /*于由fixed会导致页面高度不一，这个是占位*/
+        #nav-pl {
+            font-size: 0; 
+            height: 30px; 
+            display: none; 
+        }
+        /*如果不支持时使用js来hack*/
+        #nav.nav-hack {
+            position: relative; 
+        }
+        #nav.nav-hack.nav-fixed {
+            position: fixed; 
+            top: 0; 
+        }
+    </style>
 </head>
 <body>
     
@@ -48,63 +80,10 @@
         <p>0000000000000037</p>
         <p>0000000000000038</p>
         <p>0000000000000039</p>
-
-        <style type="text/css">
-    #nav {
-        /*给高是为了是使用js写hack设置fixed后页面高度有变化*/
-        height: 30px; 
-    }
-    /*使用css3定位*/
-    .nav-inner {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 0; 
-
-        /*以下只是效果*/
-        background-color: #ccc;
-        height: 30px; 
-        line-height: 30px; 
-        width: 100%; 
-        z-index: 100; 
-    }
-
-    /*如果不支持时使用js来hack*/
-    #nav.nav-hack .nav-inner {
-        position: relative; 
-    }
-    #nav.nav-hack.nav-fixed .nav-inner {
-        position: fixed; 
-    }
-</style>
 <div id="nav">
-    <div class="nav-inner">
-        我是定位的导航
-    </div>
+    <span>我是定位的导航</span>
 </div>
-<script type="text/javascript">
-    /**
-     * 是否支持sticky - 网上找的，待实际验证
-     *
-     * @return {boolean} 是否支持sticky
-     */
-    function isSupportSticky() {
-        var prefixTestList = ['', '-webkit-', '-ms-', '-moz-', '-o-'];
-        var stickyText = '';
-        for (var i = 0; i < prefixTestList.length; i++ ) {
-            stickyText += 'position:' + prefixTestList[i] + 'sticky;';
-        }
-        // 创建一个dom来检查
-        var div = document.createElement('div');
-        var body = document.body;
-        div.style.cssText = 'display:none;' + stickyText;
-        body.appendChild(div);
-        isSticky = /sticky/i.test(window.getComputedStyle(div).position);
-        body.removeChild(div);
-        div = null;
-        alert(isSticky)
-        return isSticky;
-    }
-</script>
+<div id="nav-pl">占位</div>
 
         <p>0000000000000040</p>
         <p>0000000000000041</p>
@@ -470,24 +449,54 @@
     </div>
 
     <script type="text/javascript" src="/static/jquery.js"></script>
+
     <script type="text/javascript">
+        /**
+         * 是否支持sticky - 网上找的，待实际验证
+         *
+         * @return {boolean} 是否支持sticky
+         */
+        function isSupportSticky() {
+            var prefixTestList = ['', '-webkit-', '-ms-', '-moz-', '-o-'];
+            var stickyText = '';
+            for (var i = 0; i < prefixTestList.length; i++ ) {
+                stickyText += 'position:' + prefixTestList[i] + 'sticky;';
+            }
+            // 创建一个dom来检查
+            var div = document.createElement('div');
+            var body = document.body;
+            div.style.cssText = 'display:none;' + stickyText;
+            body.appendChild(div);
+            isSticky = /sticky/i.test(window.getComputedStyle(div).position);
+            body.removeChild(div);
+            div = null;
+            return isSticky;
+        }
+
+
         var $nav = $('#nav');
         // 如果不支持
         if (!isSupportSticky()) {
-            $nav.addClass('nav-hack');
-            $nav.find('.nav-inner').append('<span>，不支持sticky</span>');
+            // 添加jshack
+            $nav.addClass('nav-hack').append('<span>，不支持sticky</span>');
             var offset_top = $nav.offset().top;
             var $window = $(window);
             $window.on('scroll resize', function(){
                 if($window.scrollTop() >= offset_top){
                     $nav.addClass('nav-fixed');
+
+                    // 显示占位,其实不应该js频繁操作dom
+                    $('#nav-pl').show();
                 } else {
+                    // 隐藏占位,其实不应该js频繁操作dom
+                    $('#nav-pl').hide();
+
                     $nav.removeClass('nav-fixed');
                 }
             }).trigger('scroll');
         }
         else {
-            $nav.find('.nav-inner').append('<span>，你支持sticky</span>');
+            $nav.append('<span>，你支持sticky</span>');
         }
     </script>
    
