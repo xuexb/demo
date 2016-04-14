@@ -58,11 +58,14 @@
     .nav-inner {
         position: -webkit-sticky;
         position: sticky;
+        top: 0; 
 
+        /*以下只是效果*/
         background-color: #ccc;
         height: 30px; 
         line-height: 30px; 
         width: 100%; 
+        z-index: 100; 
     }
 
     /*如果不支持时使用js来hack*/
@@ -71,8 +74,6 @@
     }
     #nav.nav-hack.nav-fixed .nav-inner {
         position: fixed; 
-        left: 0; 
-        top: 0; 
     }
 </style>
 <div id="nav">
