@@ -101,6 +101,7 @@
         isSticky = /sticky/i.test(window.getComputedStyle(div).position);
         body.removeChild(div);
         div = null;
+        alert(isSticky)
         return isSticky;
     }
 </script>
