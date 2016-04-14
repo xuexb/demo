@@ -469,10 +469,10 @@
 
     <script type="text/javascript" src="/static/jquery.js"></script>
     <script type="text/javascript">
-        var $nav;
+        var $nav = $('#nav');
         // 如果不支持
         if (!isSupportSticky()) {
-            $nav = $('#nav').addClass('nav-hack');
+            $nav.addClass('nav-hack').append('<span>，你支持sticky</span>');
             var offset_top = $nav.offset().top;
             var $window = $(window);
             $window.on('scroll resize', function(){
@@ -482,6 +482,9 @@
                     $nav.removeClass('nav-fixed');
                 }
             }).trigger('scroll');
+        }
+        else {
+            $nav.append('<span>，不支持sticky</span>');
         }
     </script>
    
