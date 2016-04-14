@@ -472,7 +472,7 @@
         var $nav = $('#nav');
         // 如果不支持
         if (!isSupportSticky()) {
-            $nav.addClass('nav-hack').append('<span>，你支持sticky</span>');
+            $nav.addClass('nav-hack').append('<span>，不支持sticky</span>');
             var offset_top = $nav.offset().top;
             var $window = $(window);
             $window.on('scroll resize', function(){
@@ -484,7 +484,7 @@
             }).trigger('scroll');
         }
         else {
-            $nav.append('<span>，不支持sticky</span>');
+            $nav.append('<span>，你支持sticky</span>');
         }
     </script>
    
