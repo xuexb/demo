@@ -1,0 +1,247 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>现在的前端 - By 前端小武</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>现在的前端</h1>
+<p>@前端小武</p>
+<p>北京 百度 网页搜索部</p>
+<p><span class="yellow3">#用户体验 #前端架构 #前端规范</span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>什么是前端？</h1>
+<ul>
+<li>div+css?</li>
+<li>切个图： psd-&gt;html</li>
+<li>套个模板：dedecms、帝国cms</li>
+<li>网页特效</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>现在变了？</h1>
+<p>其实现在快速迭代的市面和人才济济，只会这些已经不行了</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>规范</h1>
+<ol class="moveIn">
+<li>与设计师制定基础样式规范、交互规范</li>
+<li>与后端开发制定接口规范、数据规范</li>
+<li>约定好前端代码规范、目录规范</li>
+</ol>
+
+</hgroup><article>
+
+<p class="moveIn"><span>把约定好的规范列入文档 <span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>样式、交互规范</h2>
+<ul class="moveIn">
+<li>定义基础样式：栅格、颜色、间距、字号等</li>
+<li>定义组件：幻灯、Tab、筛选、手风琴、输入框、下拉框等</li>
+<li>数据加载：加载中、加载超时、加载出错、数据为空</li>
+</ul>
+
+</hgroup><article>
+
+<p class="moveIn"><span>当然这些根据公司业务而定，并且设计师为主导，前端主要是实现，pm知晓 <span></p>
+<p class="moveIn"><span>Link: <a href="https://github.com/nimojs/web-design-notes" target="_blank">https://github.com/nimojs/web-design-notes</a> <span></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>接口规范、数据规范</h2>
+<ul class="moveIn">
+<li>接口参数类型和值</li>
+<li>返回值结构和类型（强制类型）</li>
+<li>接口路径（版本、语义化）</li>
+<li>数据容错的处理</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="zoomin"><article>
+<div class="magic-wrapper">
+<hgroup>
+<h2>参数说明</h2>
+
+</hgroup><article>
+
+<div class="columns1">
+    <img src="./1.png" height="450">
+</div>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="zoomin"><article>
+<div class="magic-wrapper">
+<hgroup>
+<h2>返回值说明</h2>
+
+</hgroup><article>
+
+<div class="columns1">
+    <img src="./2.png" height="450">
+</div>
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>前端规范</h2>
+<ul class="moveIn">
+<li>目录结构规范</li>
+<li>与后端联调的规范（接口依赖、数据质量依赖）</li>
+<li>代码风格规范（eslint、csshint、fecs）</li>
+<li>代码模式：命名空间、amd、cmd、commonjs</li>
+<li>代码部署</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="zoomin"><article>
+<div class="magic-wrapper">
+<article>
+
+<div class="columns1">
+    <img src="./3.png" height="450">
+</div>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="zoomin"><article>
+<div class="magic-wrapper">
+<article>
+
+<div class="columns1">
+    <img src="./4.png" height="450">
+</div>
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>用户体验</h1>
+<ol class="moveIn">
+<li>什么是用户体验？</li>
+<li>前端应该考虑吗？</li>
+<li>如何做到？</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>测试</h1>
+<ol>
+<li>测试不是 <span class="yellow3">QA</span> 的工作吗？</li>
+<li>为什么需要测试？</li>
+<li>测试的好处</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>这些就够了？</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>多元化</h1>
+<ol>
+<li>常用的：shell、正则</li>
+<li>webserver：nginx、Apache、nodejs</li>
+<li>多平台：windows、linux、osx</li>
+<li>版本控制：git、svn</li>
+<li>测试：测试用例、代码覆盖率、持续集成</li>
+<li>工程化脚手架：gulp、webpack、fis（重要的是理解概念）</li>
+<li>其他语言：php、python、java</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Q &amp; A</h1>
+<p>谢谢</p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'move',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+
+
+<!--placeholder-->
+</body>
+</html>
