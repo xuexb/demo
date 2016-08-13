@@ -1,0 +1,32 @@
+/**
+ * @file zui基类样式
+ * @author fe.xiaowu@gmail.com
+ */
+
+/*
+ * 按行截断
+ */
+.c-line-clamp1 {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*盒子*/
+.c-flexbox {
+    -webkit-align-content: flex-start;
+    -webkit-align-items: stretch;
+    -webkit-box-align: stretch;
+    -webkit-box-direction: normal;
+    -webkit-box-lines: single;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: justify;
+    display: -webkit-flex;
+    display: -webkit-box;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    width: auto;
+}

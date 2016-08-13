@@ -1,0 +1,34 @@
+/**
+ * @file 提示层
+ * @author fe.xiaowu@gmail.com
+ */
+
+/*动画元素*/
+.zui-tips-inner {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    left: 50%;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    z-index: 900;
+}
+
+/*遮罩元素，使用伪对象实现*/
+.zui-tips-wrap-mask:after {
+    background-color: rgba(255, 255, 255, .1);
+    content: "";
+    height: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+.zui-tips-default {
+    text-align: center;
+    padding: 5px 15px;
+    line-height: 24px;
+    max-width: 40%;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 14px;
+}
