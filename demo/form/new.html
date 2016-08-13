@@ -32,23 +32,32 @@
     }
     ul label {
         display: inline-block; 
-        width: 100px; 
+        width: 70px; 
         text-align: right; 
     }
+    h1 {
+        font-size: 20px; 
+        padding-left: 70px; 
+    }
 </style>
-<form action="">
+<form action="" id="J-form">
+    <h1>表单测试</h1>
     <ul>
         <li>
             <label for="J-username">用户名:</label>
-            <input type="text" name="username" id="J-username" maxlength="16">
+            <input type="text" name="username" id="J-username" maxlength="16" placeholder="4-16位">
         </li>
         <li>
             <label for="J-password">密码:</label>
-            <input type="password" name="password" id="J-password">    
+            <input type="password" name="password" id="J-password" maxlength="16" placeholder="6-16位">    
+        </li>
+        <li>
+            <label for="J-key">搜索词:</label>
+            <input type="search" name="key" id="J-key" placeholder="输入关键词试试">
         </li>
         <li>
             <label for="J-tel">手机号:</label>
-            <input type="tel" name="tel" id="J-tel" maxlength="11">
+            <input type="tel" name="tel" id="J-tel" maxlength="11" placeholder="11位手机号码">
         </li>
         <li>
             <label for="J-age">年龄:</label>
@@ -56,13 +65,25 @@
         </li>
         <li>
             <label for="J-content">自我介绍:</label>
-            <textarea rows="5" name="content" id="J-content"></textarea>
+            <textarea rows="5" name="content" id="J-content" placeholder="简单的介绍下自己吧～"></textarea>
         </li>
-        <li style="padding-left: 100px">
+        <li style="padding-left: 70px">
             <button type="submit">提交</button>
         </li>
     </ul>
 </form>
+
+<script src="/static/jquery.js"></script>
+<script>
+    $('#J-form').on('submit', function () {
+        // 验证信息
+
+        alert('保存中');
+
+        return false;
+    });
+</script>
+
 
 </body>
 </html>

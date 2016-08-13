@@ -30,10 +30,16 @@
     }
     ul span {
         display: inline-block; 
-        width: 100px; 
+        width: 70px; 
         text-align: right; 
     }
+    h1 {
+        font-size: 20px; 
+        padding-left: 70px; 
+    }
 </style>
+
+<h1>表单测试</h1>
 <ul>
     <li>
         <span>用户名:</span>
@@ -48,6 +54,10 @@
         <input type="text" name="tel">
     </li>
     <li>
+        <span>搜索词:</span>
+        <input type="text" name="key">
+    </li>
+    <li>
         <span>年龄:</span>
         <input type="text" name="age">
     </li>
@@ -55,10 +65,19 @@
         <span>自我介绍:</span>
         <textarea name="content"></textarea>
     </li>
-    <li style="padding-left: 100px">
-        <input type="button" value="提交">
+    <li style="padding-left: 70px">
+        <input type="button" value="保存" id="J-save">
     </li>
 </ul>
+
+<script src="/static/jquery.js"></script>
+<script>
+    $('#J-save').on('click', function () {
+        // 验证信息
+
+        alert('保存中');
+    });
+</script>
 
 </body>
 </html>
