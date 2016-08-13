@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>old form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+    ul li {
+        padding-top: 6px; 
+    }
+    ul input[type="text"],
+    ul input[type="password"],
+    ul textarea {
+        height: 28px; 
+        line-height: 28px; 
+        margin: 0; 
+        padding: 0; 
+        width: 200px; 
+        border: 1px solid #ccc;
+    }
+    ul textarea {
+        height: 80px; 
+    }
+    ul span {
+        display: inline-block; 
+        width: 100px; 
+        text-align: right; 
+    }
+</style>
+<ul>
+    <li>
+        <span>用户名:</span>
+        <input type="text" name="username">
+    </li>
+    <li>
+        <span>密码:</span>
+        <input type="password" name="password">    
+    </li>
+    <li>
+        <span>手机号:</span>
+        <input type="text" name="tel">
+    </li>
+    <li>
+        <span>年龄:</span>
+        <input type="text" name="age">
+    </li>
+    <li>
+        <span>自我介绍:</span>
+        <textarea name="content"></textarea>
+    </li>
+    <li style="padding-left: 100px">
+        <input type="button" value="提交">
+    </li>
+</ul>
+
+</body>
+</html>
