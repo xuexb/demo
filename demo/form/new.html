@@ -5,161 +5,158 @@
     <title>new form</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font: 14px Arial,Helvetica,sans-serif;
+        font-size-adjust: none;
+        text-align: center;
+        -webkit-text-size-adjust: none;
+    }
+    input[type="search"]:focus {
+        background-color: transparent;
+    }
+    input[type="search"]::-webkit-search-cancel-button {
+        display: none;
+    }
+    input,
+    button {
+        -webkit-appearance: none;
+        background-color: transparent;
+        border: 0;
+        -webkit-border-radius: 0;
+                border-radius: 0;
+        -webkit-box-sizing: border-box;
+    }
+    a {
+        color: #00c;
+        text-decoration: none;
+    }
+    a:visited {
+        color: #606;
+    }
+    em {
+        color: #c00;
+        font-style: normal;
+        text-decoration: none;
+    }
+    .c-container {
+        background-color: #fff;
+        border: 0 none;
+        color: #333;
+        font: 14px/22px Arial, Helvetica, sans-serif;
+        margin: 0.1rem 0;
+        padding: 0.1rem 0.21rem 0.08rem;
+        width: auto;
+        word-break: break-word;
+        word-wrap: break-word;
+    }
+    .c-row {
+        -webkit-align-content: flex-start;
+        -webkit-align-items: stretch;
+        -webkit-box-align: stretch;
+        -webkit-box-direction: normal;
+        -webkit-box-lines: single;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: justify;
+        display: -webkit-box;
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        -webkit-flex-wrap: nowrap;
+        -webkit-justify-content: space-between;
+        margin-left: -1.81818182%;
+        margin-right: -1.81818182%;
+        width: auto;
+    }
+    .c-row * {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+    .c-span12 {
+        min-height: 1px;
+        padding-left: 1.81818182%;
+        padding-right: 1.81818182%;
+        position: relative;
+    }
+    .c-span12 {
+        -webkit-box-flex: 12;
+        -webkit-flex: 12 12 auto;
+        width: 100%;
+    }
+    .c-input {
+        -webkit-appearance: none;
+                appearance: none;
+        background-color: #fff;
+        border: 1px solid #eee;
+        border-color: #ddd #eee #eee #ddd;
+        border-radius: 0;
+        color: #333;
+        display: inline-block;
+        font-size: 14px;
+        height: 38px;
+        line-height: normal;
+        outline: none;
+        overflow: hidden;
+        padding: 0 12px;
+        vertical-align: middle;
+        width: 100%;
+        word-break: normal;
+        word-wrap: normal;
+    }
+    .c-input::-webkit-input-placeholder {
+        color: #999;
+    }
+    .c-input:focus {
+        border-color: #2b99ff;
+    }
+    .c-gap-top {
+        margin-top: 8px;
+    }
+    .c-btn {
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        border-bottom-color: #bababa;
+        border-radius: 2px;
+        color: #333;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: normal;
+        height: 38px;
+        line-height: 37px;
+        outline: none;
+        overflow: hidden;
+        padding: 0 9px;
+        -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        width: 100%;
+    }
+    .c-btn:visited {
+        color: #333;
+    }
+    .c-btn:active {
+        border-color: #2b99ff;
+    }
+    .c-btn:disabled {
+        background-color: #f9f9f9;
+        border-color: #eee;
+        color: #aaa;
+    }
+    .c-btn:disabled:visited {
+        color: #aaa;
+    }
+    .c-btn:disabled:active {
+        border-color: #eee;
+    }
+    </style>
 </head>
 <body>
-
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-}
-body {
-    text-align:center;
-    font-size-adjust:none;
-    -webkit-text-size-adjust:none;
-    font:14px Arial,Helvetica,sans-serif;
-}
-input[type="search"]:focus {
-    background-color: transparent;
-}
-input[type="search"]::-webkit-search-cancel-button {
-    display: none;
-}
-input,button{
-    border:0;
-    border-radius:0;
-    -webkit-border-radius: 0;
-    background-color:transparent;
-    -webkit-appearance:none;
-    -webkit-box-sizing:border-box;
-}
-a {
-    color: #00C;
-    text-decoration:none;
-}
-a:visited {
-    color: #606;
-}
-em {
-    color: #cc0000;
-    text-decoration: none;
-    font-style:normal;
-}
-.c-container {
-  margin: 0.1rem 0;
-  padding: 0.1rem 0.21rem 0.08rem;
-  background-color: #ffffff;
-  width: auto;
-  color: #333333;
-  font: 14px/22px Arial, Helvetica, sans-serif;
-  word-break: break-word;
-  word-wrap: break-word;
-  border: 0 none;
-}
-.c-row {
-  width: auto;
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-box-pack: justify;
-  -webkit-box-align: stretch;
-  -webkit-box-lines: single;
-  display: -webkit-flex;
-  -webkit-flex-direction: row;
-  -webkit-justify-content: space-between;
-  -webkit-align-items: stretch;
-  -webkit-align-content: flex-start;
-  -webkit-flex-wrap: nowrap;
-  margin-right: -1.81818182%;
-  margin-left: -1.81818182%;
-}
-.c-row * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.c-span12 {
-  position: relative;
-  min-height: 1px;
-  padding-right: 1.81818182%;
-  padding-left: 1.81818182%;
-}
-.c-span12 {
-  width: 100%;
-  -webkit-box-flex: 12;
-  -webkit-flex: 12 12 auto;
-}
-.c-input {
-  word-break: normal;
-  word-wrap: normal;
-  -webkit-appearance: none;
-  appearance: none;
-  display: inline-block;
-  padding: 0 12px;
-  width: 100%;
-  height: 38px;
-  vertical-align: middle;
-  line-height: normal;
-  font-size: 14px;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-color: #ddd #eee #eee #ddd;
-  border-radius: 0;
-  overflow: hidden;
-  outline: none;
-}
-.c-input::-webkit-input-placeholder {
-  color: #999;
-}
-.c-input:focus {
-  border-color: #2b99ff;
-}
-.c-gap-top {
-    margin-top: 8px; 
-}
-.c-btn {
-  display: inline-block;
-  padding: 0 9px;
-  width: 100%;
-  height: 38px;
-  line-height: 37px;
-  font-size: 14px;
-  font-weight: normal;
-  text-decoration: none;
-  text-align: center;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
-  border-bottom-color: #bababa;
-  border-radius: 2px;
-  vertical-align: middle;
-  overflow: hidden;
-  outline: none;
-  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
-}
-.c-btn:visited {
-  color: #333;
-}
-.c-btn:active {
-  border-color: #2b99ff;
-}
-.c-btn:disabled {
-  color: #aaa;
-  background-color: #f9f9f9;
-  border-color: #eee;
-}
-.c-btn:disabled:visited {
-  color: #aaa;
-}
-.c-btn:disabled:active {
-  border-color: #eee;
-}
-</style>
-
     <div class="c-container c-gap-top">
-        <a href="#">
-            <h2>点击查看【表单form的研究】</h2>
-        </a>
+        <a href="#"> <h2>点击查看【表单form的研究】</h2> </a>
     </div>
     <div class="c-container">
         <p>
@@ -225,9 +222,7 @@ em {
     </div>
     <div class="c-container">
         <form onsubmit="return false;" id="J-form-login">
-            <h2 style="text-align:left;line-height:2;">
-                用户登录：
-            </h2>
+            <h2 style="text-align:left;line-height:2;"> 用户登录： </h2>
             <div class="c-row">
                 <div class="c-span12">
                     <input type="text" class="c-input J-username" placeholder="用户名：1-4个字" maxlength="4">
@@ -278,9 +273,7 @@ em {
     </div>
     <div class="c-container">
         <form action="" onsubmit="return false;">
-            <h2 style="text-align:left;line-height:2;">
-                验证type类型和键盘提示
-            </h2>
+            <h2 style="text-align:left;line-height:2;"> 验证type类型和键盘提示 </h2>
             <div class="c-row">
                 <div class="c-span12">
                     <input type="search" class="c-input" placeholder="type:search">
@@ -435,58 +428,64 @@ em {
             占位040
         </p>
     </div>
-
-    <script src="/zui/lib/requirejs/require.js"></script>
-    <script src="/zui/lib/requirejs/config.js"></script>
+    <script src="https://github.xuexb.com/zui/lib/requirejs/require.js"></script>
+    <script src="https://github.xuexb.com/zui/lib/requirejs/config.js"></script>
     <script>
-        require([
-            'tips/index',
-            'tips/loading',
-            'zepto'
-        ], function (Tips, Loading, $) {
-            // 登录表单
-            $('#J-form-login').on('submit', function () {
-                var username = $.trim($('.J-username').val());
-                var password =  $.trim($('.J-password').val());
+    require([
+        'tips/index',
+        'tips/loading',
+        'zepto'
+    ], function (Tips, Loading, $) {
+        // 登录表单
+        $('#J-form-login').on('submit', function () {
+            var username = $.trim($('.J-username').val());
+            var password = $.trim($('.J-password').val());
 
-                if (!username) {
-                    new Tips('用户名为空');
-                    return false;
-                }
-                else if (!password) {
-                    new Tips('密码为空');
-                    return false;
-                }
+            if (!username) {
+                new Tips('用户名为空');
+                return false;
+            }
 
-                var $btn = $(this).find('.c-btn');
-                $btn.prop('disabled', true).text('登录中...');
+            if (!password) {
+                new Tips('密码为空');
+                return false;
+            }
 
-                // 测试
-                setTimeout(function () {
-                    new Tips('您好, ' + username);
-                    $btn.prop('disabled', false).text('登录');
-                    $('.J-username, .J-password').val('');
-                }, 2000);
-            });
+            var $btn = $(this).find('.c-btn');
+            $btn.prop('disabled', true).text('登录中...');
 
+            // 让当前聚焦元素失去交点，为的是让键盘消失
+            try {
+                $(document.activeElement).blur();
+            }
+            catch (e) {}
 
-                // 处理文本框聚焦时
-            var timer = null;
-            $('input.c-input').on('focus', function () {
-                var $elem = $(this);
-
-                // 如果有则清除，防止有人故意频繁操作
-                if (timer) {
-                    clearTimeout(timer);
-                }
-
-                // 延迟的数值得多测，找个折中点
-                timer = setTimeout(function () {
-                    // -60是因为有些浏览器有bar
-                    window.scrollTo(0, $elem.offset().top - 60);
-                }, 40);
-            });
+            // 测试
+            setTimeout(function () {
+                new Tips('您好, ' + username);
+                $btn.prop('disabled', false).text('登录');
+                $('.J-username, .J-password').val('');
+            }, 2000);
         });
+
+
+        // 处理文本框聚焦时
+        var timer = null;
+        $('input.c-input').on('focus', function () {
+            var $elem = $(this);
+
+            // 如果有则清除，防止有人故意频繁操作
+            if (timer) {
+                clearTimeout(timer);
+            }
+
+            // 延迟的数值得多测，找个折中点
+            timer = setTimeout(function () {
+                // -60是因为有些浏览器有bar
+                window.scrollTo(0, $elem.offset().top - 60);
+            }, 40);
+        });
+    });
     </script>
 </body>
 </html>
