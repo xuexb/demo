@@ -9,81 +9,484 @@
 <body>
 
 <style>
-    ul {
-        list-style-type: none;
-    }
-    ul li {
-        padding-top: 6px; 
-    }
-    ul input[type="text"],
-    ul input[type="password"],
-    ul input[type="number"],
-    ul input[type="tel"],
-    ul textarea {
-        height: 28px; 
-        line-height: 28px; 
-        margin: 0; 
-        padding: 0; 
-        width: 200px; 
-        border: 1px solid #ccc;
-    }
-    ul textarea {
-        height: auto; 
-    }
-    ul label {
-        display: inline-block; 
-        width: 70px; 
-        text-align: right; 
-    }
-    h1 {
-        font-size: 20px; 
-        padding-left: 70px; 
-    }
+    * {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align:center;
+    font-size-adjust:none;
+    -webkit-text-size-adjust:none;
+    font:14px Arial,Helvetica,sans-serif;
+}
+input[type="search"]:focus {
+    background-color: transparent;
+}
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+input,button{
+    border:0;
+    border-radius:0;
+    -webkit-border-radius: 0;
+    background-color:transparent;
+    -webkit-appearance:none;
+    -webkit-box-sizing:border-box;
+}
+a {
+    color: #00C;
+    text-decoration:none;
+}
+a:visited {
+    color: #606;
+}
+em {
+    color: #cc0000;
+    text-decoration: none;
+    font-style:normal;
+}
+.c-container {
+  margin: 0.1rem 0;
+  padding: 0.1rem 0.21rem 0.08rem;
+  background-color: #ffffff;
+  width: auto;
+  color: #333333;
+  font: 14px/22px Arial, Helvetica, sans-serif;
+  word-break: break-word;
+  word-wrap: break-word;
+  border: 0 none;
+}
+.c-row {
+  width: auto;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: justify;
+  -webkit-box-align: stretch;
+  -webkit-box-lines: single;
+  display: -webkit-flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: space-between;
+  -webkit-align-items: stretch;
+  -webkit-align-content: flex-start;
+  -webkit-flex-wrap: nowrap;
+  margin-right: -1.81818182%;
+  margin-left: -1.81818182%;
+}
+.c-row * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.c-span12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 1.81818182%;
+  padding-left: 1.81818182%;
+}
+.c-span12 {
+  width: 100%;
+  -webkit-box-flex: 12;
+  -webkit-flex: 12 12 auto;
+}
+.c-input {
+  word-break: normal;
+  word-wrap: normal;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  padding: 0 12px;
+  width: 100%;
+  height: 38px;
+  vertical-align: middle;
+  line-height: normal;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-color: #ddd #eee #eee #ddd;
+  border-radius: 0;
+  overflow: hidden;
+  outline: none;
+}
+.c-input::-webkit-input-placeholder {
+  color: #999;
+}
+.c-input:focus {
+  border-color: #2b99ff;
+}
+.c-gap-top {
+    margin-top: 8px; 
+}
+.c-btn {
+  display: inline-block;
+  padding: 0 9px;
+  width: 100%;
+  height: 38px;
+  line-height: 37px;
+  font-size: 14px;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-bottom-color: #bababa;
+  border-radius: 2px;
+  vertical-align: middle;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
+}
+.c-btn:visited {
+  color: #333;
+}
+.c-btn:active {
+  border-color: #2b99ff;
+}
+.c-btn:disabled {
+  color: #aaa;
+  background-color: #f9f9f9;
+  border-color: #eee;
+}
+.c-btn:disabled:visited {
+  color: #aaa;
+}
+.c-btn:disabled:active {
+  border-color: #eee;
+}
 </style>
-<form action="" id="J-form">
-    <h1>表单测试</h1>
-    <ul>
-        <li>
-            <label for="J-username">用户名:</label>
-            <input type="text" name="username" id="J-username" maxlength="16" placeholder="4-16位">
-        </li>
-        <li>
-            <label for="J-password">密码:</label>
-            <input type="password" name="password" id="J-password" maxlength="16" placeholder="6-16位">    
-        </li>
-        <li>
-            <label for="J-key">搜索词:</label>
-            <input type="search" name="key" id="J-key" placeholder="输入关键词试试">
-        </li>
-        <li>
-            <label for="J-tel">手机号:</label>
-            <input type="tel" name="tel" id="J-tel" maxlength="11" placeholder="11位手机号码">
-        </li>
-        <li>
-            <label for="J-age">年龄:</label>
-            <input type="number" name="age" id="J-age" maxlength="3">
-        </li>
-        <li>
-            <label for="J-content">自我介绍:</label>
-            <textarea rows="5" name="content" id="J-content" placeholder="简单的介绍下自己吧～"></textarea>
-        </li>
-        <li style="padding-left: 70px">
-            <button type="submit">提交</button>
-        </li>
-    </ul>
-</form>
 
-<script src="/static/jquery.js"></script>
-<script>
-    $('#J-form').on('submit', function () {
-        // 验证信息
+    <div class="c-container c-gap-top">
+        <a href="#">
+            <h2>点击查看【表单form的研究】</h2>
+        </a>
+    </div>
+    <div class="c-container">
+        <p>
+            占位001
+        </p>
+        <p>
+            占位002
+        </p>
+        <p>
+            占位003
+        </p>
+        <p>
+            占位004
+        </p>
+        <p>
+            占位005
+        </p>
+        <p>
+            占位006
+        </p>
+        <p>
+            占位007
+        </p>
+        <p>
+            占位008
+        </p>
+        <p>
+            占位009
+        </p>
+        <p>
+            占位010
+        </p>
+        <p>
+            占位011
+        </p>
+        <p>
+            占位012
+        </p>
+        <p>
+            占位013
+        </p>
+        <p>
+            占位014
+        </p>
+        <p>
+            占位015
+        </p>
+        <p>
+            占位016
+        </p>
+        <p>
+            占位017
+        </p>
+        <p>
+            占位018
+        </p>
+        <p>
+            占位019
+        </p>
+        <p>
+            占位020
+        </p>
+    </div>
+    <div class="c-container">
+        <form onsubmit="return false;" id="J-form-login">
+            <h2 style="text-align:left;line-height:2;">
+                用户登录：
+            </h2>
+            <div class="c-row">
+                <div class="c-span12">
+                    <input type="text" class="c-input J-username" placeholder="用户名：1-4个字" maxlength="4">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="password" class="c-input J-password" placeholder="密码：6个字" maxlength="6">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <button class="c-btn" type="submit">
+                        登录
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="c-container">
+        <p>
+            占位001
+        </p>
+        <p>
+            占位012
+        </p>
+        <p>
+            占位013
+        </p>
+        <p>
+            占位014
+        </p>
+        <p>
+            占位016
+        </p>
+        <p>
+            占位017
+        </p>
+        <p>
+            占位018
+        </p>
+        <p>
+            占位019
+        </p>
+        <p>
+            占位020
+        </p>
+    </div>
+    <div class="c-container">
+        <form action="" onsubmit="return false;">
+            <h2 style="text-align:left;line-height:2;">
+                验证type类型和键盘提示
+            </h2>
+            <div class="c-row">
+                <div class="c-span12">
+                    <input type="search" class="c-input" placeholder="type:search">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="text" class="c-input" placeholder="type:text">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="tel" class="c-input" placeholder="type:tel">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="number" class="c-input" placeholder="type:number">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="url" class="c-input" placeholder="type:url">
+                </div>
+            </div>
+            <div class="c-row c-gap-top">
+                <div class="c-span12">
+                    <input type="email" class="c-input" placeholder="type:email">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="c-container">
+        <p>
+            占位001
+        </p>
+        <p>
+            占位002
+        </p>
+        <p>
+            占位003
+        </p>
+        <p>
+            占位004
+        </p>
+        <p>
+            占位005
+        </p>
+        <p>
+            占位006
+        </p>
+        <p>
+            占位007
+        </p>
+        <p>
+            占位008
+        </p>
+        <p>
+            占位009
+        </p>
+        <p>
+            占位010
+        </p>
+        <p>
+            占位011
+        </p>
+        <p>
+            占位012
+        </p>
+        <p>
+            占位013
+        </p>
+        <p>
+            占位014
+        </p>
+        <p>
+            占位015
+        </p>
+        <p>
+            占位016
+        </p>
+        <p>
+            占位017
+        </p>
+        <p>
+            占位018
+        </p>
+        <p>
+            占位019
+        </p>
+        <p>
+            占位020
+        </p>
+        <p>
+            占位021
+        </p>
+        <p>
+            占位022
+        </p>
+        <p>
+            占位023
+        </p>
+        <p>
+            占位024
+        </p>
+        <p>
+            占位025
+        </p>
+        <p>
+            占位026
+        </p>
+        <p>
+            占位027
+        </p>
+        <p>
+            占位028
+        </p>
+        <p>
+            占位029
+        </p>
+        <p>
+            占位030
+        </p>
+        <p>
+            占位031
+        </p>
+        <p>
+            占位032
+        </p>
+        <p>
+            占位033
+        </p>
+        <p>
+            占位034
+        </p>
+        <p>
+            占位035
+        </p>
+        <p>
+            占位036
+        </p>
+        <p>
+            占位037
+        </p>
+        <p>
+            占位038
+        </p>
+        <p>
+            占位039
+        </p>
+        <p>
+            占位040
+        </p>
+    </div>
 
-        alert('保存中');
+    <script src="https://zbfe.github.io/zui/lib/requirejs/require.js"></script>
+    <script src="https://zbfe.github.io/zui/lib/requirejs/config.js"></script>
+    <script>
+        require([
+            'tips/index',
+            'tips/loading',
+            'zepto'
+        ], function (Tips, Loading, $) {
+            // 登录表单
+            $('#J-form-login').on('submit', function () {
+                var username = $.trim($('.J-username').val());
+                var password =  $.trim($('.J-password').val());
 
-        return false;
-    });
-</script>
+                if (!username) {
+                    new Tips('用户名为空');
+                    return false;
+                }
+                else if (!password) {
+                    new Tips('密码为空');
+                    return false;
+                }
+
+                var $btn = $(this).find('.c-btn');
+                $btn.prop('disabled', true).text('登录中...');
+
+                // 测试
+                setTimeout(function () {
+                    new Tips('您好, ' + username);
+                    $btn.prop('disabled', false).text('登录');
+                    $('.J-username, .J-password').val('');
+                }, 2000);
+            });
 
 
+                // 处理文本框聚焦时
+            var timer = null;
+            $('input.c-input').on('focus', function () {
+                var $elem = $(this);
+
+                // 如果有则清除，防止有人故意频繁操作
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                // 延迟的数值得多测，找个折中点
+                timer = setTimeout(function () {
+                    // -60是因为有些浏览器有bar
+                    window.scrollTo(0, $elem.offset().top - 60);
+                }, 40);
+            });
+        });
+    </script>
 </body>
 </html>
