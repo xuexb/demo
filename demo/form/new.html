@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>new form</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+
+<style>
+    ul {
+        list-style-type: none;
+    }
+    ul li {
+        padding-top: 6px; 
+    }
+    ul input[type="text"],
+    ul input[type="password"],
+    ul input[type="number"],
+    ul input[type="tel"],
+    ul textarea {
+        height: 28px; 
+        line-height: 28px; 
+        margin: 0; 
+        padding: 0; 
+        width: 200px; 
+        border: 1px solid #ccc;
+    }
+    ul textarea {
+        height: auto; 
+    }
+    ul label {
+        display: inline-block; 
+        width: 100px; 
+        text-align: right; 
+    }
+</style>
+<form action="">
+    <ul>
+        <li>
+            <label for="J-username">用户名:</label>
+            <input type="text" name="username" id="J-username" maxlength="16">
+        </li>
+        <li>
+            <label for="J-password">密码:</label>
+            <input type="password" name="password" id="J-password">    
+        </li>
+        <li>
+            <label for="J-tel">手机号:</label>
+            <input type="tel" name="tel" id="J-tel" maxlength="11">
+        </li>
+        <li>
+            <label for="J-age">年龄:</label>
+            <input type="number" name="age" id="J-age" maxlength="3">
+        </li>
+        <li>
+            <label for="J-content">自我介绍:</label>
+            <textarea rows="5" name="content" id="J-content"></textarea>
+        </li>
+        <li style="padding-left: 100px">
+            <button type="submit">提交</button>
+        </li>
+    </ul>
+</form>
+
+</body>
+</html>
