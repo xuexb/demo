@@ -14,7 +14,7 @@ page.open('http://www.meishichina.com', function () {
         return document.title;
     });
     var data = page.evaluate(function () {
-        var $elem = $('.nav_wrap');
+        var $elem = $('body');
 
         return {
             width: $elem.width(),
