@@ -320,10 +320,6 @@
     <script src="/static/zepto.js"></script>
     <script>
     $(function () {
-        $('#log').text('ready');
-        $(window).on('resize', delay(function () {
-            $('#log').get(0).innerHTML += '<br>' + Date.now();
-        }, 100));
 
         /**
          * 延迟, 感谢雨夜带刀 http://stylechen.com/dom-event-optimize.html
@@ -350,7 +346,12 @@
                     fn.apply(self, args);
                 }, timeout);
             }
-        }
+        };
+
+        $('#log').text('ready');
+        $(window).on('resize', delay(function () {
+            $('#log').get(0).innerHTML += '<br>' + Date.now();
+        }, 100));
     });
     </script>
 </body>
