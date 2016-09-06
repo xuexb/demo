@@ -37,9 +37,7 @@ page.open(url1, function () {
             },
             page: webpage.create()
         };
-        console.log(JSON.stringify(hlOpt));
         pdiff.highlight(hlOpt, function (err, page) {
-            console.log('dsds');
             if (err) {
                 console.log('[ERROR] ' + err);
                 console.log('highlight err');
