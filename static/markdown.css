@@ -164,6 +164,7 @@
     position: relative;
 }
 .markdown-body pre code {
+    display: block; 
     padding: 10px;
     position: relative;
 }
