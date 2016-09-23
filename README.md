@@ -11,7 +11,7 @@
 - [ ] [Date.parse](./demo/es5/Date.parse/README.md)
 - [x] [Array.isArray](./demo/es5/Array.isArray/README.md)
 - [x] [JSON.parse](./demo/es5/JSON.parse/README.md)
-- [ ] [JSON.stringify](./demo/es5/JSON.stringify/README.md)
+- [x] [JSON.stringify](./demo/es5/JSON.stringify/README.md)
 - [ ] [Function.prototype.bind](./demo/es5/Function.prototype.bind/README.md)
 - [x] [String.prototype.trim](./demo/es5/String.prototype.trim/README.md)
 - [x] [Array.prototype.map](./demo/es5/Array.prototype.map/README.md)
