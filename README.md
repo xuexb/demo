@@ -22,7 +22,7 @@
 - [x] [Array.prototype.filter](./demo/es5/Array.prototype.filter/README.md)
 - [ ] [Array.prototype.reduce](./demo/es5/Array.prototype.reduce/README.md)
 - [ ] [Array.prototype.reduceRight](./demo/es5/Array.prototype.reduceRight/README.md)
-- [ ] [Strict mode](./demo/es5/Strict mode/README.md)
+- [x] [Strict mode](./demo/es5/Strict mode/README.md)
 
 ## es6
 
