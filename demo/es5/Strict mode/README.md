@@ -11,5 +11,6 @@ js严格模式，es5需要写`"use strict";`开启，es6默认自动开始
 
 ---
 
+* [兼容ie10+](http://caniuse.com/#search=ECMAScript%205%20Strict%20Mode)
 * [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode)
 * [Javascript 严格模式use strict详解](http://www.cnblogs.com/jiqing9006/p/5091491.html)
