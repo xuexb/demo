@@ -1,7 +1,7 @@
 # vim配置文件
 
 ```
-~/.vimrc
+" ~/.vimrc
 
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
@@ -131,4 +131,43 @@ set pastetoggle=<F5>
 au InsertLeave * set nopaste
 
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+```
+
+---
+
+```
+" ~/.vimrc.bundles
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+" 目录树
+Bundle 'scrooloose/nerdtree'
+" 按下 F7 调出/隐藏 NERDTree
+map <F7> :NERDTreeToggle<CR>
+" autocmd VimEnter * NERDTree 
+
+
+" 快速注释
+Bundle 'scrooloose/nerdcommenter'
+
+
+"#####  emmet for vim http://www.zfanw.com/blog/zencoding-vim-tutorial-chinese.html
+Bundle "mattn/emmet-vim"
+autocmd FileType html,javascript,css EmmetInstall
+" 默认为 C-y ,
+let g:user_emmet_expandabbr_key = '<Tab>'
+
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 ```
