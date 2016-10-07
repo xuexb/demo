@@ -26,7 +26,26 @@
 
 ## es6
 
-todo
+- [ ] arrows
+- [ ] classes
+- [ ] enhanced object literals
+- [ ] template strings
+- [ ] destructuring
+- [ ] default + rest + spread
+- [ ] let + const
+- [ ] iterators + for..of
+- [ ] generators
+- [ ] unicode
+- [ ] modules
+- [ ] module loaders
+- [ ] map + set + weakmap + weakset
+- [ ] proxies
+- [ ] symbols
+- [ ] math + number + string + array + object apis
+- [ ] binary and octal literals
+- [ ] promises
+- [ ] reflect api
+- [ ] tail calls
 
 ## PPT
 
