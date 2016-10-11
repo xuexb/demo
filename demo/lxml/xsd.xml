@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xsd:element name="DOCUMENT">
+<xsd:annotation>
+    <xsd:documentation>
+        需要大写，标记整个文档的开始和结束
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="item" maxOccurs="unbounded" type="tItem"/>
+</xsd:sequence>
+<xsd:attribute name="content_method">
+<xsd:annotation>
+    <xsd:documentation>
+        XML全量、增量还是删除
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="full"/>
+<xsd:enumeration value="inc"/>
+<xsd:enumeration value="dec"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:attribute>
+</xsd:complexType>
+</xsd:element>
+<xsd:complexType name="tItem">
+<xsd:annotation>
+    <xsd:documentation>
+        标记每条信息的开始和结束
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:sequence>
+<xsd:element name="key" type="tKey"/>
+<xsd:element name="display" type="tDisplay"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="tKey">
+<xsd:annotation>
+    <xsd:documentation>
+        key关键词，目前一个key标签中只支持输入一个关键词，不支持罗列关键词。当用户在百度检索此关键词时，即可检索到
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:restriction base="xsd:string">
+<xsd:maxLength value="76"/>
+<xsd:minLength value="1"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="tDisplay">
+<xsd:annotation>
+    <xsd:documentation>
+        display表示盖关键词要显示的搜索结果信息，包含以下的url、title等标签。display标签中的文本长度上限为2
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:sequence>
+<xsd:element name="url" type="tUrl"/>
+<xsd:element name="title" minOccurs="1" maxOccurs="1" type="tTitle"/>
+<xsd:element name="summary" minOccurs="1" maxOccurs="1" type="tSummary"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="tUrl">
+<xsd:annotation>
+    <xsd:documentation>
+        资源的链接地址，以http或https开头
+    </xsd:documentation>
+</xsd:annotation>
+<xsd:restriction base="xsd:anyURI">
+<xsd:whiteSpace value="collapse"/>
+<xsd:maxLength value="256"/>
+<xsd:minLength value="1"/>
+<xsd:pattern value="(https?://)(.+)"/>
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="tTitle">
+<xsd:restriction base="xsd:string">
+</xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="tSummary">
+<xsd:restriction base="xsd:string">
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>
