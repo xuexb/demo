@@ -9,7 +9,7 @@
 
 ### 工作经历
 
-#### 百度 - 高级前端工程师
+#### 百度PS - 高级前端工程师
 
 > 2015.06 — 至今, [https://m.baidu.com](https://m.baidu.com)
 
@@ -41,7 +41,7 @@
 * 用户体验和优化：注重网站的用户体验，并从代码层面体现到网站交互，对代码性能有追求
 * 规范化：擅长接口文档、规范文档、代码规范
 * 测试：了解自动化测试、持续集成，可使用jasmine、mocha、should、phantomjs、karma、jenkins等工具/框架开发
-* 喜欢折腾：爱前端，爱生活
+* 喜欢折腾：爱前端，爱生活 [点击这里查看更多关于我](https://xuexb.com/html/xiaowu.html)
 
 ### 技能评价
 
@@ -57,3 +57,8 @@
 1. 网页搜索部靠谱青年
 1. 结果页前端重构-团队奖
 1. 结果页栅格化-团队奖
+
+### 相关链接
+
+* Github: [https://github.com/xuexb](https://github.com/xuexb)
+* 博客: [https://xuexb.com/?rel=resume](https://xuexb.com)
