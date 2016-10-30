@@ -61,4 +61,4 @@
 ### 相关链接
 
 * Github: [https://github.com/xuexb](https://github.com/xuexb)
-* 博客: [https://xuexb.com/?rel=resume](https://xuexb.com)
+* 博客: [https://xuexb.com](https://xuexb.com/?rel=resume)
