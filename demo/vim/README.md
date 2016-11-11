@@ -3,6 +3,9 @@
 ```
 " ~/.vimrc
 
+" 颜色设置:hi 命令 ctermfg=文字颜色 ctermbg=背景色 cterm=彩色终端 ,underline:表示下滑线, NONE表示无
+" :highlight Comment cterm=underline ctermfg=red ctermbg=blue   gui，可以使用选项gui=attribute，来定义图形窗口下语法元素的显示属性。选项guifg和guibg，用来定义了前景色和背景色。推荐使 用的颜色包括：black, brown, grey, blue, green, cyan, magenta, yellow, white。
+
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
@@ -10,6 +13,11 @@ endif
 
 " 开启语法高亮
 syntax on
+
+set list
+
+" 显示Tab符，使用一高亮竖线代替
+set list listchars=tab:»·,trail:·
 
 " history存储容量
 set history=2000
@@ -26,11 +34,19 @@ set nobackup
 " 关闭交换文件
 set noswapfile
 
-" 突出显示当前行等
-set cursorcolumn
+" 突出显示当前列
+" set cursorcolumn
+
+" 列颜色
+" hi cursorcolumn cterm=reverse
+
+set colorcolumn=120
 
 " 突出显示当前行
 set cursorline
+
+" 行颜色
+hi cursorline cterm=underline
 
 " 设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
 " 好处：误删什么的，如果以前屏幕打开，可以找回
@@ -53,6 +69,7 @@ set number
 
 " 取消换行
 set nowrap
+" set textwidth=120
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -60,8 +77,8 @@ set showmatch
 " How many tenths of a second to blink when matching brackets
 set matchtime=2
 
-set foldenable " 开始折叠
-set foldmethod=syntax " 设置语法折叠
+set nofoldenable " 关闭折叠
+set foldmethod=manual " 设置语法折叠
 set foldcolumn=0 " 设置折叠区域的宽度
 setlocal foldlevel=1 " 设置折叠层数为
 
@@ -122,8 +139,8 @@ function! HideNumber()
   set number?
 endfunc
 nnoremap <F2> :call HideNumber()<CR>
-"nnoremap <F3> :set list! list?<CR>
-"nnoremap <F4> :set wrap! wrap?<CR>
+nnoremap <F3> :set list! list?<CR>
+nnoremap <F4> :set wrap! wrap?<CR>
 
 set pastetoggle=<F5>
 
@@ -131,6 +148,17 @@ set pastetoggle=<F5>
 au InsertLeave * set nopaste
 
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
+
+set ignorecase smartcase " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
+set nowrapscan " 禁止在搜索到文件两端时重新搜索
+set incsearch " 输入搜索内容时就显示搜索结果
+set hlsearch " 搜索时高亮显示被找到的文本
+
+set magic " 设置魔术
+
+set cmdheight=1 " 设定命令行的行数为 1
+set laststatus=2 " 显示状态栏 (默认值为 1, 无法显示状态栏)
+set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:%l/%L%)\ " 设置在状态行显示的信息
 ```
 
 ---
