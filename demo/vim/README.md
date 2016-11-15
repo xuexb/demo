@@ -17,7 +17,7 @@ syntax on
 set list
 
 " 显示Tab符，使用一高亮竖线代替
-set list listchars=tab:»·,trail:·
+set listchars=tab:»·,trail:·
 
 " history存储容量
 set history=2000
