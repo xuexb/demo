@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端事件测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        a {
+            display: block; 
+            height: 30px; 
+        }
+    </style>
+</head>
+<body>
+    <form action="?">
+        <input type="text" name="name" placeholder="name">
+        <input type="submit" value="表单提交测试">
+    </form>
+
+    <a href="?a=1">a标签跳转测试</a>
+    <a href="#1">hash更新</a>
+
+    <script src="//github.xuexb.com/static/zepto.js"></script>
+    <script>
+        var log = function (str) {
+            var img = new Image();
+            img.src = '/log.gif?' + str;
+        };
+
+        $(window).on('ready', function () {
+            log('ready');
+        });
+        $(window).on('load', function () {
+            log('load');
+        });
+        $(window).on('beforeunload', function () {
+            log('beforeunload');
+        });
+        $(window).on('popstate', function () {
+            log('popstate');
+        });
+        $(window).on('pagehide', function () {
+            log('pagehide');
+        });
+        $(window).on('pageshow', function () {
+            log('pageshow');
+        });
+        $(window).on('hashchange', function () {
+            log('hashchange');
+        });
+    </script>
+</body>
+</html>
