@@ -19,11 +19,12 @@
     </form>
 
     <a href="?a=1">a标签跳转测试</a>
-    <a href="#1">hash更新</a>
+    <a href="#1" id="hash">hash更新</a>
     <a href="#" id="href">js location.href跳转</a>
     <a href="#" id="replace">js location.replace跳转</a>
     <a href="#" id="pushState">js pushState 跳转</a>
     <a href="#" id="replaceState">js replaceState 跳转</a>
+    <div id="log"></div>
 
     <script src="//github.xuexb.com/static/jquery.js"></script>
     <script>
@@ -31,6 +32,9 @@
         var log = function (str) {
             var img = new Image();
             img.src = '/log.gif?' + str + '-' + uid;
+        };
+        var show = function (str) {
+            $('#log').text(str + ' - ' + $.now());
         };
 
         $(window).on('ready', function () {
@@ -70,11 +74,19 @@
 
         $('#pushState').on('click', function () {
             history.pushState(null, null, '?pushState=' + $.now());
+            show('pushState');
+            return false;
+        });
+
+        $('#hash').on('click', function () {
+            location.hash = 'hash-' + $.now();
+            show('hash');
             return false;
         });
         
         $('#replaceState').on('click', function () {
             history.replaceState(null, null, '?replaceState=' + $.now());
+            show('replaceState');
             return false;
         });
     </script>
