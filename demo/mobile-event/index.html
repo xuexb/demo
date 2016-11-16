@@ -27,9 +27,10 @@
 
     <script src="//github.xuexb.com/static/jquery.js"></script>
     <script>
+        var uid = $.now();
         var log = function (str) {
             var img = new Image();
-            img.src = '/log.gif?' + str;
+            img.src = '/log.gif?' + str + '-' + uid;
         };
 
         $(window).on('ready', function () {
