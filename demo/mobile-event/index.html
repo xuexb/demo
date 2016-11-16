@@ -20,6 +20,10 @@
 
     <a href="?a=1">a标签跳转测试</a>
     <a href="#1">hash更新</a>
+    <a href="#" id="href">js location.href跳转</a>
+    <a href="#" id="replace">js location.replace跳转</a>
+    <a href="#" id="pushState">js pushState 跳转</a>
+    <a href="#" id="replaceState">js replaceState 跳转</a>
 
     <script src="//github.xuexb.com/static/zepto.js"></script>
     <script>
@@ -51,6 +55,26 @@
         });
         $(window).on('hashchange', function () {
             log('hashchange');
+        });
+
+        $('#href').on('click', function () {
+            location.href = '?r=' + $.now();
+            return false;
+        });
+
+        $('#replace').on('click', function () {
+            location.replace('?r=' + $.now());
+            return false;
+        });
+
+        $('#pushState').on('click', function () {
+            history.pushState(null, null, '?pushState=' + $.now());
+            return false;
+        });
+        
+        $('#replaceState').on('click', function () {
+            history.replaceState(null, null, '?replaceState=' + $.now());
+            return false;
         });
     </script>
 </body>
