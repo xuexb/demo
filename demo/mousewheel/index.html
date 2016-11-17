@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>滚轮事件研究</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+    #log {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div id="log">
+        loading...
+    </div>
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script>
+    /**
+     * 显示到页面中
+     *
+     * @param  {string|Object} str 信息
+     */
+    var write = function (str) {
+        document.getElementById('log').innerHTML += '<br>' + ($.isPlainObject(str) ? JSON.stringify(str) : str);
+    };
+
+    /**
+     * 是否是mac
+     *
+     * @type {boolean}
+     */
+    var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
+
+    /**
+     * 在一个区间是否首次触发滑动
+     *
+     * @type {boolean}
+     */
+    var isFrist = true;
+
+    /**
+     * 触摸开始时间缀
+     *
+     * @type {number}
+     */
+    var startTime = 0;
+
+    /**
+     * 计数
+     *
+     * @type {number}
+     */
+    var number = 0;
+
+    /**
+     * 延迟对象
+     *
+     * @type {number}
+     */
+    var timer = null;
+
+    /**
+     * 是否为鼠标
+     *
+     * @type {boolean}
+     */
+    var isMouse = null;
+
+    var log = function (type) {
+        var data = {
+            isMac: isMac,
+            type: type,
+            endTime: $.now(),
+            diffTime: (($.now() - startTime) / 1000).toFixed(3),
+            index: number
+        };
+
+        if (type === 'end') {
+            delete data.isMac;
+            delete data.diffTime;
+            delete data.endTime;
+
+            if (isMouse === true) {
+                data.tips = '是鼠标';
+            }
+            else if (isMouse === false) {
+                data.tips = '是触摸板';
+            }
+
+            return write(data);
+        }
+
+        if (isMouse === null) {
+            if (data.index === 1) {
+                isMouse = false;
+            }
+            else {
+                isMouse = true;
+            }
+        }
+
+        write(data);
+    };
+
+
+    $(window).on('mousewheel DOMMouseScroll', function (e) {
+        e = e.originalEvent || e || window.event;
+        var deltaY = e.deltaY;
+
+        if (isFrist) {
+            startTime = $.now();
+            isFrist = false;
+        }
+
+
+        var delta = 0;
+        if (e.wheelDelta) {
+            delta = e.wheelDelta / 120;
+        }
+        else if (e.detail) {
+            delta = -e.detail / 3;
+        }
+
+        number += 1;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            timer = null;
+            number = 0;
+            isFrist = true;
+            log('end');
+            startTime = null;
+            isMouse = null;
+        }, 500);
+
+        if (delta > 0) {
+            // prev
+            log('prev');
+        }
+        else if (delta < 0) {
+            // next
+            log('next');
+        }
+
+        return false;
+    });
+    </script>
+</body>
+</html>
