@@ -1,0 +1,105 @@
+<!doctype html>
+<html style="font-size: 40px">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="x5-fullscreen" content="true">
+        <meta name="full-screen" content="yes">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="/favicon.ico">
+        <title>百度图片</title>
+        
+<script type="text/javascript">
+    (function (WIN, DOC) {
+        // Reset viewport for supports iphone6+
+        var meta = DOC.getElementsByName('viewport')[0];
+        var head = DOC.getElementsByTagName('head');
+        var docEl = DOC.documentElement;
+        var ua = WIN.navigator.userAgent;
+
+        if (meta) {
+            head && head[0] && head[0].removeChild(meta);
+        }
+
+        meta = DOC.createElement('meta');
+        head && head[0] && head[0].appendChild(meta);
+
+        var scale = 1 / WIN.devicePixelRatio;
+
+        if (ua.match(/HM NOTE/gi) || ua.match(/GT-I9300/gi)) {
+            scale = 1;
+        }
+
+        meta.setAttribute('name', 'viewport');
+        meta.setAttribute('content', 'initial-scale=' + scale + ', maximum-scale='
+            + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+
+        // Set root fontSize for use `rem`
+        var recalc = (function () {
+            var cacheWidth;
+
+            return function () {
+                var clientWidth = docEl.getBoundingClientRect().width;
+
+                if (!clientWidth || clientWidth === cacheWidth) {
+                    return;
+                }
+
+                docEl.style.fontSize = 20 * (clientWidth / 375) + 'px';
+                cacheWidth = clientWidth;
+            };
+        })();
+
+        recalc();
+
+        if (!DOC.addEventListener) {
+            return;
+        }
+
+        WIN.addEventListener('orientationchange' in WIN ? 'orientationchange' : 'resize', recalc, false);
+    })(window, document);
+</script>
+    <style type="text/css">
+        .demo {
+            height: 3rem; 
+            font-size: 1rem; 
+            background-color: #ccc; 
+            margin-bottom: 10px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="demo">0001</div>
+    <div class="demo">0002</div>
+    <div class="demo">0003</div>
+    <div class="demo">0004</div>
+    <div class="demo">0005</div>
+    <div class="demo">0006</div>
+    <div class="demo">0007</div>
+    <div class="demo">0008</div>
+    <div class="demo">0009</div>
+    <div class="demo">0010</div>
+    <div class="demo">0011</div>
+    <div class="demo">0012</div>
+    <div class="demo">0013</div>
+    <div class="demo">0014</div>
+    <div class="demo">0015</div>
+    <div class="demo">0016</div>
+    <div class="demo">0017</div>
+    <div class="demo">0018</div>
+    <div class="demo">0019</div>
+    <div class="demo">0020</div>
+    <div class="demo">0021</div>
+    <div class="demo">0022</div>
+    <div class="demo">0023</div>
+    <div class="demo">0024</div>
+    <div class="demo">0025</div>
+    <div class="demo">0026</div>
+    <div class="demo">0027</div>
+    <div class="demo">0028</div>
+    <div class="demo">0029</div>
+    <div class="demo">0030</div>
+</body>
+</html>
