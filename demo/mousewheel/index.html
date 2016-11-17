@@ -98,9 +98,11 @@
 
         if (isMouse === null) {
             if (data.index === 1) {
+                write('<br>已写入为触摸板, index = ' + data.index);
                 isMouse = false;
             }
             else {
+                write('<br>已写入为鼠标, index = ' + data.index);
                 isMouse = true;
             }
         }
