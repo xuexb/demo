@@ -103,12 +103,12 @@
         $('.a-fastclick').on('click', function () {
             location.href = '?r=' + Date.now();
         });
-        FastClick($('.a-fastclick').get(0));
+        FastClick.attach($('.a-fastclick').get(0));
 
         $('.div-fastclick').on('click', function () {
             location.href = '?r=' + Date.now();
         });
-        FastClick($('.div-fastclick').get(0));
+        FastClick.attach($('.div-fastclick').get(0));
 
     </script>
 </body>
