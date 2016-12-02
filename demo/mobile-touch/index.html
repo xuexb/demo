@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>测试移动端点击阴影</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+
+    <style type="text/css">
+        ul {
+            margin: 0; 
+            padding: 0; 
+            list-style: none;
+        }
+        .demo {
+            display: block; 
+            height: 30px; 
+            line-height: 30px; 
+            text-align: center; 
+            background-color: #ccc; 
+            margin-bottom: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="?a=1" class="demo">我是普通A标题</a>
+        </li>
+        <li>
+            <div class="demo div-click">我是div, 绑定click</div>
+        </li>
+        <li>
+            <a href="#" class="demo a-click">我是a, 绑定click</a>
+        </li>
+        <li>
+            <a href="#" class="demo a-tap">我是a, 绑定tap</a>
+        </li>
+        <li>
+            <div class="demo div-tap">我是div, 绑定tap</div>
+        </li>
+
+        <li>
+            <a href="#" class="demo a-touchstart">我是a, 绑定touchstart</a>
+        </li>
+        <li>
+            <div class="demo div-touchstart">我是div, 绑定touchstart</div>
+        </li>
+
+        <li>
+            <a href="#" class="demo a-touchend">我是a, 绑定touchend</a>
+        </li>
+        <li>
+            <div class="demo div-touchend">我是div, 绑定touchend</div>
+        </li>
+
+        <li>
+            <a href="#" class="demo a-fastclick">我是a, 绑定fastclick</a>
+        </li>
+        <li>
+            <div class="demo div-fastclick">我是div, 绑定fastclick</div>
+        </li>
+    </ul>
+
+    <script src="https://github.xuexb.com/static/zepto.js"></script>
+    <script>
+        $('.div-click').on('click', function () {
+            location.href = '?r=' + Date.now();
+        });
+
+        $('.a-click').on('click', function () {
+            location.href = '?r=' + Date.now();
+            return false;
+        });
+
+        $('.a-tap').on('tap', function () {
+            location.href = '?r=' + Date.now();
+            return false;
+        });
+
+        $('.div-tap').on('tap', function () {
+            location.href = '?r=' + Date.now();
+            return false;
+        });
+
+        $('.a-touchstart').on('touchstart', function () {
+            location.href = '?r=' + Date.now();
+        });
+
+        $('.div-touchstart').on('touchstart', function () {
+            location.href = '?r=' + Date.now();
+        });
+
+        $('.a-touchend').on('touchend', function () {
+            location.href = '?r=' + Date.now();
+        });
+
+        $('.div-touchend').on('touchend', function () {
+            location.href = '?r=' + Date.now();
+        });
+
+        $('.a-fastclick').on('click', function () {
+            location.href = '?r=' + Date.now();
+        });
+        FastClick($('.a-fastclick').get(0));
+
+        $('.div-fastclick').on('click', function () {
+            location.href = '?r=' + Date.now();
+        });
+        FastClick($('.div-fastclick').get(0));
+
+    </script>
+</body>
+</html>
