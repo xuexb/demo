@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+
+    <p>001</p>
+    <p>002</p>
+    <p>003</p>
+    <p>004</p>
+    <p>005</p>
+    <p>006</p>
+    <p>007</p>
+    <p>008</p>
+    <p>009</p>
+    <p>010</p>
+    <p>011</p>
+    <p>012</p>
+    <p>013</p>
+    <p>014</p>
+    <p>015</p>
+    <p>016</p>
+    <p>017</p>
+    <p>018</p>
+    <p>019</p>
+    <p>020</p>
+    <p>021</p>
+    <p>022</p>
+    <p>023</p>
+    <p>024</p>
+    <p>025</p>
+    <p>026</p>
+    <p>027</p>
+    <p>028</p>
+    <p>029</p>
+    <p>030</p>
+    <p>031</p>
+    <p>032</p>
+    <p>033</p>
+    <p>034</p>
+    <p>035</p>
+    <p>036</p>
+    <p>037</p>
+    <p>038</p>
+    <p>039</p>
+    <p>040</p>
+    <p>041</p>
+    <p>042</p>
+    <p>043</p>
+    <p>044</p>
+    <p>045</p>
+    <p>046</p>
+    <p>047</p>
+    <p>048</p>
+    <p>049</p>
+    <p>050</p>
+    <p>051</p>
+    <p>052</p>
+    <p>053</p>
+    <p>054</p>
+    <p>055</p>
+    <p>056</p>
+    <p>057</p>
+    <p>058</p>
+    <p>059</p>
+    <p>060</p>
+    <p>061</p>
+    <p>062</p>
+    <p>063</p>
+    <p>064</p>
+    <p>065</p>
+    <p>066</p>
+    <p>067</p>
+    <p>068</p>
+    <p>069</p>
+    <p>070</p>
+    <p>071</p>
+    <p>072</p>
+    <p>073</p>
+    <p>074</p>
+    <p>075</p>
+    <p>076</p>
+    <p>077</p>
+    <p>078</p>
+    <p>079</p>
+    <p>080</p>
+    <p>081</p>
+    <p>082</p>
+    <p>083</p>
+    <p>084</p>
+    <p>085</p>
+    <p>086</p>
+    <p>087</p>
+    <p>088</p>
+    <p>089</p>
+    <p>090</p>
+    <p>091</p>
+    <p>092</p>
+    <p>093</p>
+    <p>094</p>
+    <p>095</p>
+    <p>096</p>
+    <p>097</p>
+    <p>098</p>
+    <p>099</p>
+    <p>100</p>
+
+    <script src="/static/zepto.js"></script>
+    <script>
+        var log = function () {
+            $('<img />', {
+                src: '/log.gif?' + JSON.stringify([].slice.call(arguments))
+            });
+        };
+
+        $(document).on('ready', function () {
+            log('ready');
+        });
+
+        $(window).on('load', function () {
+            log('load');
+        });
+
+        $(window).on('blur', function () {
+            log('blur');
+        });
+
+        $(window).on('focus', function () {
+            log('focus');
+        });
+
+        $(window).on('beforeunload', function () {
+            log('beforeunload');
+        });
+
+        $(window).on('unload', function () {
+            log('unload');
+        });
+
+        $(window).on('visibilitychange', function () {
+            log('visibilitychange', document.visibilityState);
+        });
+
+        $(window).on('resize', function () {
+            log('resize');
+        });
+    </script>
+</body>
+</html>
