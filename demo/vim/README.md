@@ -163,6 +163,9 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 
 ---
 
+* 安装`git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+* 配置文件
+
 ```
 " ~/.vimrc.bundles
 
@@ -170,7 +173,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -198,4 +201,15 @@ Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+" :BundleInstall     install 安装配置的插件                                                                                              
+" :BundleInstall!    update  更新                                                                                                        
+" :BundleClean       remove plugin not in list 删除本地无用插件
+```
+* 命令
+
+```
+:BundleInstall     install 安装配置的插件                                                                                              
+:BundleInstall!    update  更新                                                                                                        
+:BundleClean       remove plugin not in list 删除本地无用插件
 ```
