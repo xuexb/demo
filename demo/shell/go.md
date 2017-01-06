@@ -85,6 +85,10 @@ if [[ "$1" == "" || "$1" == "-h" || "$1" == "--help" ]];then
 elif [[ "$1" == "--list" || "$1" == "-l" ]];then
     show_list;
 
+# 编辑
+elif [[ "$1" == "--edit" || "$1" == "-e" ]];then
+    vim $0;
+
 # 执行登录
 else
     remote_login $1 $2;
