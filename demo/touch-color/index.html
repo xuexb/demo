@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端触摸板颜色调研</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #ccc;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .block {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            font-size: 20px;
+            margin: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li class="js block">
+        我是js绑定事件
+    </li>
+    <li>
+        <a href="?" class="block">我是默认A标签</a>
+    </li>
+    <li>
+        <span class="block active">我是:active</span>
+    </li>
+</ul>
+
+<script src="/static/zepto.js"></script>
+<script>
+    $('.js').on('click', function () {});
+</script>
+</body>
+</html>
