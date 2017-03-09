@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>ng1测试</title>
+    <script src="//cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input ng-model="name">
+        <p>
+            input 输入框的值绑定了变量 "name" :
+        </p>
+        {{name}}
+        <h3>相关推荐:</h3>
+        <ul>
+            <li>
+                <button ng-click="reQuery('1111')">
+                    1111
+                </button>
+            </li>
+            <li>
+                <button ng-click="reQuery('2222')">
+                    2222
+                </button>
+            </li>
+            <li>
+                <button ng-click="reQuery('333')">
+                    333
+                </button>
+            </li>
+        </ul>
+    </div>
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.name = 'John Doe';
+
+        $scope.reQuery = function (value) {
+            $scope.name = value;
+        };
+    });
+    </script>
+    <p>
+        该实例演示了如何使用 ng-model 指令绑定输入框的值到 scope 变量中。
+    </p>
+</body>
+</html>
