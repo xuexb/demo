@@ -14,8 +14,10 @@ var request = require('request');
 var EventEmitter = require('events');
 var fs = require('fs');
 
+var uid = 0;
+
 const defaults = {
-    bingfa: 10,
+    bingfa: 5,
     timeout: 1000 * 5
 };
 
@@ -29,11 +31,13 @@ class Caiji extends EventEmitter {
         // 当前运行数
         this.currentLength = 0;
 
+        this.ing = {};
+
         // 错误数据
-        this.error = {};
+        this.error = [];
 
         // 成功数据
-        this.success = {};
+        this.success = [];
 
         // 当前数据
         this.data = data;
@@ -46,31 +50,39 @@ class Caiji extends EventEmitter {
      */
     bind() {
         this.on('queue.in', data => {
-            this.currentLength += 1;
             this._getData(data);
         });
 
         this.on('down.start', ({id}) => {
-            console.log(`开始下载, id: ${id}`);
+            // console.log(`开始下载, id: ${id}`);
+
+            // 打上标识, 正在下载
+            this.ing[id] = 1;
         });
 
         this.on('down.error', data => {
-            console.log(`出错了, id: ${data.id}, code: ${data.code}, msg: ${data.msg}`);
+            this.error.push(data);
+            // console.log(`出错了, id: ${data.id}, code: ${data.code}, msg: ${data.msg}`);
         });
 
         this.on('down.success', data => {
-            console.log(`下载成功, id: ${data.id}`);
+            this.success.push(data);
+            // console.log(`下载成功, id: ${data.id}`);
         });
 
         this.on('complete', () => {
-            console.log('辛苦了, 完成了');
+            console.log(`辛苦了, 完成了, 一共下载成功${this.success.length}个, 下载失败${this.error.length}个~`);
         });
 
-        this.on('down.complete', () => {
-            if (this.data.length) {
+        this.on('down.complete', ({id}) => {
+            delete this.ing[id];
+
+            this.currentLength -= 1;
+
+            if (this.data.length > 0) {
                 this._setQueue();
             }
-            else {
+            else if (this.data.length === 0 && Object.keys(this.ing).length === 0) {
                 this.emit('complete');
             }
         });
@@ -83,8 +95,24 @@ class Caiji extends EventEmitter {
         this._setQueue();
     }
 
+    /**
+     * 获取文件扩展名
+     *
+     * @param  {string} contentType 文件类型
+     *
+     * @return {string}
+     */
     _getExt(contentType) {
         return contentType.indexOf('image/') < 0 ? 'jpg' : contentType.replace(/.+\//, '');
+    }
+
+    /**
+     * 获取文件名
+     *
+     * @return {string}
+     */
+    _getFileName(contentType) {
+        return Date.now() + '_' + (uid ++) + '.' + this._getExt(contentType);
     }
 
     /**
@@ -111,10 +139,13 @@ class Caiji extends EventEmitter {
                 id
             });
 
-            this.emit('down.complete');
+            this.emit('down.complete', {
+                url,
+                id
+            });
         }).on('response', res => {
             if (res.statusCode === 200) {
-                let ext = this._getExt(res.headers['content-type']);
+                let filename = this._getFileName(res.headers['content-type']);
 
                 request.get({
                     url: url,
@@ -124,7 +155,10 @@ class Caiji extends EventEmitter {
                         url,
                         id
                     });
-                    this.emit('down.complete');
+                    this.emit('down.complete', {
+                        id,
+                        url
+                    });
                 }).on('error', err => {
                     this.emit('down.error', {
                         code: 3,
@@ -132,8 +166,11 @@ class Caiji extends EventEmitter {
                         url,
                         id
                     });
-                    this.emit('down.complete');
-                }).pipe(fs.createWriteStream(`${id}.${ext}`));
+                    this.emit('down.complete', {
+                        url,
+                        id
+                    });
+                }).pipe(fs.createWriteStream(filename));
             }
             else {
                 this.emit('down.error', {
@@ -142,7 +179,10 @@ class Caiji extends EventEmitter {
                     url,
                     id
                 });
-                this.emit('down.complete');
+                this.emit('down.complete', {
+                    url,
+                    id
+                });
             }
         });
     }
@@ -155,37 +195,27 @@ class Caiji extends EventEmitter {
             len = this.data.length;
         }
 
+        console.log('len', len);
+
         for (; i < len; i++) {
+            this.currentLength += 1;
             let {url, id} = this.data.shift();
+            console.log(i, '添加队列', Object.keys(this.ing).length, this.currentLength);
             this.emit('queue.in', {
                 url,
                 id
             });
         }
     }
-
 }
 
-let app = new Caiji([
-    {
-        url: 'http://www.myjsblog.com/wp-content/themes/Kratos/images/random/1.jpg',
-        id: 1
-    },
-    {
-        url: 'http://www.myjsblog.com/wp-content/themes/Kratos/images/random/2.jpg',
-        id: 2
-    },
-    {
-        url: 'http://www.myjsblog.com/wp-content/themes/Kratos/images/random/33.jpg',
-        id: 3
-    },
-    {
-        url: 'http://www.myjsblog.com/wp-content/themes/Kratos/images/random/4.jpg',
-        id: 4
-    },
-    {
-        url: 'http://www.myjsblog.com/wp-content/themes/Kratos/images/random/5.jpg',
-        id: 5
-    }
-]);
+let data = [];
+for(let i = 50110; i <= 50190; i++) {
+    data.push({
+        url: `http://qzonestyle.gtimg.cn/qzone/em/stamp/${i}_f_s.jpg`,
+        id: i
+    });
+}
+
+let app = new Caiji(data);
 app.run();
