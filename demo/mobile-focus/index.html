@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端文本框聚焦测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <input type="text" id="text1" placeholder="text1">
+    <div id="focus1">点我聚焦text1</div>
+
+    <input type="text" id="text2" placeholder="text2" style="display: none;">
+    <div id="focus2">点我聚焦text2 - 隐藏元素</div>
+
+    <script src="https://github.xuexb.com/static/zepto.js"></script>
+    <script>
+        $('#focus1').on('click', function () {
+            $('#text1').focus();
+        });
+
+        $('#focus2').on('click', function () {
+            $('#text2').show().focus();
+        });
+    </script>
+</body>
+</html>
