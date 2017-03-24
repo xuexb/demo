@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>user-select研究</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        .demo {
+            margin-bottom: 30px;
+        }
+        .user-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        .pointer-events {
+            pointer-events: none;
+        }
+        img {
+            max-width: 100%;
+        }
+        .icon {
+            width: 50px;
+            color: #09f;
+        }
+    </style>
+</head>
+<body>
+
+<h1>user-select研究</h1>
+<p>
+    起因是昨天(2017-03-24)有个小伙伴(@灿灿)在一个页面无意中选中了一段文字, 但这个文字又隐藏了, 导致出现了一些诡异的问题, so研究下几种情况下针对不同内容的<code>user-select, pointer-events</code>效果
+</p>
+
+<div class="demo">
+    <h2>case1. 期望用户去长按</h2>
+    <p>
+        比如一些图片, 长按有浏览器下载浮层
+    </p>
+    <dl>
+        <dt>默认</dt>
+        <dd>
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490332762653&di=d14cc1bdbd69c39f2aa3c83e422ce8d8&imgtype=0&src=http%3A%2F%2Fwww.5577.com%2Fup%2F2017-2%2F14869709919961516.jpg">
+        </dd>
+        <dt class="user-select">user-select: none</dt>
+        <dd class="user-select">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490332762653&di=d14cc1bdbd69c39f2aa3c83e422ce8d8&imgtype=0&src=http%3A%2F%2Fwww.5577.com%2Fup%2F2017-2%2F14869709919961516.jpg">
+        </dd>
+        <dt class="pointer-events">pointer-events: none</dt>
+        <dd class="pointer-events">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490332762653&di=d14cc1bdbd69c39f2aa3c83e422ce8d8&imgtype=0&src=http%3A%2F%2Fwww.5577.com%2Fup%2F2017-2%2F14869709919961516.jpg">
+        </dd>
+    </dl>
+</div>
+
+<div class="demo">
+    <h2>case2. 用户可以自己选择是否选中</h2>
+    <p>
+        比如一些文字, 用户可能会选中去翻译、分享、复制
+    </p>
+    <dl>
+        <dt>默认</dt>
+        <dd>
+            我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容
+        </dd>
+        <dt class="user-select">user-select: none</dt>
+        <dd class="user-select">
+            我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容，我是测试的内容
+        </dd>
+    </dl>
+</div>
+
+<div class="demo">
+    <h2>case3. 不希望用户去行踪</h2>
+    <p>
+        比如一些按钮类、图标类
+    </p>
+    <dl>
+        <dt>默认</dt>
+        <dd>
+            <p>
+                <button>我只是个静静的按钮</button>
+            </p>
+            <p>
+                <img src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png">
+            </p>
+        </dd>
+
+        <dt class="user-select">user-select: none + pointer-events: none</dt>
+        <dd class="user-select pointer-events">
+            <p>
+                <button>我只是个静静的按钮</button>
+            </p>
+            <p>
+                <img src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png">
+            </p>
+        </dd>
+    </dl>
+</div>
+
+<h2>结论:</h2>
+<p>
+    根据自己的场景需求适当的在元素上使用<code>user-select + pointer-events</code>使其不能被选中.
+</p>
+
+</body>
+</html>
