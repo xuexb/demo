@@ -10,14 +10,14 @@
  *     complete - 任务完成
  */
 
-var request = require('request');
-var EventEmitter = require('events');
-var fs = require('fs');
-
-var uid = 0;
+const request = require('request');
+const EventEmitter = require('events');
+const fs = require('fs');
+const path = require('path');
 
 const defaults = {
     bingfa: 5,
+    uploadPath: './upload',
     timeout: 1000 * 5
 };
 
@@ -53,8 +53,8 @@ class Caiji extends EventEmitter {
             this._getData(data);
         });
 
-        this.on('down.start', ({id}) => {
-            // console.log(`开始下载, id: ${id}`);
+        this.on('down.start', ({id, url}) => {
+            console.log(`开始下载, id: ${id}, url: ${url}`);
 
             // 打上标识, 正在下载
             this.ing[id] = 1;
@@ -62,12 +62,12 @@ class Caiji extends EventEmitter {
 
         this.on('down.error', data => {
             this.error.push(data);
-            // console.log(`出错了, id: ${data.id}, code: ${data.code}, msg: ${data.msg}`);
+            console.log(`出错了, id: ${data.id}, code: ${data.code}, msg: ${data.msg}, id: ${data.id}, url: ${data.url}`);
         });
 
         this.on('down.success', data => {
             this.success.push(data);
-            // console.log(`下载成功, id: ${data.id}`);
+            console.log(`下载成功, id: ${data.id}, url: ${data.url}`);
         });
 
         this.on('complete', () => {
@@ -85,6 +85,7 @@ class Caiji extends EventEmitter {
             else if (this.data.length === 0 && Object.keys(this.ing).length === 0) {
                 this.emit('complete');
             }
+
         });
     }
 
@@ -96,23 +97,26 @@ class Caiji extends EventEmitter {
     }
 
     /**
-     * 获取文件扩展名
+     * 获取文件名
      *
-     * @param  {string} contentType 文件类型
+     * @param {string} url 图片链接
      *
      * @return {string}
      */
-    _getExt(contentType) {
-        return contentType.indexOf('image/') < 0 ? 'jpg' : contentType.replace(/.+\//, '');
+    _getFileName(url) {
+        let data = path.parse(url);
+        return data.base || (Date.now() + data.ext);
     }
 
     /**
-     * 获取文件名
+     * 获取上传路径
+     *
+     * @param  {string} url 图片链接
      *
      * @return {string}
      */
-    _getFileName(contentType) {
-        return Date.now() + '_' + (uid ++) + '.' + this._getExt(contentType);
+    _getUploadPath(url) {
+        return path.resolve(this.options.uploadPath, this._getFileName(url));
     }
 
     /**
@@ -133,7 +137,7 @@ class Caiji extends EventEmitter {
             timeout: this.options.timeout
         }).on('error', err => {
             this.emit('down.error', {
-                code: 1,
+                code: err.statusCode || 500,
                 msg: err,
                 url,
                 id
@@ -145,7 +149,7 @@ class Caiji extends EventEmitter {
             });
         }).on('response', res => {
             if (res.statusCode === 200) {
-                let filename = this._getFileName(res.headers['content-type']);
+                let filepath = this._getUploadPath(url);
 
                 request.get({
                     url: url,
@@ -170,11 +174,11 @@ class Caiji extends EventEmitter {
                         url,
                         id
                     });
-                }).pipe(fs.createWriteStream(filename));
+                }).pipe(fs.createWriteStream(filepath));
             }
             else {
                 this.emit('down.error', {
-                    code: 2,
+                    code: res.statusCode,
                     msg: '返回状态码不是200',
                     url,
                     id
@@ -195,12 +199,12 @@ class Caiji extends EventEmitter {
             len = this.data.length;
         }
 
-        console.log('len', len);
+        // console.log('len', len);
 
         for (; i < len; i++) {
             this.currentLength += 1;
             let {url, id} = this.data.shift();
-            console.log(i, '添加队列', Object.keys(this.ing).length, this.currentLength);
+            // console.log(i, '添加队列', Object.keys(this.ing).length, this.currentLength);
             this.emit('queue.in', {
                 url,
                 id
@@ -209,13 +213,4 @@ class Caiji extends EventEmitter {
     }
 }
 
-let data = [];
-for(let i = 50110; i <= 50190; i++) {
-    data.push({
-        url: `http://qzonestyle.gtimg.cn/qzone/em/stamp/${i}_f_s.jpg`,
-        id: i
-    });
-}
-
-let app = new Caiji(data);
-app.run();
+module.exports = Caiji;
