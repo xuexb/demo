@@ -20,7 +20,8 @@
     "compile": "babel src/ -d lib/",
     "watch": "npm run compile -- --watch",
     "prepublish": "npm run compile",
-    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register -t 5000 --recursive  -R spec test/",
+    "test:watch": "npm run test -- --watch",
+    "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register -t 5000 --recursive  -R spec test/",
     "test": "mocha --compilers js:babel-register --reporter spec --timeout 5000 --recursive test/"
   },
   "repository": {
