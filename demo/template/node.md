@@ -55,3 +55,19 @@
 }
 
 ```
+
+### .babelrc 配置
+
+```json
+{
+    "presets": [
+      "es2015",
+      "stage-0",
+      "stage-3"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "add-module-exports"
+    ]
+}
+```
