@@ -48,7 +48,7 @@
     "babel-preset-stage-3": "6.x.x",
     "chai": "^3.5.0",
     "fecs": "^1.2.2",
-    "istanbul": "^0.4.5",
+    "istanbul": ">=1.0.0-alpha.2",
     "mocha": "^3.2.0",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0"
