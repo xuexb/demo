@@ -1,4 +1,4 @@
-# 称动端滑屏插件
+# 移动端滑屏插件
 
 > 谢耀武 hi:xuexb xieyaowu@baidu.com
 
