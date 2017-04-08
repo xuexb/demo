@@ -20,7 +20,7 @@
 * 开发平台优化、维护 - owner
 * 代码性能分析、优化 - 参与
 
-#### 美食天下 - 前端js
+#### 美食天下 - 前端负责人
 
 > 2013.10, [http://www.meishichina.com](http://www.meishichina.com)
 
