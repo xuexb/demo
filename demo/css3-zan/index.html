@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>点赞特效</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        @font-face{font-family:image-icon;src:url(https://imgn1.bdstatic.com/image/mobile/n/static/wisehomepage/static/font/iconfont_f6e6b1e.eot);src:url(https://imgn1.bdstatic.com/image/mobile/n/static/wisehomepage/static/font/iconfont_f6e6b1e.eot#iefix) format('embedded-opentype'),url(https://imgn0.bdstatic.com/image/mobile/n/static/wisehomepage/static/font/iconfont_b15dec1.woff) format('woff'),url(https://imgn1.bdstatic.com/image/mobile/n/static/wisehomepage/static/font/iconfont_85ffe89.ttf) format('truetype'),url(https://imgn1.bdstatic.com/image/mobile/n/static/wisehomepage/static/font/iconfont_84ad7e8.svg#iconfont) format('svg')}.img-icon{font-family:image-icon!important;font-style:normal;font-weight:400;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+        .thumb-animated {
+    -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+    -webkit-animation-name: bounce;
+            animation-name: bounce;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+}
+@-webkit-keyframes bounce {
+    0%,
+    100%,
+    20%,
+    53%,
+    80% {
+        -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+        -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+                animation-timing-function: cubic-bezier(.215,.61,.355,1);
+    }
+    40%,
+    43% {
+        -webkit-transform: translate3d(0,-20px,0);
+                transform: translate3d(0,-20px,0);
+        -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+    }
+    70% {
+        -webkit-transform: translate3d(0,-10px,0);
+                transform: translate3d(0,-10px,0);
+        -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+    }
+    90% {
+        -webkit-transform: translate3d(0,-3px,0);
+                transform: translate3d(0,-3px,0);
+    }
+}
+@keyframes bounce {
+    0%,
+    100%,
+    20%,
+    53%,
+    80% {
+        -webkit-transform: translate3d(0,0,0);
+                transform: translate3d(0,0,0);
+        -webkit-animation-timing-function: cubic-bezier(.215,.61,.355,1);
+                animation-timing-function: cubic-bezier(.215,.61,.355,1);
+    }
+    40%,
+    43% {
+        -webkit-transform: translate3d(0,-20px,0);
+                transform: translate3d(0,-20px,0);
+        -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+    }
+    70% {
+        -webkit-transform: translate3d(0,-10px,0);
+                transform: translate3d(0,-10px,0);
+        -webkit-animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+                animation-timing-function: cubic-bezier(.755,.05,.855,.06);
+    }
+    90% {
+        -webkit-transform: translate3d(0,-3px,0);
+                transform: translate3d(0,-3px,0);
+    }
+}
+
+    </style>
+
+    <style type="text/css">
+        .demo {
+            margin-top: 30px;
+            margin-left: 100px;
+            font-size: 24px;
+        }
+        .img-icon {
+            margin-right: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .zan {
+            text-decoration: none;
+            color: #333;
+            user-select: none;
+            display: inline-block;
+
+            line-height: 180px;
+            height: 180px;
+            padding: 0 40px;
+        }
+        .zan-ok {
+            color: #09f;
+            animation: 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="demo">
+        <a href="#" class="zan"><i class="img-icon">&#xe61a;</i><span>点赞</span></a>
+    </div>
+
+    <div class="demo">
+        <a href="#" class="zan zan-ok"><i class="img-icon">&#xe61a;</i><span>1982</span></a>
+    </div>
+
+    <script src="https://github.xuexb.com/static/zepto.js"></script>
+    <script type="text/javascript">
+            var $zan = $('.zan').eq(0);
+
+            $zan.on('click', function () {
+                $zan.find('i').addClass('thumb-animated');
+                $zan.find('span').text(Date.now());
+                $zan.addClass('zan-ok');
+            });
+    </script>
+</body>
+</html>
