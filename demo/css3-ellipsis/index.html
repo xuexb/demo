@@ -5,6 +5,12 @@
     <title>css3实现多行...更多截断</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <h1>css3实现多行...更多截断</h1>
+
+    <p>摘自: <a href="http://hai.li/2017/03/08/css-multiline-overflow-ellipsis.html">http://hai.li/2017/03/08/css-multiline-overflow-ellipsis.html</a></p>
+
     <style>
     /*
      * 行高 h
@@ -70,10 +76,6 @@
         color: #09f;
     }
     </style>
-</head>
-<body>
-    <h1>css3实现多行...更多截断</h1>
-    <p>摘自: <a href="http://hai.li/2017/03/08/css-multiline-overflow-ellipsis.html">http://hai.li/2017/03/08/css-multiline-overflow-ellipsis.html</a></p>
     <div class="ellipsis">
         <div class="ellipsis-container">
             <div class="ellipsis-content">
@@ -83,6 +85,78 @@
                 <div class="ellipsis-placeholder"></div>
                 <div class="ellipsis-more">... <span>更多>></span></div>
             </div>
+        </div>
+    </div>
+
+    <p>以下是原创, 使用css3多行省略截断+渐变遮罩</p>
+    <style type="text/css">
+        .c-line-clamp2 {
+            -webkit-line-clamp: 2;
+        }
+        .c-line-clamp3 {
+            -webkit-line-clamp: 3;
+        }
+        .c-line-clamp4 {
+            -webkit-line-clamp: 4;
+        }
+        .c-line-clamp5 {
+            -webkit-line-clamp: 5;
+        }
+        .c-line-clamp2, .c-line-clamp3, .c-line-clamp4, .c-line-clamp5 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            line-height: 26px; /*单行高*/
+        }
+        .c-line-clamp2:after,
+        .c-line-clamp3:after,
+        .c-line-clamp4:after,
+        .c-line-clamp5:after {
+            content: '更多>>';
+            position: absolute;
+            right: 0;
+            top: 26px;/*单行高*/
+            padding-left: 60px;
+            color: #09f;
+            background-image: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0) 10%, #ccc 40%);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 10%, #ccc 40%);
+        }
+        /*(行数-1)*单行高*/
+        .c-line-clamp3:after {
+            top: 52px; 
+        }
+        /*(行数-1)*单行高*/
+        .c-line-clamp4:after {
+            top: 78px;
+        }
+        /*(行数-1)*单行高*/
+        .c-line-clamp5:after {
+            top: 104px;
+        }
+
+        /*以下是测试代码*/
+        .c-line-clamp2, .c-line-clamp3, .c-line-clamp4, .c-line-clamp5 {
+            background-color: #ccc;
+            margin-top: 20px;
+        }
+    </style>
+    <div class="demo-2">
+        <div class="c-line-clamp2">
+            腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市(股票代号700)。
+        </div>
+
+        <div class="c-line-clamp3">
+            腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市(股票代号700)。
+        </div>
+
+        <div class="c-line-clamp4">
+            腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市(股票代号700)。
+        </div>
+
+        <div class="c-line-clamp5">
+            腾讯成立于1998年11月，是目前中国领先的互联网增值服务提供商之一。成立10多年来，腾讯一直秉承“一切以用户价值为依归”的经营理念，为亿级海量用户提供稳定优质的各类服务，始终处于稳健发展状态。2004年6月16日，腾讯控股有限公司在香港联交所主板公开上市(股票代号700)。
         </div>
     </div>
 </body>
