@@ -82,7 +82,7 @@
 
     <style type="text/css">
         .demo {
-            margin-top: 30px;
+            margin-top: 100px;
             margin-left: 100px;
             font-size: 24px;
         }
@@ -97,35 +97,82 @@
             user-select: none;
             display: inline-block;
 
-            line-height: 180px;
-            height: 180px;
-            padding: 0 40px;
+            line-height: 35px;
+            height: 35px;
+            padding: 0 10px;
+            position: relative;
         }
         .zan-ok {
             color: #09f;
-            animation: 
+        }
+        .zan em {
+            color: #999;
+            font-size: 14px;
+            position: absolute;
+            left: 50%;
+            top: -30px;
+            height: 30px;
+            line-height: 30px;
+            width: 200px;
+            margin-left: -100px;
+            text-align: center;
+            font-style: normal;
+            font-weight: 400;
+            opacity: 0;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s;
+        }
+        .zan-ok.zan-ok-tips em {
+            opacity: 1;
         }
 
     </style>
 </head>
 <body>
-
     <div class="demo">
-        <a href="#" class="zan"><i class="img-icon">&#xe61a;</i><span>点赞</span></a>
+        <a href="#" class="zan">
+            <i class="img-icon">&#xe61a;</i><span>点赞</span>
+        </a>
     </div>
 
     <div class="demo">
-        <a href="#" class="zan zan-ok"><i class="img-icon">&#xe61a;</i><span>1982</span></a>
+        <a href="#" class="zan zan-ok">
+            <i class="img-icon">&#xe61a;</i><span>1982</span>
+        </a>
     </div>
 
     <script src="https://github.xuexb.com/static/zepto.js"></script>
     <script type="text/javascript">
-            var $zan = $('.zan').eq(0);
+            var $zan = $('.zan');
 
             $zan.on('click', function () {
-                $zan.find('i').addClass('thumb-animated');
-                $zan.find('span').text(Date.now());
-                $zan.addClass('zan-ok');
+                var $that = $(this);
+                var timer = $that.data('timer');
+                var flag = $that.hasClass('zan-ok');
+
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                // 如果已经赞过了
+                if (flag) {
+                    // 没有提示dom则生成
+                    if (!$that.find('em').length) {
+                        $that.append('<em>您已经赞过了</em>');
+                    }
+
+                    $that.addClass('zan-ok-tips').find('em').addClass('thumb-animated');
+                    timer = setTimeout(function () {
+                        $that.removeClass('zan-ok-tips').find('em').removeClass('thumb-animated');
+                    }, 1500);
+
+                    $that.data('timer', timer);
+                }
+                else {
+                    $that.find('i').addClass('thumb-animated');
+                    $that.find('span').text(Date.now());
+                    $that.addClass('zan-ok');
+                }
             });
     </script>
 </body>
