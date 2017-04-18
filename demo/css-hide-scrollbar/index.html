@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
     <style>
         .scroll-wrap {
+            position: relative;
             overflow: hidden;
         }
         .scroll {
+            position: relative;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             padding-bottom: 30px;
@@ -47,6 +49,7 @@
 <body>
     <h1>css3隐藏滚动条</h1>
     <p>使用<code>translateY</code>+填充实验不定高隐藏横向滚动条</p>
+    <p>之前搞的, 那个<code>position: relative;</code>记得是避免某些安卓机上滚动bug的</p>
     <div class="scroll-wrap">
         <div class="scroll">
             <ul class="demo">
