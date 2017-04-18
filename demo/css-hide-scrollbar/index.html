@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>css3隐藏滚动条</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+        .scroll-wrap {
+            overflow: hidden;
+        }
+        .scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 30px;
+            margin-top: -30px;
+            -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+        }
+
+
+        /*以下是测试代码*/
+        .demo {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            white-space: nowrap;
+            margin-top: 20px;
+        }
+        .demo li {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 5px;
+            background-color: #ccc;
+            height: 100px;
+            width: 100px;
+        }
+        .demo li:first-child {
+            margin-left: 0;
+        }
+        .demo2 li {
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>css3隐藏滚动条</h1>
+    <p>使用<code>translateY</code>+填充实验不定高隐藏横向滚动条</p>
+    <div class="scroll-wrap">
+        <div class="scroll">
+            <ul class="demo">
+                <li>001</li><li>002</li><li>003</li><li>004</li><li>005</li><li>006</li><li>007</li><li>008</li><li>009</li><li>010</li><li>011</li><li>012</li><li>013</li><li>014</li><li>015</li><li>016</li><li>017</li><li>018</li><li>019</li><li>020</li><li>021</li><li>022</li><li>023</li><li>024</li><li>025</li><li>026</li><li>027</li><li>028</li><li>029</li><li>030</li><li>031</li><li>032</li><li>033</li><li>034</li><li>035</li><li>036</li><li>037</li><li>038</li><li>039</li><li>040</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="scroll-wrap">
+        <div class="scroll">
+            <ul class="demo demo2">
+                <li>001</li><li>002</li><li>003</li><li>004</li><li>005</li><li>006</li><li>007</li><li>008</li><li>009</li><li>010</li><li>011</li><li>012</li><li>013</li><li>014</li><li>015</li><li>016</li><li>017</li><li>018</li><li>019</li><li>020</li><li>021</li><li>022</li><li>023</li><li>024</li><li>025</li><li>026</li><li>027</li><li>028</li><li>029</li><li>030</li><li>031</li><li>032</li><li>033</li><li>034</li><li>035</li><li>036</li><li>037</li><li>038</li><li>039</li><li>040</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
