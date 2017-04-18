@@ -19,17 +19,24 @@
             -webkit-transform: translateY(30px);
             transform: translateY(30px);
         }
-
+        .scroll > * {
+            overflow: hidden;
+        }
+    
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
         /*以下是测试代码*/
         .demo {
             margin: 0;
             padding: 0;
+            margin-bottom: 20px;
             list-style: none;
             white-space: nowrap;
-            margin-top: 20px;
         }
-        .demo li {
+        .demo > * {
             display: inline-block;
             vertical-align: top;
             margin-left: 5px;
@@ -37,10 +44,10 @@
             height: 100px;
             width: 100px;
         }
-        .demo li:first-child {
+        .demo > *:first-child {
             margin-left: 0;
         }
-        .demo2 li {
+        .demo2 > * {
             height: 200px;
             width: 200px;
         }
@@ -52,18 +59,18 @@
     <p>之前搞的, 那个<code>position: relative;</code>记得是避免某些安卓机上滚动bug的</p>
     <div class="scroll-wrap">
         <div class="scroll">
-            <ul class="demo">
-                <li>001</li><li>002</li><li>003</li><li>004</li><li>005</li><li>006</li><li>007</li><li>008</li><li>009</li><li>010</li><li>011</li><li>012</li><li>013</li><li>014</li><li>015</li><li>016</li><li>017</li><li>018</li><li>019</li><li>020</li><li>021</li><li>022</li><li>023</li><li>024</li><li>025</li><li>026</li><li>027</li><li>028</li><li>029</li><li>030</li><li>031</li><li>032</li><li>033</li><li>034</li><li>035</li><li>036</li><li>037</li><li>038</li><li>039</li><li>040</li>
-            </ul>
+            <div class="demo">
+                <div>001</div><div>002</div><div>003</div><div>004</div><div>005</div><div>006</div><div>007</div><div>008</div><div>009</div><div>010</div><div>011</div><div>012</div><div>013</div><div>014</div><div>015</div><div>016</div><div>017</div><div>018</div><div>019</div><div>020</div><div>021</div><div>022</div><div>023</div><div>024</div><div>025</div><div>026</div><div>027</div><div>028</div><div>029</div><div>030</div><div>031</div><div>032</div><div>033</div><div>034</div><div>035</div><div>036</div><div>037</div><div>038</div><div>039</div><div>040</div>
+            </div>
         </div>
     </div>
 
 
     <div class="scroll-wrap">
         <div class="scroll">
-            <ul class="demo demo2">
-                <li>001</li><li>002</li><li>003</li><li>004</li><li>005</li><li>006</li><li>007</li><li>008</li><li>009</li><li>010</li><li>011</li><li>012</li><li>013</li><li>014</li><li>015</li><li>016</li><li>017</li><li>018</li><li>019</li><li>020</li><li>021</li><li>022</li><li>023</li><li>024</li><li>025</li><li>026</li><li>027</li><li>028</li><li>029</li><li>030</li><li>031</li><li>032</li><li>033</li><li>034</li><li>035</li><li>036</li><li>037</li><li>038</li><li>039</li><li>040</li>
-            </ul>
+            <div class="demo demo2">
+                <div>001</div><div>002</div><div>003</div><div>004</div><div>005</div><div>006</div><div>007</div><div>008</div><div>009</div><div>010</div><div>011</div><div>012</div><div>013</div><div>014</div><div>015</div><div>016</div><div>017</div><div>018</div><div>019</div><div>020</div><div>021</div><div>022</div><div>023</div><div>024</div><div>025</div><div>026</div><div>027</div><div>028</div><div>029</div><div>030</div><div>031</div><div>032</div><div>033</div><div>034</div><div>035</div><div>036</div><div>037</div><div>038</div><div>039</div><div>040</div>
+            </div>
         </div>
     </div>
 </body>
