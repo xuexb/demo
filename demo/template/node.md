@@ -52,6 +52,9 @@
     "mocha": "^3.2.0",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0"
+  },
+  "dependencies": {
+    "babel-runtime": "6.x.x"
   }
 }
 
