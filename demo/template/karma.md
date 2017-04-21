@@ -26,7 +26,16 @@
     "type": "git",
     "url": ""
   },
-  "author": "xiaowu <fe.xiaowu@gmail.com>",
+  "contributors": [
+    {
+      "name": "xuexb",
+      "email": "fe.xiaowu@gmail.com"
+    }
+  ],
+  "author": {
+    "name": "xuexb",
+    "email": "fe.xiaowu@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": ""

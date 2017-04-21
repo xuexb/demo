@@ -29,8 +29,15 @@
     "url": ""
   },
   "contributors": [
+    {
+      "name": "xuexb",
+      "email": "fe.xiaowu@gmail.com"
+    }
   ],
-  "author": "xuexb",
+  "author": {
+    "name": "xuexb",
+    "email": "fe.xiaowu@gmail.com"
+  },
   "keywords": [
     "urlpath"
   ],
