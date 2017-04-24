@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片适应研究 - 前端小武</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+    img {
+        max-width: 100%;
+        max-height: 600px;
+        vertical-align: top;
+        background-color: #ccc;
+    }
+    body,
+    dl,
+    dt,
+    dd {
+        margin: 0;
+        padding: 0;
+    }
+    dt {
+        margin-top: 50px;
+    }
+    dd {
+        margin-bottom: 10px;
+        max-height: 600px;
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+    </style>
+</head>
+<body>
+    <h1>不同规则的图片在 max 的容器内效果</h1>
+    <ul>
+        <li>
+            请在 Iphone6 Plus 分辨率下查看(414x736)
+        </li>
+        <li>
+            相对最小高: 300
+        </li>
+        <li>
+            最大高: 600
+        </li>
+        <li>
+            宽阀值: .8, 超过时则用屏幕宽
+        </li>
+    </ul>
+    <hr>
+    <dl>
+        <dt> <ul>
+                <li>
+                    高为长边
+                </li>
+                <li>
+                    高在max内
+                </li>
+                <li>
+                    结论: 取图片高为容器高, 宽自适应
+                </li>
+            </ul> </dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/100x400" alt="">
+        </dd>
+        <dt> <ul>
+                <li>
+                    高为长边
+                </li>
+                <li>
+                    宽小于 vw*.8
+                </li>
+                <li>
+                    结论: 原始图片
+                </li>
+            </ul> </dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/100x200" alt="">
+        </dd>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/100x100" alt="">
+        </dd>
+        <dt> <ul>
+                <li>
+                    高为长边
+                </li>
+                <li>
+                    高大于max
+                </li>
+                <li>
+                    结论: 取max为容器高, 宽自适应
+                </li>
+            </ul> </dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/400x800">
+        </dd>
+        <dt> <ul>
+                <li>
+                    宽为长边
+                </li>
+                <li>
+                    等比后的高在max之内
+                </li>
+                <li>
+                    结论: 取宽为容器宽, 高自适应
+                </li>
+            </ul> </dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/500x460">
+        </dd>
+        <dt> <ul>
+                <li>
+                    宽为长边
+                </li>
+                <li>
+                    宽在 vw*.8 内
+                </li>
+                <li>
+                    结论: 取vw为宽, 高自适应
+                </li>
+            </ul> </dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/300x200" width="100%">
+        </dd>
+        <dt></dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/414x600" alt="">
+        </dd>
+        <dt></dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/500x1300" alt="">
+        </dd>
+        <dt></dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/100x100" alt="">
+        </dd>
+        <dt></dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/100x1000" alt="">
+        </dd>
+        <dt></dt>
+        <dd>
+            <img src="http://placeholder.qiniudn.com/500x300" alt="">
+        </dd>
+    </dl>
+</body>
+</html>
