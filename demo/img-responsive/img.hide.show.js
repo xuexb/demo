@@ -25,7 +25,7 @@
     })
     .text('点击设置页面图片显示状态(可以查看图片占位)~')
     .on('click', function () {
-        $('img').attr('src', isShowImg ? '' : function () {
+        $('img').attr('src', isShowImg ? 'https://proxy.xuexb.com/static.meishichina.com/v6/img/blank.gif' : function () {
             return $(this).data('src-hide');
         });
 
