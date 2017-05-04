@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片塌方</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <h1>图片塌方</h1>
+    <p>
+        当图片没有定宽高时, 在页面文档流渲染到当前图片节点时就会去请求图片, 在图片还没有响应时, 图片的宽高是未知, 页面会不显示, 体验差
+    </p>
+    <ul>
+        <li>
+            <img src="https://dummyimage.com/666x661" alt="001">
+            <p>
+                001
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x662" alt="002">
+            <p>
+                002
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x663" alt="003">
+            <p>
+                003
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x664" alt="004">
+            <p>
+                004
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x665" alt="005">
+            <p>
+                005
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x666" alt="006">
+            <p>
+                006
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x667" alt="007">
+            <p>
+                007
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x668" alt="008">
+            <p>
+                008
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x669" alt="009">
+            <p>
+                009
+            </p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/666x610" alt="010">
+            <p>
+                010
+            </p>
+        </li>
+    </ul>
+
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script src="./img.hide.show.js"></script>
+</body>
+</html>

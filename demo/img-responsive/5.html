@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>等比例宽+高/宽比制作响应式图片</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul li {
+            margin-bottom: 30px;
+        }
+        .row {
+            position: relative;
+            margin-left: -5px;
+            width: auto;
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-box-pack: justify;
+            -webkit-box-align: stretch;
+            -webkit-box-lines: single;
+            display: -webkit-flex;
+            -webkit-flex-direction: row;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: stretch;
+            -webkit-align-content: flex-start;
+            -webkit-flex-wrap: nowrap;
+        }
+        .span4 {
+            width: 33.33333333%;
+            padding-left: 5px;
+            -webkit-box-flex: 4;
+            -webkit-flex: 4 4 auto;
+        }
+
+
+
+        /*核心代码*/
+        .img {
+            position: relative;
+            background: #f7f7f7 url(https://img0.bdstatic.com/static/mobilesearch/widget/component/feeds/images/logo_2d4b695.png) no-repeat center center;
+            -webkit-background-size: 20px;
+            background-size: 20px;
+            height: 0;
+            overflow: hidden;
+        }
+        .img img {
+            vertical-align: top;
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>等比例宽+高/宽比制作响应式图片</h1>
+    <ol>
+        <li>宽度依赖外层容器</li>
+        <li>已知宽高, 使用<code>padding-bottom: (高/宽*100)%</code>来做</li>
+    </ol>
+    <ul>
+        <li>
+            <div class="img" style="padding-bottom: 100%">
+                <img src="https://dummyimage.com/300x300" alt="">
+            </div>
+            <p>1:1 满屏</p>
+        </li>
+
+        <li>
+            <div class="img" style="padding-bottom: 75%">
+                <img src="https://dummyimage.com/400x300" alt="">
+            </div>
+            <p>4:3 满屏</p>
+        </li>
+        <li>
+            <div class="row">
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 100%">
+                        <img src="https://dummyimage.com/300x300" alt="">
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 100%">
+                        <img src="https://dummyimage.com/300x300" alt="">
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 100%">
+                        <img src="https://dummyimage.com/300x300" alt="">
+                    </div>
+                </div>
+            </div>
+            <p>1:1 一行3列</p>
+        </li>
+
+        <li>
+            <div class="row">
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 200%">
+                        <img src="https://dummyimage.com/300x300" alt="">
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 200%">
+                        <img src="https://dummyimage.com/300x500" alt="">
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="img" style="padding-bottom: 200%">
+                        <img src="https://dummyimage.com/300x600" alt="">
+                    </div>
+                </div>
+            </div>
+            <p>1:2 一行3列, 如果图片比例不同, 会出现bad case</p>
+        </li>
+    </ul>
+
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script src="./img.hide.show.js"></script>
+</body>
+</html>

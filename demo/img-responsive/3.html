@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片设置宽高</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>图片设置宽高</h1>
+    <p>
+        图片设置宽高后, 在屏幕小于宽度时, 为了体验我们通常会设置<code>img{max-width:100%}</code>, 那么问题就来了, 宽有max了, 而高就写死了(如果不写高就会塌方)就会造成比例失调, 请看以下例子:
+    </p>
+    <ul>
+        <li>
+            <img src="https://dummyimage.com/50x50" width="50" height="50" alt="">
+            <p>50x50</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/100x100" width="100" height="100" alt="">
+            <p>100x100</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/200x200" width="200" height="200" alt="">
+            <p>200x200</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/300x300" width="300" height="300" alt="">
+            <p>300x300</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/400x400" width="400" height="400" alt="">
+            <p>400x400</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/500x500" width="500" height="500" alt="">
+            <p>500x500</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/600x600" width="600" height="600" alt="">
+            <p>600x600</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/700x700" width="700" height="700" alt="">
+            <p>700x700</p>
+        </li>
+        <li>
+            <img src="https://dummyimage.com/1000x1000" width="1000" height="1000" alt="">
+            <p>1000x1000</p>
+        </li>
+    </ul>
+
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script src="./img.hide.show.js"></script>
+</body>
+</html>
