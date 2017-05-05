@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片最小、最大高响应式研究</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .imgbox {
+            position: relative;
+            z-index: 1;
+        }
+        .mask {
+            background-color: #f0f0f0;
+            white-space: nowrap;
+            vertical-align: top;
+            text-align: center;
+            overflow: hidden;
+        }
+        .mask:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+        .inner {
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .imgbox img {
+            width: 100%;
+            height: 100%;
+            vertical-align: middle;
+            -webkit-user-drag: none;
+
+            background-color: #fff;
+            background-image: -webkit-linear-gradient(bottom left, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef),-webkit-linear-gradient(bottom left, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef);
+            background-image: linear-gradient(to top right, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef),linear-gradient(to top right, #efefef 25%, transparent 25%, transparent 75%, #efefef 75%, #efefef);
+            background-position: 0 0, 10px 10px;
+            -webkit-background-size: 21px 21px;
+            background-size: 21px 21px;
+            border: 0;
+        }
+
+        /*全屏切换动画*/
+        .inner,
+        .mask {
+            -webkit-transition: width .3s, height .3s, background-color .3s;
+            transition: width .3s, height .3s, background-color .3s;
+        }
+        .isFull .imgbox {
+            position: fixed;
+        }
+        .isFull .mask {
+            background-color: #000;
+        }
+
+        .imgbox {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="imgbox"><div class="mask" id="mask"><div class="inner" id="inner"><img id="img" /></div></div></div>
+
+    <div class="loading">加载中...</div>
+
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script src="./url.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
