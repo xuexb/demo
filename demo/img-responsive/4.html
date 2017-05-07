@@ -139,7 +139,15 @@
                 <i style="padding-bottom: 100%"></i>
                 <img src="https://dummyimage.com/1000x400">
             </div>
-            <p>1000x400, 如果图片比例不同, 会出现bad case, 可以设置<code>.img img{height:100%}</code>来强制拉伸</p>
+            <p>1000x1000, 如果图片比例不同, 会出现bad case, 可以设置<code>.img img{height:100%}</code>来强制拉伸, 请看下图</p>
+        </li>
+
+        <li>
+            <div class="img" style="width: 1000px;">
+                <i style="padding-bottom: 100%"></i>
+                <img src="https://dummyimage.com/1000x400" style="height: 100%">
+            </div>
+            <p>1000x1000, 图片比例不对, 已经设置<code>.img img{height:100%}</code>来强制拉伸</p>
         </li>
     </ul>
 
