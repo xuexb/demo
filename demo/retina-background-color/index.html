@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>retina屏下背景色叠加研究</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+    <style type="text/css">
+        .wrap {
+            background-color: #f7f7f7;
+        }
+        .left {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+        }
+        .right {
+            background-color: #333;
+            width: 100px;
+            height: 100px;
+            color: #fff;
+        }
+        .bottom {
+            background-color: #000;
+            width: 100px;
+            height: 100px;
+            color: #fff;
+        }
+        .demo5 {
+            width: 100px;
+            height: 100px;
+            background-color: #f7f7f7;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="left">我是上</div>
+        <div class="right">我是下</div>
+        <div class="bottom">老三</div>
+        <div class="bottom">老四</div>
+        <div class="demo5">老五</div>
+        <div class="demo5">老六</div>
+    </div>
+</body>
+</html>
