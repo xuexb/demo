@@ -1,5 +1,24 @@
 # shell快捷登录go脚本
 
+使用以下脚本可以实现:
+
+1. 在osx下记录session
+2. 方便快捷登录, `go 简称`
+3. 查看列表, `go -l`
+
+### 配置`~/.ssh/config`
+
+```
+Host *
+ControlPath ~/.ssh/master-%r@%h:%p
+ControlMaster auto
+ControlPersist 50h
+```
+
+### 添加go脚本
+
+保存以下内容到你的`PATH`可执行目录, 如我的`~/bin/`中:
+
 ```shell
 #! /bin/sh
 #
