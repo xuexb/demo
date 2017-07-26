@@ -17,7 +17,7 @@ ControlPersist 50h
 
 ### 添加go脚本
 
-保存以下内容到你的`PATH`可执行目录, 如我的`~/bin/go`中, 修改`server_list`, 格式是`简称     目标服务器`:
+保存以下内容到你的`PATH`可执行目录, 如我的`~/bin/go`中, 并添加可执行权限`chmod +x ~/bin/go`, 修改`server_list`, 格式是`简称     目标服务器`:
 
 ```shell
 #! /bin/sh
