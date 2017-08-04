@@ -17,7 +17,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "check": "fecs check src/ test/ --reporter=baidu",
+    "check": "fecs check src/ test/ --reporter=baidu --rule",
     "test": "karma start karma.conf.js",
     "test:cov": "npm test -- --reporters progress,coverage",
     "test:watch": "npm test -- --auto-watch --no-single-run"

@@ -16,7 +16,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "check": "fecs check src/ test/ --reporter=baidu",
+    "check": "fecs check src/ test/ --reporter=baidu --rule",
     "compile": "babel src/ -d lib/",
     "watch": "npm run compile -- --watch",
     "prepublish": "npm run compile",
