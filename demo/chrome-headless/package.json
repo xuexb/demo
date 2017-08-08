@@ -1,7 +1,7 @@
 {
   "name": "chrome-headless",
   "version": "1.0.0",
-  "description": "",
+  "description": "chrome headless 截图",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
@@ -11,6 +11,6 @@
   "scripts": {
     "test": "node index.js --url https://xuexb.com --delay 2000 --viewportWidth 1000 --viewportHeight 1000"
   },
-  "author": "",
+  "author": "xuexb <fe.xiaowu@gmail.com>",
   "license": "MIT"
 }
