@@ -1,0 +1,16 @@
+{
+  "name": "chrome-headless",
+  "version": "1.0.0",
+  "description": "chrome headless 截图",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chrome-remote-interface": "^0.24.3",
+    "minimist": "^1.2.0"
+  },
+  "scripts": {
+    "test": "node index.js --url https://xuexb.com --delay 2000 --viewportWidth 1000 --viewportHeight 1000"
+  },
+  "author": "xuexb <fe.xiaowu@gmail.com>",
+  "license": "MIT"
+}
