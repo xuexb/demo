@@ -73,9 +73,6 @@ CDP(async function(client) {
 
         setTimeout(async function() {
             const js = [
-                `document.body.style.background = 'none'`,
-                `document.querySelector('.navbar').style.display = 'none'`,
-                `document.querySelector('.qmv-annotation .tip').style.display = 'none'`
             ].join('; ');
 
             // Evaluate the JS expression in the page.
