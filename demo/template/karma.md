@@ -19,7 +19,7 @@
   "scripts": {
     "check": "fecs check src/ test/ --reporter=baidu --rule",
     "test": "karma start karma.conf.js",
-    "test:cov": "npm test -- --reporters progress,coverage",
+    "test:cov": "npm test -- --reporters mocha,coverage",
     "test:watch": "npm test -- --auto-watch --no-single-run"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "karma-chai-sinon": "^0.1.5",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.3",
     "karma-phantomjs-launcher": "^1.0.4",
     "mocha": "^3.2.0",
     "sinon": "^2.0.0",
@@ -98,7 +99,8 @@ module.exports = function(config) {
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
         reporters: [
-            'progress'
+            'mocha'
+            // 'progress'
             // 'coverage'
         ],
 
