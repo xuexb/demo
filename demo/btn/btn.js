@@ -7,6 +7,12 @@
 (function ($) {
     'use strict';
 
+    /**
+     * 按钮构造函数
+     *
+     * @class
+     * @param {Object} options 配置对象
+     */
     function Btn(options) {
         var self = this;
 
@@ -98,6 +104,7 @@
             if (type === 'button' || type === 'a') {
                 $that.find('span').text(text);
             }
+
         });
 
         return self;
@@ -139,14 +146,17 @@
             data: config.data,
             success: function (res) {
                 if (res) {
-                    status = config.success.call(self, res) === false ? Btn.status.SUCCESS_ERROR : // 返回false
-                        Btn.status.SUCCESS; // 成功
+                    status = config.success.call(self, res) === false
+                    ? Btn.status.SUCCESS_ERROR
+                    : Btn.status.SUCCESS;
                 }
+
             },
             error: function (XHR, status) {
                 if (XHR && status === 'abort') {
                     status = Btn.status.ABORT;
                 }
+
             },
             complete: function () {
                 // 只有在返回值错误才走error方法
