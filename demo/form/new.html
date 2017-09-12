@@ -429,8 +429,37 @@
             占位040
         </p>
     </div>
-    <script src="https://github.xuexb.com/zui/lib/requirejs/require.js"></script>
-    <script src="https://github.xuexb.com/zui/lib/requirejs/config.js"></script>
+    <script src="//zbfe.github.io/zui/deps/requirejs/require.js"></script>
+    <script>
+        (function () {
+            requirejs.config({
+                baseUrl: '//zbfe.github.io/zui/src/',
+                paths: {
+                    text: '../deps/requirejs/plugins/text',
+                    tpl: '../deps/requirejs/plugins/text',
+                    css: '../deps/requirejs/plugins/css',
+                    zepto: '../deps/zepto',
+                    Class: 'base/Class',
+                    zui: 'base/zui',
+                    test: '../test'
+                },
+                shim: {
+                    zepto: {
+                        exports: 'Zepto'
+                    }
+                },
+                urlArgs: function (uri, url) {
+                    var args = '';
+
+                    // if (url.indexOf('.css') > -1) {
+                        args = 'v=' + Date.now();
+                    // }
+
+                    return (url.indexOf('?') === -1 ? '?' : '&') + args;;
+                }
+            });
+        })();
+    </script>
     <script>
     require([
         'tips/index',
