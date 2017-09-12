@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止表单提交测试</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <form action="?fr=test">
+        <input type="text" name="name">
+        <input type="submit">
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            console.log('submit');
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
