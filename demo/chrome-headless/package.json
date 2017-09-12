@@ -2,14 +2,18 @@
   "name": "chrome-headless",
   "version": "1.0.0",
   "description": "chrome headless 截图",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
+  "main": "src/index.js",
+  "dependencies": {
     "chrome-remote-interface": "^0.24.3",
-    "minimist": "^1.2.0"
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "fecs": "^1.4.1"
   },
   "scripts": {
-    "test": "node index.js --url https://xuexb.com --delay 2000 --viewportWidth 1000 --viewportHeight 1000"
+    "start": "node ./src/index.js",
+    "lint": "npm run fecs",
+    "fecs": "fecs src --reporter=baidu --rule"
   },
   "author": "xuexb <fe.xiaowu@gmail.com>",
   "license": "MIT"
