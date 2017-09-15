@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>parent</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <div id="out" style="margin: 10px;">
+        ready~
+    </div>
+
+    <iframe style="border: 1px solid #ccc; margin: 10px; height: 300px;" border="0" src="http://127.0.0.1:8080/child.html"></iframe>
+    <script>
+    window.addEventListener('message', function (event) {
+        console.log('event: ', event);
+        console.log('event.data: ', event.data);
+        console.log('event.origin: ', event.origin);
+        console.log('event.currentTarget.origin: ', event.currentTarget.origin);
+        console.log('source === window ', event.source === window);
+        console.log('source === window.frames[0] ', event.source === window.frames[0]);
+        document.querySelector('#out').innerHTML = '<pre><code>' + (event.data || '空') + '</code></pre>';
+    }, false);
+    </script>
+</body>
+</html>

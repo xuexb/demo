@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>parent</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+    <form action="?" autocomplete="off">
+        <h1>子iframe</h1>
+        <p>
+            <input type="text" placeholder="输入文本" id="text" style="height: 30px; width: 100%; border: 1px solid #ccc;">
+        </p>
+        <p>
+            <button type="submit">
+                提交
+            </button>
+        </p>
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            var value = document.querySelector('#text').value;
+            
+            window.parent.postMessage(JSON.stringify({
+                time: Date.now(),
+                value: value
+            }, null, 4), '*');
+
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
