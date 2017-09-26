@@ -22,7 +22,9 @@
     "prepublish": "npm run compile",
     "test:watch": "npm run test -- --watch",
     "test:cov": "istanbul cover node_modules/mocha/bin/_mocha -- --compilers js:babel-register -t 5000 --recursive  -R spec test/",
-    "test": "mocha --compilers js:babel-register --reporter spec --timeout 5000 --recursive test/"
+    "test": "mocha --compilers js:babel-register --reporter spec --timeout 5000 --recursive test/",
+    "preversion": "npm run check",
+    "postversion": "git push origin master && git push origin --tags"
   },
   "repository": {
     "type": "git",
