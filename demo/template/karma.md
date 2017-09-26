@@ -20,7 +20,9 @@
     "check": "fecs check src/ test/ --reporter=baidu --rule",
     "test": "karma start karma.conf.js",
     "test:cov": "npm test -- --reporters mocha,coverage",
-    "test:watch": "npm test -- --auto-watch --no-single-run"
+    "test:watch": "npm test -- --auto-watch --no-single-run",
+    "preversion": "npm run check",
+    "postversion": "git push origin master && git push origin --tags"
   },
   "repository": {
     "type": "git",
