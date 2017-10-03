@@ -83,6 +83,10 @@ url: https://github.xuexb.com/ppt/2017-10-06/
 
 谢谢
 
+---
+
+![测试文件路径](//static.cdn.xuexb.com/i/20171004/nMj3gH3rXIx8mU7CPphFgf3l.png?imageslim)
+
 
 
 
