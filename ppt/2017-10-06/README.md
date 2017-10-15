@@ -5,11 +5,18 @@ url: https://github.xuexb.com/ppt/2017-10-06/
 [slide]
 # 前端工程师的晋级
 ### @前端小武
-北京百度搜索 前端技术部  
-2017-10-06  
+北京百度搜索 前端技术部
+2017-10-06
 <p class="text-success">
 #前端架构 #性能优化 #用户体验
 </p>
+
+[slide]
+# 什么是前端工程师
+- 写页面
+- 响应式页面
+- 网站体验优化
+- 网站性能优化
 
 [slide]
 # 前端工程师的级别
@@ -83,21 +90,3 @@ url: https://github.xuexb.com/ppt/2017-10-06/
 ---
 
 ![前端小武微信](//static.cdn.xuexb.com/i/20171004/nMj3gH3rXIx8mU7CPphFgf3l.png?imageslim)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
