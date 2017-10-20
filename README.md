@@ -49,7 +49,8 @@
 
 ## PPT
 
-* [2016-06-10邯郸技术交流会](https://github.xuexb.com/ppt/2016-06-10/)
+* [2016-06-10 邯郸技术交流会 - 现在的前端](https://github.xuexb.com/ppt/2016-06-10/)
+* [2017-10-06 邯郸技术交流会 - 前端工程师的晋级](https://github.xuexb.com/ppt/2017-10-06/README.html)
 
 ## links
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
