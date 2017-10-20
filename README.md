@@ -49,7 +49,7 @@
 
 ## PPT
 
-* [2016-06-10邯郸技术交流会](ppt/06-10/)
+* [2016-06-10邯郸技术交流会](https://github.xuexb.com/ppt/2016-06-10/)
 
 ## links
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
