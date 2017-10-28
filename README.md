@@ -53,6 +53,8 @@
 * [2017-10-06 邯郸技术交流会 - 前端工程师的晋级](https://github.xuexb.com/ppt/2017-10-06/README.html)
 
 ## links
+
+* <http://es6.ruanyifeng.com/>
 * [javascript客户端检测技术](http://www.cnblogs.com/tugenhua0707/p/4540766.html)
 * [https://developer.mozilla.org/zh-CN/docs/Web/JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 * [https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001](https://dn-life-js.qbox.me/src/utils/device.js?_v=20150522001)
