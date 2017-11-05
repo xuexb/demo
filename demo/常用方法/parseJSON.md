@@ -16,7 +16,7 @@ function parseJSON(str) {
     }
     catch (e) {}
 
-    if (data === null) {
+    if (data === null && str !== 'null') {
         try {
             data = new Function('return ' + str).call({});
         }
