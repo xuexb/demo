@@ -29,3 +29,7 @@ function parseJSON(str) {
 
 1. 优先使用 `JSON.parse`
 1. 使用 `call` 控制作用域, 防止污染 `this`
+
+### bug
+
+这将导致有 JS XSS ，如： `parseJSON('window.alert(1)')` 。还是原生的 `JSON.parse` 靠谱。多谢 [@Wei](https://whe.me/) 的提醒。
