@@ -6,20 +6,20 @@
  *     1, 延迟加载
  *         new ImgLoad("#id img") 或者
  *         new ImgLoad({
- *             id: $("#id img.imgLoad")
+ *             elem: $("#id img.imgLoad")
  *         });//默认真实图片路径在 data-src 里, 默认为淡入
  *     2, 修改真实图片路径
- *         new ImgLoad({id: "img.imgLoad", attr:"data-img-src"});
+ *         new ImgLoad({elem: "img.imgLoad", attr:"data-img-src"});
  *     3, 修改淡入效果
- *         new ImgLoad({id:"#id", effect:"show"});//没有淡入效果
+ *         new ImgLoad({elem:"#id", effect:"show"});//没有淡入效果
  *     4, 自定义事件
- *         var a = ImgLoad({"id":"img", event:"xieliang"});//定义事件名
+ *         var a = ImgLoad({"elem":"img", event:"xieliang"});//定义事件名
  *         在需要的地方 a.trigger();加载全部
  *         a.trigger(".img.eq(3)");加载某个, 选择可以是img或者img外层对象
  *         a.trigger("img");//加载 img
  *         $("img").trigger("xieliang");//触发自定义事件
  *     5, 设置屏幕偏移, 支持 正，负
- *         new ImgLoad({threshold:-100, id:"img"});
+ *         new ImgLoad({threshold:-100, elem:"img"});
  *
  * @changelog
  *     添加滚动延迟
