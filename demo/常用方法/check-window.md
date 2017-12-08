@@ -14,6 +14,6 @@
         return window.hasOwnProperty(key) && !iframeWindow.hasOwnProperty(key);
     });
 
-    console.log('以下是新增变量:\n' + JSON.stringify(result, null, 4));
+    iframeWindow.console.log('以下是新增变量:\n' + JSON.stringify(result, null, 4));
 })(window);
 ```
