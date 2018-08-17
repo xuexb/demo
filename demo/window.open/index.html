@@ -61,10 +61,11 @@
         document.querySelector('button').addEventListener('click', function () {
             // 先打开一个空页面
             var children = openUrl('about:blank');
+            children.document.write('loading... 其实这个内容是父页面直接使用 JS 写入的，在等待父页面设置链接响应');
 
             // 模拟异步提交，因为在异步里直接 open 会拦截
             setTimeout(function () {
-                children.location.href = './children.html';
+                children.location.href = './children.html?xxoo=' + Date.now();
             }, 1000);
         });
     </script>
