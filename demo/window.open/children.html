@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>window.open 子页面演示</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width,minimum-scale=1.0,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui" name="viewport">
+</head>
+<body>
+    <p>loading...</p>
+    <p>
+        模拟操作，5秒后关闭窗口并透传数据到父窗口
+    </p>
+
+    <script>
+        // 模拟操作，5秒后关闭窗口并透传数据到父窗口
+        setTimeout(function () {
+            // 如果有父窗口方法
+            if (window.opener && typeof window.opener.childrenCallback === 'function') {
+                window.opener.childrenCallback('成功，时间小缀缀为' + Date.now());
+                window.close();
+            } else {
+                alert('示例失败了，尴尬');
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
