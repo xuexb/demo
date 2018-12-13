@@ -86,11 +86,9 @@
     - `-s`
 
 ## Nginx
-
 todo
 
 ## MySQL 主从
-
 todo
 
 ## 负载均衡
@@ -101,5 +99,7 @@ todo
 - Nginx Node
 
 ## SSO 单点登录
+todo
 
+## OAuth 2.0 授权
 todo
