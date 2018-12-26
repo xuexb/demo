@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fingerprint2 - 浏览器指纹</title>
+</head>
+<body>
+
+    <div id="out">loading...</div>
+    <p>使用 fingerprint2 1.8.5 获取浏览器指纹，5秒超时则失败。</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/fingerprintjs2@1.8.5/dist/fingerprint2.min.js"></script>
+    <script>
+        new Fingerprint2().get(function (result) {
+            document.querySelector('#out').innerHTML = result;
+        });
+
+        setTimeout(function () {
+            if (document.querySelector('#out').innerHTML.indexOf('loading...') >= 0) {
+                document.querySelector('#out').innerHTML = '加载失败';
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
