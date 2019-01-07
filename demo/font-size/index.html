@@ -32,6 +32,9 @@
             var html = '';
             var i = 0;
             var len = parseInt(location.search.replace('?', ''), 10) || 20;
+            if (len > 100) {
+                len = 100;
+            }
             for (; i <= len; i++) {
                 html += '<p data-fontsize="' + i + 'px" style="line-height:' + (i < 30 ? 30 : i) + 'px;font-size:' + i + 'px;">' + i + '号字体</p>';
             }
