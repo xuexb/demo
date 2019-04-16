@@ -11,6 +11,8 @@
 
         alert(`我的心情是：${options.status}`);
         alert(`提示消息是：${options.message}`);
+
+        return this;
     };
 
     /**
