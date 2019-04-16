@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery plugin</title>
+    <script src="https://github.xuexb.com/static/jquery.js"></script>
+    <script src="./xxoo.js"></script>
+    <style>
+        code {
+            padding: 0;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+            margin: 0;
+            font-size: 85%;
+            background-color: #f7f7f7;
+            border-radius: 3px;
+        }
+
+        dt {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt>默认以 <code>string</code> 形式：</dt>
+        <dd>
+            <button id="test-1">点击测试</button>
+            <script>
+                $('#test-1').click(function () {
+                    $('body').xxoo('唉~');
+                });
+            </script>
+        </dd>
+
+        <dt>以 <code>Object</code> 形式：</dt>
+        <dd>
+            <button id="test-2">点击测试</button>
+            <script>
+                $('#test-2').click(function () {
+                    $('body').xxoo({
+                        message: '唉2~',
+                        status: '不帅'
+                    });
+                });
+            </script>
+        </dd>
+    </dl>
+</body>
+</html>
