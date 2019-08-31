@@ -5,7 +5,7 @@
   "author": {
     "name": "xiaowu"
   },
-  "devDependencies": {
+  "dependencies": {
     "mdjs": "0.x.x"
   },
   "repository": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/xuexb/demo",
   "mdjs": {
     "name": "小武的demo",
-    "port": 8888,
+    "port": 8080,
     "dir_alias": {
       "demo": "列表"
     },
